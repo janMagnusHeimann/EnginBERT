@@ -1,7 +1,3 @@
-Here’s a structured `README.md` for your **EnginBERT** repository, which provides a clear introduction, setup instructions, and usage guidelines for potential users or collaborators.
-
----
-
 # EnginBERT: A Text Embedding Model for Engineering Literature
 
 EnginBERT is a domain-specific text embedding model designed for processing and understanding engineering literature. Built using the BERT architecture, EnginBERT is fine-tuned on engineering-specific texts to create embeddings that are more accurate and relevant for engineering-related tasks such as information retrieval, clustering, and semantic similarity analysis.
