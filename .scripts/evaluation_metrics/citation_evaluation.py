@@ -5,6 +5,7 @@ import logging
 # Configure logging to use DEBUG level
 logging.basicConfig(level=logging.DEBUG)
 
+
 def citation_classification(title_pairs, labels, model):
     """
     Evaluates an embedding model's performance in citation classification using cosine similarity.
@@ -42,8 +43,10 @@ def citation_classification(title_pairs, labels, model):
     # Return the calculated accuracy
     return accuracy
 
+
 # Example usage:
 # Define a list of title pairs and corresponding labels
+# Export from some dataset
 title_pairs = [
     ("Understanding Neural Networks", "Deep Learning: A Comprehensive Overview"),
     ("Efficient Algorithms in Graph Theory", "Graph Coloring Techniques"),
