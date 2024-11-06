@@ -1,0 +1,9606 @@
+title,abstract,pdf_url,labels,full_text
+Spaces where all bijections are morphisms,"  Here we classify all topological spaces where all bijections to itself are
+homeomorphisms. As a consequence, we also classify all topological spaces where
+all maps to itself are continuous. Analogously, we classify all measurable
+spaces where all bijections to itself are measurable with measurable inverse.
+As a consequence, we also classify all measurable spaces where all maps to
+itself are measurable.
+",http://arxiv.org/pdf/2401.04381v1,1,"4
+2
+0
+2
+
+n
+a
+J
+
+9
+
+]
+
+N
+G
+.
+h
+t
+a
+m
+
+[
+
+1
+v
+1
+8
+3
+4
+0
+.
+1
+0
+4
+2
+:
+v
+i
+X
+r
+a
+
+Spaces where all bijections are morphisms
+
+Lucas H. R. de Souza
+
+January 10, 2024
+
+Abstract
+
+Here we classify all topological spaces where all bijections to itself
+are homeomorphisms. As a consequence, we also classify all topological
+spaces where all maps to itself are continuous.
+
+Analogously, we classify all measurable spaces where all bijections
+to itself are measurable with measurable inverse. As a consequence,
+we also classify all measurable spaces where all maps to itself are
+measurable.
+
+1
+
+Introduction
+
+We have trivially that topological spaces with the trivial or the discrete
+topology have the property that all bijections to itself are homeomorphisms.
+Consider the following family of topological spaces:
+
+Deﬁnition 1. Let κ be a cardinal number and X a topological space. The
+co-κ topology on X is the topology where the open sets are the empty set and
+the subsets of X whose complement has cardinality less than κ. We say that
+a topological space is cocardinal if it has the co-κ topology for some cardinal
+κ.
+
+This topology is not deﬁned for 1 < κ < ℵ0. Note that the co-ℵ0 topology
+is the coﬁnite topology (see p. 49 of [3] for more information about these
+topological spaces) and the co-ℵ+
+0 topology is the cocountable topology (if α
+
+Mathematics Subject Classiﬁcation (2010). Primary: 54F65, 28A05; Secondary:
+
+54A10, 54A25, 54C05.
+
+Keywords: Coﬁnite topology, cocountable topology, cardinal, countable-cocountable
+
+σ-algebra, bijections.
+
+1
+
+ 
+ 
+ 
+ 
+ 
+ 
+is a cardinal, then we denote by α+ its successor cardinal, see Chapters I.10
+to I.13 of [1] for cardinal numbers). Note also that the co-1 topology is the
+trivial topology and the co-κ topology is the discrete topology if κ is bigger
+than the cardinality of X.
+
+It is easy to see that, for cocardinal topologies, all bijective maps are
+homeomorphisms. Our objective is to show that this property actually
+characterizes the cocardinal topologies:
+
+Theorem 1. Let X be a topological space. Then Homeo(X) = bij(X) if and
+only if X is cocardinal.
+
+Here Homeo(X) is the set of all homeomorphisms from X to X and
+
+bij(X) is the set of all bijective maps from X to X.
+
+As a consequence, we have the following:
+
+Corollary 1. Let X be a topological space. Then C(X, X) = Map(X, X) if
+and only if X has the trivial topology or the discrete topology.
+
+Here C(X, X) is the set of continuous maps from X to X and Map(X, X)
+
+is the set of all maps from X to X.
+
+We have also an analogous version of this theorem for measurable spaces:
+
+Deﬁnition 2. Let κ be a cardinal number and X a measurable space. The
+κ-co-κ algebra on X is the σ-algebra where the measurable sets are the subsets
+of X with cardinality less than κ or its complement has cardinality less than
+κ. We say that a measurable space is cocardinal if it has the κ-co-κ algebra
+for some cardinal κ.
+
+This σ-algebra is not deﬁned for 1 < κ 6 ℵ0. Note that the ℵ+
+
+0 -co-ℵ+
+0
+algebra is the countable-cocountable algebra (see Examples 3.3 of [2] for the
+proof that this is actually a σ-algebra). Note also that the 1-co-1 algebra is
+the trivial σ-algebra and the κ-co-κ algebra is the discrete σ-algebra if κ is
+bigger than the cardinality of X.
+
+If X is a measurable space, let Iso(X) be the set of all measurable maps
+
+from X to X with measurable inverse.
+
+Theorem 2. Let X be a measurable space. Then Iso(X) = bij(X) if and
+only if X is cocardinal.
+
+As a consequence, we have the following:
+
+Corollary 2. Let X be a measurable space. Then Mor(X, X) = Map(X, X)
+if and only if X has the trivial σ-algebra or the discrete σ-algebra.
+
+Here Mor(X, X) is the set of measurable maps from X to X.
+
+2
+
+Acknowledgements. The author was partially supported by the joint
+FAPEMIG/CNPq program ”Programa de Apoio `a Fixa¸c˜ao de Jovens Doutores
+no Brasil”, Grant Number BPD-00721-22 (FAPEMIG), 150784/2023-6 (CNPq).
+
+2 Proof of Theorem 1
+
+For a topological space X, consider Closed(X) as the set of closed sets of X.
+For a set X, we denote the cardinality of X by #X.
+
+Lemma 1. Let X be a topological space such that Homeo(X) = bij(X). Let
+F ∈ Closed(X) such that #F < #X. If F ′ ⊆ X such that #F = #F ′, then
+F ′ ∈ Closed(X).
+
+Proof. If X is inﬁnite and #F < #X, then #(X − F ) = #X. Analogously,
+#(X − F ′) = #X. So #(X − F ) = #(X − F ′) (this occurs trivially for a
+ﬁnite set X). So there exists a bijection f : X → X such that f (F ) = F ′ and
+f (X −F ) = X −F ′. Since Homeo(X) = bij(X), then f is a homeomorphism,
+which implies that F ′ is closed.
+
+Lemma 2. Let X be a topological space such that Homeo(X) = bij(X). Let
+F ∈ Closed(X) such that #F < #X. If F ′ ⊆ X such that #F > #F ′, then
+F ′ ∈ Closed(X).
+
+Proof. Suppose that F is ﬁnite.
+
+Let x ∈ F . Then {x} = T{G ⊆ X : x ∈ G, #G = #F }. By the lemma
+above, all subsets G are closed, which implies that {x} is closed and, since
+F is ﬁnite, every subset of F is also closed.
+
+Suppose that F is inﬁnite.
+Let G ⊆ F such that #G = #F ′. Let x ∈ F − G. We have that
+#(F − {x}) = #F . By the lemma above, F − {x} is closed. But G =
+Tx∈F −G F − {x}, which implies that G is closed. Since #G = #F ′, then, by
+the lemma above, F ′ is closed.
+
+Lemma 3. Let X be an inﬁnite set, x ∈ X and F ⊂ X such that #F = #X.
+Then there exists U, V ⊆ X such that U ∩ V = {x}, #U = #V = #(X − F )
+and #(X − U) = #(X − V ) = #F .
+
+Proof. Suppose that #(X − F ) < ℵ0.
+
+Since X is inﬁnite, there exists U ′ and V ′ disjoint subsets of X such that
+
+x /∈ U ′ ∪ V ′ and #U ′ = #V ′ = #(X − F ) − 1.
+Suppose that ℵ0 6 #(X − F ) < #X.
+
+3
+
+Since X is inﬁnite, there exists U ′ and V ′ disjoint subsets of X such that
+#U ′ = #V ′ = #(X − F ). We have that #(X − U ′) = #X = #F (since
+#(X − F ) < #X) and, analogously, #(X − V ′) = #X = #F .
+
+Suppose that #(X − F ) = #X.
+Take U ′ and V ′ disjoint subsets of X such that U ′ ∪ V ′ = X − (F ∪ {x})
+and #U ′ = #V ′ = #(X − F ). We have that #(X − U ′) = #F (since
+F ⊂ X − U ′ and #F = #X) and, analogously, #(X − V ′) = #F .
+
+In all cases, take U = U ′ ∪ {x} and V = V ′ ∪ {x}. We have that #U =
+
+#V = #(X −F ), U ∩V = {x} and #(X −U) = #(X −V ) = #X = #F .
+
+Theorem 1. Let X be a topological space. Then Homeo(X) = bij(X) if and
+only if X is cocardinal.
+
+Proof. We already know that, for cocardinal spaces, Homeo(X) = bij(X)
+holds.
+
+Let κ = sup{κ′ : ∃F ∈ Closed(X) : F 6= X, #F = κ′}.
+Suppose that κ = 0.
+If F is closed in X with F 6= X, then #F = 0. Then X has the trivial
+
+topology.
+
+Suppose that κ > 0.
+Suppose that X is ﬁnite.
+There exists F ∈ Closed(X) such that F 6= X and #F = κ. By Lemma
+2, every point is a closed set. Since X is ﬁnite, it follows that X has the
+discrete topology.
+
+Suppose that X is inﬁnite.
+Suppose that κ 6= #X or max{κ′ : ∃F ∈ Closed(X) : F 6= X, #F = κ′} 6=
+
+#X.
+
+Let α < κ. There exists cardinal κ′ such that α 6 κ′ 6 κ and there exists
+F ∈ Closed(X) such that F 6= X and #F = κ′. By Lemma 2, every subset
+of X with cardinality α is a closed set in X. If there exists a closed set G
+with cardinality κ, then κ 6= #X, by the assumptions on κ. Then every
+subset of X with cardinality κ is closed (by Lemma 1). Since there is no
+closed set G 6= X with cardinality bigger than κ, it follows that X has the
+co-κ+ topology. If there is no closed set diﬀerent from X with cardinality κ,
+it follows that X has the co-κ topology.
+
+Suppose that κ = max{κ′ : ∃F ∈ Closed(X) : F 6= X, #F = κ′} = #X.
+There exists F ∈ Closed(X) such that F 6= X and #F = #X. Let
+x ∈ X. By Lemma 3, there exists Ux, Vx ⊆ X such that Ux ∩ Vx = {x},
+#Ux = #Vx = #(X − F ) and #(X − Ux) = #(X − Vx) = #F . Then there
+exists f, g ∈ bij(X) such that f (Ux) = X − F and g(Vx) = X − F . Since
+bij(X) = Homeo(X), Ux and Vx are open sets, which implies that {x} is an
+open set as well. Then X has the discrete topology.
+
+4
+
+In all cases we get that X is cocardinal.
+
+Corollary 1. Let X be a topological space. Then C(X, X) = Map(X, X) if
+and only if X has the trivial topology or the discrete topology.
+
+Proof. It is easy to see that if X has the trivial topology or the discrete
+topology, then C(X, X) = Map(X, X).
+
+Let X with the co-κ topology, for κ a cardinal with ℵ0 6 κ < #X +. Then
+there exists F ⊂ X that is not closed. Let x, y ∈ X, with x 6= y. In this
+case, take a map f : X → X deﬁned as f (F ) = x, f (X − F ) = y. Since X
+has the co-κ topology, with κ > 1, then {x} ∈ Closed(X). But F = f −1(x),
+which implies that f is not continuous. Thus C(X, X) 6= Map(X, X).
+
+Since C(X, X) = Map(X, X) implies Homeo(X) = bij(X), then this
+
+corollary follows from the theorem above.
+
+3 Proof of Theorem 2
+
+Lemma 4. Let (X, Σ) be a measurable space such that Iso(X) = bij(X).
+Let F ∈ Σ such that #F < #X. If F ′ ⊆ X such that #F = #F ′, then
+F ′ ∈ Σ.
+
+Proof. Analogous to Lemma 1.
+
+Lemma 5. Let (X, Σ) be a measurable space such that Iso(X) = bij(X).
+Let F ∈ Σ such that #F < #X. If F ′ ⊆ X such that #F > #F ′, then
+F ′ ∈ Σ.
+
+Proof. Suppose that F is ﬁnite.
+
+Let x ∈ F and y ∈ X − F . Then {x} = Tz∈F −{x}(F − {z}) ∪ {y}. By
+the lemma above, for every z ∈ F − {x}, the set (F − {z}) ∪ {y} ∈ Σ , which
+implies that {x} ∈ Σ and, since F is ﬁnite, every subset of F is also in Σ.
+By the lemma above, we get that F ′ ∈ Σ.
+
+Suppose that F is inﬁnite.
+Let G ⊂ F such that #G = #F ′. We have that #(F - G) = #F. Take U ′
+and V ′ disjoint subsets of F such that #U ′ = #V ′ = #F and U ′∪V ′ = F −G.
+Take U = U ′ ∪ G and V = V ′ ∪ G. We have that #U = #V = #F . So,
+by the lemma above, U, V ∈ Σ. But U ∩ V = G, which implies that G ∈ Σ.
+Since #G = #F ′, then, by the lemma above, F ′ ∈ Σ.
+
+Lemma 6. Let (X, Σ) be a measurable space such that Iso(X) = bij(X).
+Let F ∈ Σ such that #F = #X and #(X − F ) = #X. If F ′ ⊆ X such that
+#F > #F ′, then F ′ ∈ Σ.
+
+5
+
+Proof. Take G ⊆ F such that #G = #F ′. Take G′ = (X − F ) ∪ G. We
+have that #G′ = #(X − G′) = #X. Take a bijection f : X → X such that
+f (F ) = G′ and f (X − F ) = X − G′. Since Iso(X) = bij(X), then G′ ∈ Σ,
+which implies that G = F ∩ G′ ∈ Σ.
+
+Theorem 2. Let (X, Σ) be a measurable space. Then Iso(X) = bij(X) if
+and only if X is cocardinal.
+
+Proof. It is easy to see that, for cocardinal spaces, Iso(X) = bij(X) holds.
+
+Let κ = sup{κ′ 6= #X : ∃F ∈ Σ : #F = κ′}.
+Suppose that κ = 0.
+Let F ∈ Σ with F 6= X.
+
+If #F > 0, then #F = #X. Analogously,
+#(X − F ) = #X. By the previous lemma,
+if x ∈ X, then {x} ∈ Σ,
+contradicting the fact that κ = 0. So #F = 0. Then X has the trivial
+σ-algebra.
+
+Suppose that κ > 0.
+Suppose that X is ﬁnite.
+There exists F ∈ Σ such that F 6= X and #F = κ. By Lemma 5, every
+point is a measurable set. Since X is ﬁnite, it follows that X has the discrete
+σ-algebra.
+
+Suppose that X is inﬁnite.
+Let α < κ. There exists a cardinal κ′ such that α 6 κ′ 6 κ (or α 6 κ′ < κ,
+if κ = #X) and there exists F ∈ Σ such that #F = κ′. By Lemma 5, every
+subset of X with cardinality α is a measurable set in X.
+
+Suppose that κ 6= #X.
+If there exists a measurable set G with cardinality κ, then every subset of
+X with cardinality κ is measurable (by the fact that κ 6= #X and Lemma 4).
+Let G be a measurable set with cardinality bigger than κ. By the deﬁnition
+of κ, #G = #X.
+
+Suppose that there is no measurable set G with #G = #X and
+#(X − G) = #X. If there is no measurable set with cardinality κ, then X
+has the κ-co-κ algebra. If there is a measurable set with cardinality κ, then
+X has the κ+-co-κ+ algebra.
+
+Suppose that there is a measurable set G with #G = #X and #(X−G) =
+#X. Let β be a cardinal such that κ 6 β < #X. Take G′ ⊆ G such that
+#G′ = β. By Lemma 6, G′ ∈ Σ. By the deﬁnition of κ, we get that β = κ
+and then #X = κ+. We also get that all subsets of X with cardinality κ are
+measurable. Let H ⊂ X with #H > κ. Then #H = #X. If #(X − H) 6 κ,
+then X − H ∈ Σ, which implies that H ∈ Σ. If #(X − H) = #X, then take
+a bijection g : X → X such that g(G) = H and g(X − G) = X − H. Since
+Iso(X) = bij(X), then H ∈ Σ. So we get that X has the discrete σ-algebra.
+
+6
+
+Suppose that κ = #X.
+Suppose that there is no measurable set G with #G = #X and
+#(X − G) = #X. Since for every α < κ and every H ⊂ X with #H = α,
+H ∈ Σ, then X has the κ-co-κ algebra.
+
+Suppose that there is a measurable set G with #G = #X and #(X−G) =
+#X. If H is another subset of X with #H = #X and #(X − H) = #X,
+then H ∈ Σ, by the same argument as in the case κ 6= #X. So every subset
+of X is in Σ, i. e., X has the discrete σ-algebra.
+In all cases we get that X is cocardinal.
+
+Corollary 2. Let X be a measurable space. Then Mor(X, X) = Map(X, X)
+if and only if X has the trivial σ-algebra or the discrete σ-algebra.
+
+Proof. Analogous to Corollary 1.
+
+References
+
+[1] K. Kunen, Set Theory. Studies in Logic. College Publications, 2011
+
+[2] R. L. Schilling, Measures,
+University Press, 2005.
+
+Integrals and Martingales. Cambridge
+
+[3] L. A. Steen and J. A. Seebach Jr., Counterexamples in Topology. Holt,
+
+Rinehart and Winston Inc., 1970.
+
+7"
+A Note on Computational Complexity of Kill-all Go,"  Kill-all Go is a variant of Go in which Black tries to capture all white
+stones, while White tries to survive. We consider computational complexity of
+Kill-all Go with two rulesets, Chinese rules and Japanese rules. We prove that:
+(i) Kill-all Go with Chinese rules is PSPACE-hard, and (ii) Kill-all Go with
+Japanese rules is EXPTIME-complete.
+",http://arxiv.org/pdf/1911.11405v1,1,"9
+1
+0
+2
+
+v
+o
+N
+6
+2
+
+]
+
+C
+C
+.
+s
+c
+[
+
+1
+v
+5
+0
+4
+1
+1
+.
+1
+1
+9
+1
+:
+v
+i
+X
+r
+a
+
+A Note on Computational Complexity of
+Kill-all Go
+
+Zhujun Zhang ∗
+Water Bureau of Fengxian District, Shanghai
+
+November 26, 2019
+
+Abstract
+
+Kill-all Go is a variant of Go in which Black tries to capture all white
+stones, while White tries to survive. We consider computational complexity
+of Kill-all Go with two rulesets, Chinese rules and Japanese rules. We prove
+that: (i) Kill-all Go with Chinese rules is PSPACE-hard, and (ii) Kill-all Go
+with Japanese rules is EXPTIME-complete.
+
+Index terms— Kill-all Go, computational complexity, PSPACE-hard, EXPTIME-
+
+complete
+
+1 Introduction
+
+Kill-all Go is a live-or-die variant of Go. The rules of Kill-all Go are as in
+regular Go, but Black is awarded 17 handicap stones. If White can obtain at least
+one living group, he wins, while if Black can prevent this, she wins.
+
+There are many rulesets of Go all around the world, while Chinese rules and
+Japanese rules are typical rulesets of these. Usually there is no diﬀerence between
+using Chinese or Japanese rules in practice, however they are diﬀerent on allowing
+cycles. Cycles of length 2 (termed ko) are forbidden in either of these two rulesets.
+Longer cycles (termed superko) are forbidden in Chinese rules, while longer cycles
+are allowed in Japanese rules. If a board position is repeated, the game has “no
+result” in Japanese rules.
+
+In this note, we discuss computational complexity of Kill-all Go with two rule-
+
+sets, Chinese rules (superko rule) and Japanese rules (basic ko rule).
+
+∗E-mail: zhangzhujun1988@163.com
+
+1
+
+ 
+ 
+ 
+ 
+ 
+ 
+2 Related Work
+
+Computational complexity of Go and variants of Go was researched in last
+several decades. In 1980, Lichtenstein and Sipser [4] considered complexity of Go
+ﬁrst, and they proved Go to be PSPACE-hard. Their reduction is not sensitive to
+rulesets, therefore they proved Go with either of Chinese rules or Japanese rules
+to be PSPACE-hard in fact. In 1983, Robson [6] proved Go with Japanese rules to
+be EXPTIME-complete, and an improvement on Robson’s proof could be found
+on Sensei’s Library [1]. In 1998, Crˆa¸smaru [2] researched a kind of life and death
+problem of Go (termed tsumego) in which one of the players has always a unique
+good move and the other has always only two good moves available to choose
+from. Crˆa¸smaru proved this kind of life and death problem to be NP-complete.
+In 2000, Crˆa¸smaru and Tromp [3] considered the ladder which is a technique for
+capturing stones in Go, and they proved Ladders to be PSPACE-complete.
+In
+2002, Wolfe [9] proved Go endgames (termed yose) to be PSPACE-hard. In 2015,
+Saﬃdine et al. [8] considered a variant of Go, Atari Go, in which the ﬁrst capture
+leads to a victory, and they proved Atari Go to be PSPACE-complete. They also
+researched complexity of Phantom Go which is a partially observable variant of
+Go, and they proved lower and upper bounds for Phantom Go.
+
+Computational complexity of Kill-all Go is still open. Saﬃdine et al. [8] con-
+jectured that Kill-all Go with Chinese rules is PSPACE-hard and Kill-all Go with
+Japanese rules is EXPTIME-complete. Moreover, they gave a few hints on this
+direction, and they suggested using ladders to construct gadgets. However, using
+ladders will lead to a large number of vacant points on the game board. It is diﬃ-
+cult to rigorously prove that White can not obtain a living group on these vacant
+points. Thus we choose to use Lichtenstein and Sipser’s method [4], and we use
+capturing races to construct gadgets.
+
+3 Complexity of Kill-all Go with Chinese Rules
+
+3.1 Overview of the Reduction
+
+We reduce True Quantiﬁed Boolean Formula (TQBF) to Kill-all Go with Chi-
+nese rules. We need to construct start, pipe, white switch, black switch, merge,
+verify and crossover gadgets. We construct a capturing race in a start gadget,
+and the result of the capturing race decides who wins the game. In a start gad-
+get, White’s only hope is to escape through the small breach. Then he has try
+to connect the group in the start gadget with a group which has a large number
+of liberties. White can not make any eyes in other gadgets, so that The only
+chance for him to win the game is to obtain a living group in a start gadget.
+
+2
+
+White switch gadgets are corresponding to choices of universal player in TQBF,
+while black switch gadgets are corresponding to choices of existential player. We
+use two verify gadgets to represent the assignment of each variables in TQBF.
+Whether the white group in the start gadget can obtain enough liberties depends
+on the status of verify gadgets. We use pipe, merge and crossover gadgets to con-
+nect other gadgets according to the formula in TQBF. In all following gadgets,
+White is to move.
+
+3.2 Gadgets
+
+Start gadget. A start gadget for Kill-all Go is illustrated in Figure 1. In this
+gadget, white group a has only one liberty, while black group b has three liberties.
+If White connects group a with a group which has a large number of liberties,
+White will capture group b, and he will obtain a living group easily. While Black
+must try to prevent this. Moreover, as we will see later, White can not make any
+eyes in other gadgets. The only chance for White to obtain a living group is to try
+to capture group b in the start gadget. Thus White has to move at point 1 in order
+to save group a. Then Black must move at point 2, otherwise, White may move at
+point 2, and group a will obtain enough liberties so that White can capture group
+b in at most six moves. Group a will leave the start gadget through the right exit
+ﬁnally if two players move properly.
+
+Figure 1: A start gadget.
+
+Pipe gadget. Pipe gadgets are used to connect other gadgets, and a pipe
+gadget for Kill-all Go is illustrated in Figure 2. After leaving the start gadget,
+group a might enter a pipe gadget from north. Then White should move at point
+1, otherwise Black can capture group a immediately. And then Black must respond
+at point 2, otherwise group a will obtain seven liberties at least. Thus group a will
+leave this pipe gadget through the right exit ﬁnally. Obviously, in a pipe gadget,
+no black stones will be captured, and White can not make any eyes. Moreover,
+
+3
+
+we use pipe gadgets to restrict the number of liberties of white groups at each
+entrance and exit of other gadgets.
+
+Figure 2: A pipe gadget.
+
+White switch gadget. A white switch gadget for Kill-all Go is illustrated
+in Figure 3. When group a enters a white switch gadget from north, White can
+choose to move at point 1 or point 2, and Black must respond. For instance, a
+sequence of proper moves might be: W-1, B-2, W-3, B-4. Then group a leaves the
+gadget through the left exit. The situation that White chooses to move at point 2
+is symmetrical. If White’s ﬁrst move is not at either point 1 or point 2, Black can
+capture group a. For instance, the sequence of moves might be: W-3, B-1, W-2,
+B-5. If Black does not respond White’s ﬁrst move at point 1 or point 2, group a
+will obtain a large number of liberties. For instance, the sequence of moves might
+be: W-2, B-5, W-1 (captures one black stone at point 7), B-3, W-7. Note that
+group a has at most two liberties all along. Thus if White tries to capture group b
+in the start gadget, Black will capture group a ﬁrst. Moreover, in a white switch
+gadget, White has at most one false eye at point 7, while Black can destroy this
+false eye sooner or later.
+
+Figure 3: A white switch gadget.
+
+4
+
+Black switch gadget. A black switch gadget for Kill-all Go is illustrated in
+Figure 4. A black switch gadget is similar to a white switch gadget. When white
+group a enters a black switch gadget from north, White should move at point 1,
+otherwise Black can capture group a immediately. Then Black can choose to move
+at point 2 or point 3, and White must respond. For instance, a sequence of proper
+moves might be: W-1, B-3, W-2, B-4. Then group a leaves the gadget through
+the left exit. The situation that Black chooses to move at point 2 is symmetrical.
+If Black does not move at either point 2 or point 3, group a will obtain a large
+number of liberties. For instance, the sequence of moves might be: W-1, B-4,
+W-3, B-5, W-2 (captures one black stone at point 6), B-at any legal point (note
+that Black can not move at point 6 to capture white stones since pipe gadgets
+provide liberties), W-6. Similarly, in a black switch gadget, group a has at most
+two liberties all along. If White tries to capture group b, Black will capture group
+a ﬁrst. Moreover, White has at most one false eye at point 6.
+
+Figure 4: A black switch gadget.
+
+Merge gadget. A merge gadget for Kill-all Go is illustrated in Figure 5. If
+group a enters this gadget from west, White should move at point 1, and then
+Black must respond at point 2. If Black does not respond, White may move at
+point 2 to capture one black stone at point 3. Since pipe gadgets provide liberties,
+Black can not move at point 3 to capture white stones. Thus White can move at
+point 3 next, so that group a will obtain a large number of liberties. The situation
+that group a enters the gadget from east is symmetrical. Group a will leave the
+start gadget through the lower exit ﬁnally if two players move properly. Moreover,
+White has at most one false eye at point 3 in a merge gadget.
+
+5
+
+Figure 5: A merge gadget.
+
+Verify gadget. A verify gadget for Kill-all Go is illustrated in Figure 6. When
+group a enters this gadget from north, White should move at point 1, otherwise
+Black can move at point 1 to capture group a immediately. Then Black must
+respond at point 2, otherwise White can move at point 2 so that group a will
+obtain a large number of liberties. When group a enters this gadget from east,
+there are two cases: (i) If there is one black stone on point 2. Black may capture
+group a by moving at point 4 after White moves at point 3; (ii) If there is no stones
+on point 2. White may move at point 3, and then he can choose between point
+2 or point 4 in next move, so that Black fails to prevent group a from obtaining
+a large number of liberties. Moreover, White can not make any eyes in a verify
+gadget.
+
+Figure 6: A verify gadget.
+
+Crossover gadget. A crossover gadget is composed of above gadgets, and it
+is illustrated in Figure 7. When group a enters the left verify gadget from north, it
+
+6
+
+traverses a verify gadget, a merge gadget and a white switch gadget continuously.
+Then White has to make group a enter the right black switch gadget, otherwise
+Black may make group a enter the left verify gadget so that group a will be
+captured.
+In the right black switch gadget, Black can not make group a enter
+the right verify gadget. Otherwise group a will obtain a large number of liberties,
+since it did not ever traverse the right verify gadget. The situation that group a
+enters the right verify gadget from north is symmetrical. Note that, once group
+a traverses a crossover gadget through one path, the other path will be locked.
+However, as we will see later, each crossover gadget will never be traversed for
+more than one time in the instance of Kill-all Go.
+
+Figure 7: A crossover gadget.
+
+3.3 The Example
+
+We use a example to demonstrate how to simulate TQBF by Kill-all Go. For
+Boolean formula ∃x1∀x2∃x3∀x4 (x1 ∨ ¬x2 ∨ x3) ∧ (x2 ∨ x3 ∨ ¬x4), the correspond-
+ing instance of Kill-all Go with Chinese rules is illustrated in Figure 8.
+
+In the ﬁgure, arrow lines represent pipe gadgets, and each crossroad represents
+a crossover gadget. In the instance, black switch gadgets simulate choices of ex-
+istential player, and white switch gadgets simulate choices of universal player in
+TQBF. Thus the escape path of group a is corresponding to assignment of vari-
+ables x1, x2, x3 and x4. The lower one white switch gadget and two black switch
+gadgets simulate checking progress. Thus White chooses the clause to be checked,
+and Black chooses the literal to be checked.
+
+7
+
+ verify verify merge white switch black switch black switch Figure 8: An instance of Kill-all Go with Chinese rules.
+
+8
+
+ black switch verify ¬x1 merge verify x1 white switch verify ¬x2 merge verify x2 black switch verify ¬x3 merge  verify x3 white switch verify ¬x4 merge verify x4 white switch black switch black switch start merge It is easy to verify that the Boolean formula of TQBF is true if and only if Black
+can capture all white stones in Kill-all Go. Since TQBF is PSPACE-complete, we
+prove the following theorem:
+
+Theorem 1. Kill-all Go with Chinese rules is PSPACE-hard.
+
+Actually, we can use same method to prove Kill-all Go with Japanese rules to
+
+be PSPACE-hard, however we will obtain stronger result in next section.
+
+4 Complexity of Kill-all Go with Japanese Rules
+
+4.1 Overview of the Reduction
+
+We use Robson’s method [6] to reduce a formula game to Kill-all Go with
+Japanese rules. In the formula game, a certain positive Boolean formula is given.
+There are two players which are also called White and Black in the formula game,
+and they move alternately. In each turn, White changes the assignment of one
+variable to true, while Black changes the assignment of one variable to false. A
+player can not immediately revert the opponent’s last move, which is similar to
+If White is to move, and the current assignment makes
+basic ko rule in Go.
+the formula true, he wins the game. Robson [5] proved this formula game to be
+EXPTIME-complete.
+
+To simulate the formula game, we also need to construct some gadgets for Kill-
+all Go with Japanese rules. Fortunately, the gadgets constructed in last section
+could be reused here. Moreover, we need to construct ko gadgets corresponding to
+variables in the formula game, and we will use a capturing race gadget to replace
+the start gadget. There is a large capturing race in a capturing race gadget.
+Whether White wins the game depends on whether one of two white groups can
+obtain enough liberties in a capturing race gadget. There is one path for each of
+these two white groups, and each path is connected with ko gadgets. These two
+paths are constructed by previous gadgets, and the structures of the paths are
+corresponding to the formula. If White can connect one white group with a ko
+gadget in which he takes the ko, the white group will obtain enough liberties so
+that White can obtain a living group.
+
+4.2 Gadgets
+
+Ko gadget. A ko gadget for Kill-all Go is illustrated in Figure 9. There is a
+ko at point 5 in the ko gadget, and each ko gadget is corresponding to a variable
+in the formula game. The gadget in which Black takes the ko is corresponding to
+that assignment of the variable is false, while the gadget in which White takes the
+
+9
+
+ko is corresponding to that assignment of the variable is true. When a white group
+enters the gadget, White has to move at point 1 or point 2. If the ko is taken by
+Black, she can capture the white group by moving at point 3 or point 5. If the
+ko is taken by White, the white group can obtain a large number of liberties, and
+Black can not prevent this. For instance, the sequence of moves might be: W-2,
+B-5, W-4. Moreover, White has at most one false eye at point 5 in a ko gadget.
+
+Figure 9: A ko gadget (Black takes the ko).
+
+Capturing race gadget. A capturing race gadget for Kill-all Go is illustrated
+in Figure 10. There is a large capturing race in this gadget. Two exits of this
+gadget are connected with two paths, and each path is connected with ko gadgets
+according to the formula.
+In a capturing race gadget, White’s only hope is to
+capture group c or group d. Once group c or group d is captured, White can make
+two eyes easily so that he may obtain a living group. If Black captures groups a
+and group b, White can not prevent Black from connecting group c and group d
+with living black groups, and White can not make any eyes in other gadgets so
+that he loses. If Black captures group e, she can connect group f with group c
+and group d, so that White can not obtain any living groups.
+
+In a capturing race gadget, each of group a and group b has only one liberty,
+and each of group c and group d has three liberties, and group e has seven liberties.
+If White immediately tries to capture group c or group d, group a or group b will
+be captured ﬁrst. Thus the only way for White to win the game is to connect
+group a or group b with a group which has a large number of liberties. Group a
+or group b should leave the gadget through the left exit or the right exit at the
+right time, and White should try to connect group a or group b with a ko gadget
+in which he takes the ko, so that he can capture group c or group d. On the other
+hand, if Black immediately captures one of group a or group b, the other group
+will leave the gadget through one of two exits, and White may connect it with a
+ko gadget in which he takes the ko ﬁnally.
+
+We discuss strategies of two players in a capturing race gadget in detail:
+
+10
+
+Figure 10: A capturing race gadget.
+
+(1) Suppose that White is to move, and the formula is true under the assign-
+ment corresponding to current status of ko gadgets. Then White may move at
+If Black does not respond,
+point 1, which forces Black to respond at point 2.
+White can connect group a with group e, and these two groups share at least six
+liberties, so that White can capture group c. After Black moves at point 2, White
+can move at point 3, which forces Black to move at point 4 similarly. Next, group
+a leaves the gadget through the left exit after White moves at point 5. Since the
+formula is true, White can connect group a with a ko gadget in which he takes
+the ko sooner or later, so that group a will obtain enough liberties. Moreover,
+group e has at least ﬁve liberties, therefore, if Black tries to capture group e in
+this progress, White will capture group c ﬁrst. Thus White can obtain a living
+group, and he will win the game ﬁnally.
+
+(2) Suppose that Black is to move, and the formula is false under the assignment
+corresponding to current status of ko gadgets. Then Black may move at point 1
+to capture group a, and White has to move at point 7, point 9 and point 11
+continuously in order to save group b. After Black responds at point 8, point 10
+and point 12, group b leaves the gadget through the right exit. However, since the
+formula is false, Black can force group b to enter a ko gadget in which she takes
+the ko. Thus White can not prevent Black from capturing group b. Note that,
+group d has three liberties, while group b has at most two liberties. If White tries
+
+11
+
+to capture group d in this progress, group b will be captured ﬁrst. Thus Black can
+capture group a and group b sooner or later. Since White can not make any eyes
+in other gadgets, Black can capture all white stones, and she will win the game
+ﬁnally.
+
+(3) Suppose that Black is to move, and the formula is true under the assignment
+corresponding to current status of ko gadgets. Then Black must move at a ko
+gadget to make the formula false, otherwise she will lose the game since she can
+not prevent group a and group b from leaving the gadget at the same time. For
+instance, suppose that Black moves at point 1 or point 2 in order to capture group
+a. Then group b will obtain a large number of liberties. Since group d has only
+three liberties, after White moves at point 7, Black must respond at point 8. Then
+White moves at point 9, and Black still has to move at point 10, otherwise, White
+can connect group b with group e, so that these two groups share at least four
+liberties. Next, White moves at point 11, and Black responds at point 12. Group
+b leaves the gadget through the right exit. Since the formula is true, group b will
+enter a ko gadget in which White takes the ko sooner or later. Note that, if Black
+tries to capture group e in this progress, group d will be captured ﬁrst since group
+e has at least four liberties.
+
+(4) Suppose that White is to move, and the formula is false under the assign-
+ment corresponding to current status of ko gadgets. Then White must move at a
+ko gadget to make the formula true, otherwise he will lose the game. We consider
+three types of White’s improper moves:
+
+(4.1) Suppose that White moves at a ko gadget to connect a ko. Since the
+status of ko gadgets is unchanged, Black can capture one of group a and group
+b. The other white group can not enter a ko gadget in which White takes the ko,
+even if it can leave the capturing race gadget.
+
+(4.2) Suppose that White moves at point 1 or point 7. We just discuss the
+situation that White moves at point 1, since the situation that White moves at
+point 7 is symmetrical. Then Black must respond at point 2. Since the formula is
+false, group a can not avoid being captured even if it can leave the gadget through
+the left exit. If White tries to save group b, the sequence of moves might be: W-1,
+B-2, W-3, B-4, W-5, B-6, ... , W-7, B-8, W-9, B-10. Note that group b has only
+one liberty, and group e has only three liberties (point 13, point 14 and point 15)
+now. If White moves at point 11 to save group b, Black can try to capture group
+e, and White fails to capture group d ﬁrst. Moreover, after White moves at point
+1, if he moves at a ko gadgets to make the formula true. Then Black still can move
+at point 4, so that neither group a or group b can leave the capturing race gadget
+because of shortage of liberties of group e.
+
+(4.3) Suppose that White moves at other points, such as point 2, point 8 or
+points in other gadgets. This situation is similar to case (4.1), and Black may
+
+12
+
+capture one of group a and group b immediately. Then the other white group can
+not enter a ko gadget in which White takes the ko.
+
+4.3 The Example
+
+We also use a example to demonstrate how to simulate the formula game by
+Kill-all Go. For formula (x1 ∨ x2 ∨ x3) ∧ (x2 ∨ x3 ∨ x4), the corresponding instance
+of Kill-all Go with Japanese rules is illustrated in Figure 11.
+
+Figure 11: An instance of Kill-all Go with Japanese rules.
+
+Two exits of the capturing race gadget are connected with two symmetrical
+paths which are constructed according to the formula. Group a and group b in
+
+13
+
+ capturing race black switch ko x1 ko x2 ko x3 ko x4 white  switch merge merge white  switch black switch white  switch merge merge white  switch the capturing race gadget can enter ko gadgets through these two paths. Suppose
+that the formula is true under the current assignment, White can connect group
+a or group b with a ko gadget in which he takes the ko. Suppose that the formula
+is false under the current assignment, Black can force group a or group b to enter
+a ko gadget in which she takes the ko. Thus each of the two players has to move
+at the ko gadgets until her or his opponent makes a mistake, and the basic ko rule
+should be obeyed, which simulates the formula game.
+
+It is easy to verify that White wins the formula game if and only if White can
+obtain at least one living group in Kill-all Go. Moreover, since the number of board
+positions of Go is exponential, Kill-all Go with Japanese rules is in EXPTIME.
+Thus we prove the following theorem:
+
+Theorem 2. Kill-all Go with Japanese rules is EXPTIME-complete.
+
+5 Conclusion
+
+We reduce TQBF to Kill-all Go with Chinese rules, so that we prove Kill-all
+Go with Chinese rules to be PSPACE-hard. We reduce a formula game to Kill-all
+Go with Japanese rules, so that we prove Kill-all Go with Japanese rules to be
+EXPTIME-complete.
+
+The instances of Kill-all Go constructed in this note could be regarded as huge
+life and death problems which are local skill problems of Go usually. The instance
+constructed in Section 4 could be regarded as a huge superko which is a interesting
+subject of Go.
+
+The open problem is computational complexity of Kill-all Go with Chinese
+rules. Since Kill-all Go with Chinese rules is in EXPSPACE, it might be PSPACE-
+complete, EXPTIME-complete or even EXPSPACE-complete. Robson [7] intro-
+duced a “no-repeat” version of a formula game, and he proved the new formula
+game to be EXPSPACE-complete. The no-repeat rule of the formula game is sim-
+ilar to superko rule in Go, so we can try to reduce the no-repeat formula game to
+Go or Kill-all variant of Go.
+
+References
+
+[1] Robson’s Proof that GO is EXP-time Hard. https://senseis.xmp.net/
+
+?RobsonsProofThatGOIsEXPTimeHard.
+
+[2] Marcel Crˆa¸smaru. On the complexity of Tsume-Go. In International Confer-
+
+ence on Computers and Games, pages 222–231. Springer, 1998.
+
+14
+
+[3] Marcel Crˆa¸smaru and John Tromp. Ladders are PSPACE-complete. In In-
+ternational Conference on Computers and Games, pages 241–249. Springer,
+2000.
+
+[4] David Lichtenstein and Michael Sipser. Go is polynomial-space hard. Journal
+
+of the ACM (JACM), 27(2):393–401, 1980.
+
+[5] John Michael Robson. Exponential time decision problems relating to ko-like
+
+transition rules. 1982.
+
+[6] John Michael Robson. The complexity of Go. In Proc. 9th World Computer
+
+Congress on Information Processing, 1983, pages 413–417, 1983.
+
+[7] John Michael Robson. Combinatorial games with exponential space complete
+decision problems. In International Symposium on Mathematical Foundations
+of Computer Science, pages 498–506. Springer, 1984.
+
+[8] Abdallah Saﬃdine, Olivier Teytaud, and Shi-Jim Yen. Go Complexities. In
+
+Advances in Computer Games, pages 76–88. Springer, 2015.
+
+[9] David Wolfe. Go endgames are PSPACE-hard. More Games of No Chance,
+
+42:125–136, 2002.
+
+15"
+Landau--Kolmogorov inequality revisited,"  The Landau-Kolmogorov problem consists of finding the upper bound $M_k$ for
+the norm of intermediate derivative $|f^{(k)}|$, when the bounds $|f| \le M_0$
+and $|f^{(n)}| \le M_n$, for the norms of the function and of its higher
+derivative, are given.
+  Here, we consider the case of a finite interval, and when all the norms are
+the max-norms. Our interest to that particular case is motivated by the fact
+that there are good chances to add this case to a short list of
+Landau--Kolmogorov inequalities where a complete solution exists, i.e., a
+solution that covers all values of $n,k\in\N$ (and, for a finite interval, all
+values of $\sigma = M_n/M_0$).
+  The main guideline here is Karlin's conjecture that says that, for all
+$n,k\in\N$ and all $\sigma>0$, the maximum of $|f^{(k)}|$ is attained by a
+certain Chebyshev or Zolotarev spline. So far, it has been proved only for
+small $n \ge 4$ with all $\sigma$, and for all $n$ with particular $\sigma =
+\sigma_n$. Here, we prove Karlin's conjecture in several further subcases:
+  1) all $n,k\in\N$ and all $0 < \sigma \le \sigma_n$
+  2) all $n \in \N$, all $\sigma > 0$, with $k=1,2$
+  3) all $\sigma > 0$, with $n < 10$ and $0 < k < n$.
+",http://arxiv.org/pdf/1210.7708v1,1,"Landau–Kolmogorov inequality revisited
+
+A. Shadrin
+
+DAMTP, University of Cambridge, UK
+
+1
+
+Introduction
+
+The Landau–Kolmogorov problem consists of ﬁnding the upper bound Mk for the norm of inter-
+f (k)
+mediate derivative
+Mn, for the norms of the
+f
+k
+function and of its higher derivative, are given.
+
+, when the bounds
+
+M0 and
+
+f (n)
+
+k ≤
+
+k ≤
+
+k
+
+k
+
+Here, we consider the case of a ﬁnite interval when f
+
+max-norms,
+
+=
+
+k · k
+
+k · kL∞[−1,1]. Precisely, given n, k
+1, 1] ,
+f : f
+
+W n
+
+∞(σ) :=
+
+W n
+∞[
+
+∈
+
+{
+
+∈
+
+−
+
+≥
+f (n)
+
+f
+
+k
+
+k ≤
+
+1,
+
+k
+
+σ
+
+}
+
+k ≤
+
+1, 1] and all the norms are the
+−
+0, we deﬁne the functional class
+
+k
+W n
+∞[
+∈
+N and σ
+
+and consider the problem of ﬁnding the values
+
+mk(x, σ)
+
+:=
+
+sup
+f ∈W n
+
+∞(σ) |
+
+f (k)(x)
+|
+
+,
+
+x
+
+[
+
+−
+
+∈
+
+1, 1] ,
+
+Mk(σ)
+
+:=
+
+sup
+f ∈W n
+
+∞(σ) k
+
+f (k)
+
+k
+
+= sup
+
+mk(x, σ) .
+
+x∈[−1,1]
+
+Our interest to that particular case is motivated by the fact that there are good chances to add
+this case to a short list of Landau–Kolmogorov inequalities where a complete solution exists, i.e.,
+N (and, for a ﬁnite interval, all values of σ > 0). The
+a solution that covers all values of n, k
+main guideline in ﬁnding out how good these chances are is the following conjecture.
+
+∈
+
+Conjecture 1.1 (Karlin [4]) For all n, k
+
+N and all σ > 0,
+
+∈
+
+mk(1, σ) = sup
+
+mk(x, σ) .
+
+x∈[−1,1]
+
+(1.1)
+
+If (1.1) is true for particular set
+
+∞(σ) that provides extremum
+n, k, σ
+{
+over W n
+∞(σ) is the same as the solution to the pointwise problem at
+Mk(σ) to the value
+the end-point of the interval. The latter solution is however known to be a certain Chebyshev or
+Zolotarev spline Zn(
+, σ) (which is just a polynomial for small σ), and thus we have a characteri-
+·
+zation of the extremal function.
+
+, then the function f
+
+f (k)
+
+∈
+
+k
+
+k
+
+}
+
+W n
+
+2
+1
+0
+2
+
+t
+c
+O
+9
+2
+
+]
+
+A
+N
+.
+h
+t
+a
+m
+
+[
+
+1
+v
+8
+0
+7
+7
+.
+0
+1
+2
+1
+:
+v
+i
+X
+r
+a
+
+Corollary 1.2 If equality (1.1) is valid for particular
+have
+
+n, k, σ
+
+, then for that set of parameters we
+
+}
+
+Mk(σ) =
+
+Z (k)
+n (
+·
+
+, σ)
+k
+
+k
+
+{
+= Z (k)
+
+n (1, σ) .
+
+(1.2)
+
+So far, Karlin’s conjecture has been proved for small n with all σ, and for all n with particular
+
+σ, namely in the following cases:
+
+n = 2,
+
+all σ
+
+Chui–Smith [1] (σ
+
+σn), Landau [5] (σ > σn);
+
+≤
+
+n = 3,
+
+all σ,
+
+Sato [8], Zvyagintsev–Lepin [12];
+
+n = 4,
+N,
+
+n
+
+∈
+
+all σ,
+
+Zvyagintsev [11] (σ
+
+σn), Naidenov [7] (σ > σn);
+
+≤
+
+σ = σn, Eriksson [3] .
+
+1
+
+ 
+ 
+ 
+ 
+ 
+ 
+Here
+
+where Tn is the Chebyshev polynomial of degree n on the interval [
+
+σn :=
+
+T (n)
+n k
+
+k
+
+= 2n−1n! ,
+
+1, 1].
+
+−
+
+≤
+
+The value σ = σn serves as a borderline between two types of the extremal Zolotarev functions
+Zn(
+σn, then Zn is a polynomial of degree n, while for σ > σn it is a perfect spline of
+, σ): if σ
+·
+degree n with r knots. There are further borderlines σn,r (with σn,1 := σn) which indicate that the
+spline Zn(
+σn,r+1, but that distinction is hardly of any use,
+·
+since for n > 3 there are no reasonable estimates for perfect splines even with one knot. In this
+respect, we may apply more or less developed polynomial tools to tackle the problem for σ
+σn,
+and then may try to use polynomial estimates in the spline case, when σ > σn.
+
+, σ) has exactly r knots if σn,r < σ
+
+≤
+
+≤
+
+In this paper, we prove Karlin’s conjecture in several further subcases.
+1) The ﬁrst result closes the “polynomial” case and proves that, for σ
+
+σn, the extremum
+∞(σ) is provided by the corresponding Zolotarev polynomial.
+
+≤
+
+W n
+
+value of the k-th derivative of f
+
+∈
+
+Theorem 1.3 If
+
+N,
+
+n
+
+∈
+
+1
+
+k
+
+n
+
+−
+
+≤
+
+≤
+
+1 ,
+
+σ
+
+0
+
+≤
+
+≤
+
+σn ,
+
+(1.3)
+
+then Karlin’s conjecture (1.1)-(1.2) is true.
+
+2) For the “spline” case, we managed to advance only up to the second derivative.
+
+Theorem 1.4 If
+
+N,
+
+n
+
+∈
+
+k = 1, 2,
+
+σn < σ <
+
+,
+∞
+
+then Karlin’s conjecture (1.1)-(1.2) is true.
+
+The further advance depends mostly on improving the lower bound for the exact constant Cn,k in
+Landau-Kolmogorov inequality on the half-line:
+
+f (k)
+
+k
+
+R+ ≤
+
+k
+
+Cn,kk
+
+f
+
+k
+
+1−k/n
+R+
+
+f (n)
+
+k/n
+R+
+
+k
+
+k
+
+The existing lower bounds for Cn,k, which are due to Stechkin, are not very satisfactory for general
+n and k > 2.
+
+3) However, for small n, these bounds can be improved, thus leading to one more extension.
+
+Theorem 1.5 If
+
+n = 5, 6
+
+n = 7, 8, 9
+
+n = 10, 11
+
+k
+
+k
+
+k
+
+1
+
+1
+
+1
+
+≤
+
+≤
+
+≤
+
+≤
+
+≤
+
+≤
+
+2,
+
+3,
+
+−
+
+−
+
+n
+
+n
+
+6,
+
+then Karlin’s conjecture (1.1)-(1.2) is true.
+
+σn < σ <
+
+,
+∞
+
+(1.4)
+
+In all the cases, the proof is based on comparing the upper bound for the local extrema of
+, σ) with the lower bound for the value mk(1, σ). The technique we use is not
+σ < σn,
+1, what explains restriction in (1.4). In (1.3), i.e., for 0
+
+the function mk(
+·
+working for the value k = n
+we managed to cover the case k = n
+
+−
+
+1 by diﬀerent means.
+The upper bounds are given in terms of Zolotarev polynomials and these estimates may be
+viewed as a generalization to higher derivatives of Markov-type results of Schur [9] and Erd˝os-
+Szeg˝o [2]. These bounds demonstrate once again, if we borrow the words of Shoenberg said about
+cubic splines, “the brave behaviour of Zolotarev polynomials under diﬃcult circumstances”.
+
+−
+
+≤
+
+2
+
+2 Main ingredients of the proof
+
+Karlin’s conjecture states that the function mk(
+·
+its maximal value at the end-points of the interval [
+check that, at any point x0 inside the interval (
+have
+
+−
+
+, σ) (which is a positive even function) reaches
+1, 1]. To establish this fact it is suﬃcient to
+, σ) takes its local maximum, we
+
+−
+
+1, 1) where mk(
+·
+
+If f is the function from W n
+
+∞(σ) that attains a locally maximal value mk(x0, σ), then clearly
+
+mk(x0, σ) < mk(1, σ) .
+
+and it makes sense to introduce the following quantity:
+
+mk(x0, σ) =
+
+f (k)(x0)
+|
+
+|
+
+,
+
+f (k+1)(x0) = 0 ,
+
+m∗
+
+k(x0, σ) := sup
+
+f (k)(x0)
+|
+
+: f
+
+∈
+
+W n
+
+∞(σ), f (k+1)(x0) = 0
+
+,
+
+}
+
+x0 ∈
+
+[
+
+−
+
+1, 1] .
+
+{|
+
+The next statement follows immediately.
+
+Claim 2.1 If, for a given n, k
+
+N and σ > 0, we have
+
+∈
+
+sup
+x0∈[−1,1]
+
+m∗
+
+k(x0, σ)
+
+≤
+
+mk(1, σ) ,
+
+then Karlin’s conjecture is true.
+
+In order to verify inequality (2.1), we split it into two parts
+
+m∗
+
+k(x0, σ)
+
+≤
+
+A(n, k, σ) ,
+
+A(n, k, σ)
+
+mk(1, σ) ,
+
+≤
+
+(2.1)
+
+(2.2)
+
+and then check whether A
+
+B. So, we need two diﬀerent estimates:
+
+≤
+
+a) a good lower bound for the end-point value mk(1, σ) = sup
+f (k)(x0)
+b) a good upper bound for
+|
+Actually, if x = x0 stays suﬃciently far away from the end-points x =
+upper bound for
+|
+Therefore, for the upper bounds for
+
+, we will consider two cases
+
+, where f is from W n
+
+1, then a reasonable
+can be established irrespectively of whether f (k+1)(x0) vanishes or not.
+
+: f
+∞(σ) and satisﬁes f (k+1)(x0) = 0.
+
+f (k)(x0)
+|
+
+∞(σ)
+}
+
+{|
+
+±
+
+∈
+
+|
+
+,
+
+f (k)(1)
+|
+
+W n
+
+|
+n,k(σ), ωk <
+
+A∗
+
+b1) m∗
+
+k(x, σ)
+
+≤
+|
+with an appropriately chosen value ωk.
+
+f (k)(x)
+|
+x0| ≤
+
+1,
+
+b2) mk(x, σ)
+
+An,k(σ),
+
+≤
+
+x
+
+| ≤
+
+|
+
+ωk < 1,
+
+We will distinguish between the cases σ
+
+σn and σ > σn.
+
+≤
+
+1) The case σ
+
+σn.
+
+≤
+
+1a) Lower estimates for mk(1, σ). Clearly, mk(1, σ) is monotoniously increasing with σ, there-
+
+fore, we have the trivial estimate
+
+mk(1, σ)
+
+≥
+
+mk(1, σ0) = T (k)
+
+n−1(1) .
+
+However, this estimate is too rough when k =
+
+(n), so we will use a ﬁner one.
+
+O
+
+Proposition 2.2 We have
+
+mk(1, σ)
+
+≥
+
+Bn,k(σ) :=
+
+1
+
+(cid:16)
+
+σ
+σn
+
+−
+
+(cid:17)
+
+T (k)
+n−1(1) +
+
+σ
+σn
+
+T (k)
+n (1),
+
+σ
+
+0
+
+≤
+
+≤
+
+σn.
+
+(2.3)
+
+3
+
+Proof. Let us show that mk(x, σ) as a function of σ is concave. For any x
+σ′ < σ′′, let f1 and f2 be the functions such that
+
+[
+
+−
+
+∈
+
+1, 1], and for any
+
+mk(x, σ(i)) = f (k)
+
+i
+
+(x),
+
+W n
+
+∞(σ(i)),
+
+fi ∈
+
+i = 1, 2.
+
+It is clear that, for any σ
+(1
+
+∈
+t)f1 + tf2 belongs to W n
+∞(σ), hence we have
+
+[σ′, σ′′], with t such that σ = (1
+
+−
+
+t)σ′ + tσ′′, the function f :=
+
+−
+
+mk(x, σ)
+
+≥
+
+f (k)(x) = (1
+
+−
+
+t)f (k)
+1
+
+(x) + tf (k)
+
+2
+
+(x) = (1
+
+−
+
+t)mk(x, σ′) + tmk(x, σ′′) .
+
+In particular, with σ0 := T (n)
+
+n−1 = 0 and σn = T (n)
+
+n , we have
+
+mk(1, σ)
+
+1
+
+−
+
+≥
+
+σ
+σn
+
+mk(1, σ0) +
+
+σ
+σn
+
+mk(1, σn) ,
+
+But mk(1, σ0) = T (k)
+
+(cid:17)
+n−1(1) and mk(1, σn) = T (k)
+n (1), hence the result.
+
+(cid:16)
+
+(cid:3)
+
+1b1) Upper estimate for m∗
+
+k(x0, σ). We will use a comparison lemma of the kind similar to the
+
+one that was used by Matorin [6] in (actually) proving that mk(1, σn)
+
+≤
+
+T (k)
+n (1).
+
+Lemma 2.3 Let p
+
+∈ Pn[
+p(k+1)(x0) = 0 ,
+
+1, 1] be a polynomial that satisﬁes the following conditions:
+
+−
+
+2)
+
+p has an n-alternance on [
+
+1, 1],
+
+−
+
+3)
+
+p(n)
+
+k
+
+k ≥
+
+σ .
+
+(2.4)
+
+1)
+
+Then, for any f
+
+∈
+
+we have
+
+W n
+∞[
+
+1′)
+
+1, 1] and for any x0 ∈
+−
+2′)
+f (k+1)(x0) = 0 ,
+
+1, 1] such that
+
+[
+
+−
+
+f
+
+k
+
+k ≤
+
+1,
+
+3′)
+
+f (n)
+
+k
+
+k ≤
+
+σ,
+
+f (k)(x0)
+
+| ≤ |
+
+p(k)(x0)
+|
+
+.
+
+|
+
+Proof. Assume the contrary, i.e., that f (k)(x0) = p(k)(x0)/γ with some γ such that
+the function g := γf satisﬁes
+
+γ
+
+|
+
+|
+
+< 1. Then
+
+2′′)
+
+< 1,
+
+g
+
+k
+
+k
+
+3′′)
+
+g(n)
+
+k
+
+k
+
+< σ ,
+
+and moreover
+
+1′′)
+
+g(k)(x0) = p(k)(x0),
+
+g(k+1)(x0) = p(k+1)(x0) = 0.
+
+Consider the diﬀerence h = p
+function h has at least n
+zeros strictly inside (
+−
+H ′ = h(k) has at least n
+
+g. By the n-alternation property (2) of p, since
+
+g
+k
+1, 1], hence H := h(k−1) has at least n
+
+1 distinct zeros on [
+
+−
+
+−
+1, 1), and by (1′′), we also have H ′(x0) = H ′′(x0) = 0.
+1, 1] counting multiplicities, therefore
+
+k + 1 zeros on [
+
+−
+
+< 1, the
+k distinct
+It follows that
+
+k
+−
+
+−
+
+−
+
+h(n) has at least one sign change on [
+
+1, 1].
+
+−
+< σ and
+
+g(n)(x)
+|
+|
+|
+1, 1], a contradiction.
+
+p(n)(x)
+
+| ≡
+
+On the other hand, by (3) and (3′′) we have
+h(n)(x)
+[
+|
+
+g(n)(x)
+|
+
+> 0 for all x
+
+p(n)(x)
+
+=
+
+−
+
+∈
+
+−
+
+|
+|
+Corollary 2.4 We have
+
+where p is any polynomial of degree n that satisﬁes conditions (1)-(3) in (2.4).
+
+m∗
+
+k(x0, σ)
+
+p(k)(x0)
+|
+
+≤ |
+
+4
+
+const
+
+σ, hence
+(cid:3)
+
+≥
+
+(2.5)
+
+Let
+
+Zn(
+·
+
+, θ)
+}
+
+{
+
+be the family of the Zolotarev polynomials parametrized with respect to the
+, θ) (see Sect. 3 for details). Given x0, our choice for p in
+(x0, θx0) = 0. An advantage
+[ωk, 1], the value of p(k)(x0) can be further bounded in terms
+
+, θx0 ) such that Z (k+1)
+
+n
+
+value of its highest derivative θ := Z (n)
+n (
+·
+(2.5) is the dilated Zolotarev polynomial Zn(
+·
+of choosing such a p is that, for x0 ∈
+of the single Zolotarev polynomial Zn(
+·
+
+, θk) such that
+
+Z (k+1)
+n
+
+(1, θk) = 0.
+
+Namely, as we show in Sects. 3-4,
+
+sup
+x∈[ωk,1]
+
+m∗
+
+k(x0, σ)
+
+max
+{
+
+1,
+
+≤
+
+σ
+θk }
+
+k/n max
+
+n (ωk), Z (k)
+T (k)
+
+n (1, θk)
+}
+
+{
+
+In Sects. 5-6, we provide the estimates for the values appeared here on the right-hand side and,
+thus, arrive at the following statement.
+
+Proposition 2.5 We have
+
+sup
+x∈[ωk,1]
+
+m∗
+
+k(x0, σ)
+
+≤
+
+A∗
+
+n,k(σ) := 
+
+
+T (k)
+n−1(1),
+λkT (k)
+
+n (1)
+
+0
+
+≤
+ηk ≤
+
+σ
+σn ≤
+σ
+σn ≤
+
+ηk;
+
+1.
+
+1
+ηk
+
+σ
+σn
+
+k/n
+
+,
+
+(cid:16)
+
+(cid:17)
+
+(2.6)
+
+where
+
+λk =
+
+1
+k + 1
+
+n
+
+n
+
+−
+
+
+1
+−
+1 + k
+
+,
+
+ηk =
+
+n
+−
+2(2n
+
+(k + 1)
+
+(k + 1)
+
+−
+
+.
+
+1b2) Upper estimate for mk(x, σ). We use a technique based on the Lagrange interpolation. Let
+i=1.
+
+∞(σ) on a mesh ∆ = (ti)n
+
+1 that interpolates f
+
+ℓ∆ ∈ Pn−1 be the polynomial of degree n
+From the identity f (k)(x) = ℓ(k)
+
+∆ (x) + (f (k)(x)
+
+−
+
+W n
+ℓ(k)
+∆ (x)) it follows that
+
+∈
+
+−
+
+where
+
+whence
+
+f (k)(x)
+
+| ≤
+
+|
+
+Λk(x)
+k
+
+f
+
+k
+
++ Ωk(x)
+k
+
+f (n)
+
+,
+
+k
+
+Λk(x) = sup
+
+kpk∆=1 |
+
+p(k)(x)
+|
+
+,
+
+Ωk(x) = sup
+
+kf (n)k=1 |
+
+f (k)(x)
+
+ℓ(k)
+∆ (x)
+|
+
+,
+
+−
+
+sup
+x∈[0,ωk]
+
+mk(x, σ)
+
+sup
+x∈[0,ωk]
+
+≤
+
+Λk(x) + sup
+
+Ωk(x)σ .
+
+x∈[0,ωk]
+
+In Sect. 7, we prove that calculation of the suprema on the right-hand side is reduced to computing
+the largest local maxima of two speciﬁc polynomials and that leads to the following estimate.
+
+Proposition 2.6 We have
+
+sup
+x∈[0,ωk]
+
+mk(x, σ)
+
+≤
+
+An,k(σ) :=
+
+3
+
+2k+1 T (k)
+
+n−1(1) +
+
+2
+2k+1
+
+2(k+1)
+n+k T (k)
+
+n (1)
+
+σ
+σn
+
+.
+
+(2.7)
+
+The latter estimate is not particularly good for k = 1 and k = 2, so for such k we also use
+
+another one
+
+sup
+x∈[0,ωk]
+
+mk(x, σn)
+
+k
+
+1
+
+≤
+
+1
+
+−
+
+(cid:18)
+
+sin k+1
+
+2n (cid:19)
+
+1
+2k+1
+
+T (k)
+n (1) .
+
+(2.8)
+
+1c) Final step. The constants in estimates (2.3), (2.6) and (2.7) are easy to compare (they are
+σn,
+
+simple functions of t = σ/σn) and, in Sect. 8, we prove that if n
+then
+
+2 and 0
+
+N, 1
+
+≤
+
+≤
+
+≤
+
+−
+
+≤
+
+∈
+
+n
+
+σ
+
+k
+
+max
+
+An,k(σ), A∗
+
+n,k(σ)
+
+Bn,k(σ) ,
+
+≤
+
+(cid:0)
+
+(cid:1)
+
+5
+
+and that implies
+
+mk(1, σ) = sup
+
+mk(x, σ),
+
+x∈[−1,1]
+
+σ
+
+0
+
+≤
+
+≤
+
+σn,
+
+k
+
+1
+
+≤
+
+≤
+
+n
+
+−
+
+2.
+
+2) The case σ > σn.
+
+For that case, it is more convenient to reformulate the original problem. Namely, instead of
+
+considering functions from the class
+
+W n
+
+∞(σ) :=
+
+f : f
+
+{
+
+∈
+
+W n
+∞[
+
+−
+
+1, 1],
+
+f
+
+k
+
+i.e., functions on a ﬁxed interval I1 = [
+consider functions from the class
+
+−
+
+1,
+
+f (n)
+
+k[−1,1] ≤
+1, 1] with increasing norms
+
+k[−1,1] ≤
+
+}
+
+k
+
+σ
+
+,
+
+σn < σ <
+
+,
+∞
+
+f (n)
+
+k
+
+k[−1,1] ≤
+
+σ, we will
+
+W n
+
+∞(Is) :=
+
+f : f
+
+{
+
+∈
+
+W n
+∞[
+
+−
+
+s, 1],
+
+f
+
+1,
+
+f (n)
+
+k[−s,1] ≤
+k
+f (n)
+k[−s,1] = σn on the intervals Is := [
+
+k[−s,1] ≤
+
+k
+
+k
+
+−
+
+,
+
+σn}
+
+2 <
+
+Is|
+
+|
+
+<
+
+,
+∞
+
+(2.9)
+
+s, 1] of increasing length
+
+= 2. The pointwise Landau-Kolmogorov problem consists then of ﬁnding the value
+
+i.e., functions with a ﬁxed norm
+Is|
+
+I1|
+
+>
+
+|
+
+|
+
+mk(x, Is) := sup
+f ∈W n
+
+∞(Is) |
+
+f (k)(x)
+|
+
+,
+
+and Karlin’s conjecture states that mk(x, Is) is maximal at x = 1.
+
+2a) Lower estimate for mk(1, Is). Denote by B+
+inequality on the half-line for the normalized functions:
+
+n,k the best constant in the Landau-Kolmogorov
+
+B+
+n,k
+
+:= sup
+
+{|
+
+= sup
+
+f (k)(1)
+:
+f
+|
+k
+f (k)
+||[−∞,1] :
+k
+= 2 we have
+
+{k
+I1|
+
+|
+
+Proposition 2.7 For all
+
+Is|
+
+|
+
+>
+
+1,
+
+f (n)
+
+k[−∞,1] ≤
+f
+
+k
+k[−∞,1] ≤
+
+1,
+
+k[−∞,1] ≤
+f (n)
+
+σn}
+k[−∞,1] ≤
+
+k
+
+mk(1, Is)
+
+B+
+
+n,k .
+
+≥
+
+.
+σn}
+
+(2.10)
+
+(2.11)
+
+Proof. Clearly, with n and σn ﬁxed, the spaces deﬁned in (2.9) are embedded into each other,
+namely W n
+over those
+∞(It) for s < t, therefore for the suprema mk(1, Is) := sup
+spaces, we have the inequalities
+
+f (k)(1)
+|
+
+∞(Is)
+
+W n
+
+⊃
+
+|
+
+mk(1, Is)
+
+≥
+
+mk(1, It),
+
+s < t.
+
+(cid:3)
+
+Letting t =
+
+, we obtain (2.11).
+
+−∞
+
+2b). Upper estimates for mk(x, Is) and m∗
+
+bounds for mk(x, Is) and m∗
+Namely, moving the interval I = [a, b] of length
+hence
+
+|
+
+|
+
+k(x, Is) are majorized by those of mk(x, I1) and m∗
+
+k(x0, Is). Similar arguments show that the upper
+k(x, I1), respectively.
+∞(I),
+
+= 2 inside any Is, we see that W n
+
+∞(Is)
+
+W n
+
+I
+
+⊂
+
+sup
+x∈[ωk,1]
+
+sup
+x∈[s0,ωk]
+
+m∗
+
+k(x, Is)
+
+mk(x, Is)
+
+sup
+x∈[ωk,1]
+
+sup
+x∈[0,ωk]
+
+≤
+
+≤
+
+m∗
+
+k(x, I1)
+
+mk(x, I1) .
+
+where s0 is the middle of the interval [
+m(∗)
+
+k (x, σn) and for those we have the upper estimates (2.6)-(2.7).
+
+−
+
+s, 1]. The right-hand sides are equivalent to the values
+
+6
+
+Proposition 2.8 For all
+
+Is|
+
+|
+
+>
+
+= 2 we have
+
+|
+
+I1|
+sup
+x∈[ωk,1]
+sup
+x∈[s0,ωk]
+
+m∗
+
+k(x, Is)
+
+mk(x, Is)
+
+≤
+
+≤
+
+A∗
+
+n,k(σn) ,
+
+An,k(σn) .
+
+(2.12)
+
+(2.13)
+
+2c) Final step. In Sect. 11 we prove that the constants in (2.11)-(2.13) satisfy the inequality
+
+max
+
+An,k(σn), A∗
+
+n,k(σn)
+
+B+
+
+n,k ,
+
+≤
+
+k = 1, 2
+
+and that proves that
+
+(cid:0)
+
+(cid:1)
+
+mk(1, Is) = sup
+
+mk(x, Is),
+
+x∈[−s,1]
+
+Is| ≥
+
+|
+
+2,
+
+or, equivalently,
+
+mk(1, σ) = sup
+
+mk(x, σ),
+
+σn < σ <
+
+x∈[−1,1]
+
+.
+∞
+
+3 Zolotarev polynomials
+
+Here, we remind some facts about Zolotarev polynomials taking some extracts from our survey
+[10, p.240-242]. Note that we use a slightly diﬀerent parametrization for Zn.
+
+Deﬁnition 3.1 A polynomial Zn ∈ Pn is called Zolotarev polynomial if it has at least n equioscil-
+lations on [
+
+1, 1], i.e. if there exist n points
+
+−
+
+such that
+
+1
+
+−
+
+≤
+
+τ1 < τ2 <
+
+< τn−1 < τn ≤
+
+1
+
+· · ·
+
+1)n−iZn(τi) =
+
+(
+−
+
+Znk
+
+k
+
+= 1.
+
+There are many Zolotarev polynomials, for example the Chebyshev polynomials Tn and Tn−1 of
+degree n and n
+1, with n + 1 and n equioscillation points, respectively. One needs one parameter
+more to get uniqueness. We will use parametrization through the value of the n-th derivative of
+Zn:
+
+−
+
+Z (n)
+n k
+
+k
+
+= θ
+
+⇔
+
+Zn(x) := Zn(x, θ) :=
+
+θ
+n!
+
+n−1
+
+xn +
+
+ai(θ)xi .
+
+i=0
+X
+
+By Chebyshev’s result,
+
+p(n)
+
+k
+
+As θ traverses the interval [
+tions:
+
+−
+
+T (n)
+n
+
+p
+
+, so the range of the parameter is
+
+k
+
+k k
+σn,
+
+k ≤ k
+σn ≤
+σn, σn], Zolotarev polynomials go through the following transforma-
+
+= 2n−1 n! .
+
+T (n)
+n k
+
+σn =
+
+≤
+
+k
+
+θ
+
+−
+
+Tn(x)
+
+−
+
+→ −
+
+Tn(ax + b)
+
+→
+
+Zn(x, θ)
+
+→
+
+Tn−1(x)
+
+→
+
+Zn(x, θ)
+
+→
+
+Tn(cx + d)
+
+Tn(x) .
+
+→
+
+Zolotarev polynomials subdivide into 3 groups depending on the stucture of the set
+
+of their alternation points.
+
+:= (τi)
+
+A
+
+1)
+
+2)
+
+3)
+
+contains n + 1 points: then Zn is the Chebyshev polynomial Tn.
+
+A
+
+contains n points but only one of the endpoints: then Zn is a stretched Chebyshev
+
+A
+polynomial Tn(ax + b),
+
+< 1.
+
+a
+
+|
+
+|
+
+contains n points including both endpoints: then Zn is called a proper Zolotarev
+A
+polynomial and it is either of degree n, or the Chebyshev polynomial Tn−1 of degree
+n
+
+1.
+
+−
+
+7
+
+For a proper Zolotarev polynomial Zn, besides the interior alternation points (τi)n−1
+1, 1] where its ﬁrst derivative vanishes.
+
+a point β = β(θ) outside [
+
+i=2 , there is
+
+V. Markov proved that zeros of Z ′
+
+with β going through the inﬁnity as θ passes the zero.
+Z ′
+same is true for their derivatives of any order. In particular, the following lemma is true.
+
+σn, σn],
+It follows that, for any θ1, θ2, zeros of
+, θ2) interlace with each other, hence by the Markov interlacing property the
+
+, θ) are monotonically increasing functions of θ
+
+, θ1) and Z ′
+
+n(
+·
+
+n(
+·
+
+n(
+·
+
+−
+
+∈
+
+[
+
+−
+
+Lemma 3.2 Let (αi)M−1
+be the zeros of Z (m)
+n (
+·
+
+i=1 be the zeros of T (m)
+, θ). Then, (αi) and (τi) interlace, i.e.,
+
+n−1 in increasing order, and, for any given θ, let (τi)M
+i=1
+
+Another consequence of the interlacing property is the following observation.
+
+τ1 < α1 < τ2 < α2 < τ3 <
+
+< αM−1 < τM .
+
+· · ·
+
+Lemma 3.3 Let ωk be the rightmost zero of T (k+1)
+whose (k + 1)st derivative vanishes at x = 1, i.e.,
+
+n
+
+, and let Zn(
+·
+
+, θk) be the Zolotarev polynomials
+
+T (k+1)
+n
+
+(ωk) = 0,
+
+Z (k+1)
+n
+
+(1, θk) = 0 .
+
+Further, for a given x0 ∈
+
+Then
+
+(ωk, 1), let Zn(
+·
+
+, θx0 ) be the Zolotarev polynomial such that
+
+Z (k+1)
+n
+
+(x0, θx0) = 0,
+
+x0 ∈
+
+[ωk, 1] .
+
+θx0 |
+Proof. According to our parametrization, we have
+0, the rightmost zero of Z (k+1)
+
+θk|
+
+σn to
+
+<
+
+n
+
+|
+
+|
+
+−
+1 for some θ := θk. Therefore
+
+−
+
+(
+·
+
+< σn .
+
+Tn(x) = Zn(x,
+, θ) increases from ωk to +
+
+−
+
+σn), and as θ increases from
+, passing through the value
+
+−
+∞
+
+ωk < x0 < 1
+
+σn < θx0 < θk.
+
+⇔ −
+
+2) Here we give some upper estimates for the values T (k)
+
+n (1). The
+n (ωk) has been given on several occasions, we summarize what we need in the
+
+n (ωk) relative to the value T (k)
+
+estimates for T (k)
+following statement.
+
+Lemma 3.4 Let ωk := ωn,k be the rightmost zero of T (k+1)
+
+n
+
+. Then
+
+1)
+
+2)
+
+3)
+
+T (k)
+n (ωk)
+
+| ≤
+
+|
+
+T ′
+
+n(ω1)
+
+| ≤
+
+n (ω2)
+
+| ≤
+
+|
+T ′′
+
+|
+
+T (k)
+n (1), n
+
+1
+2k+1
+1
+4
+8
+55 T ′′
+
+T ′
+
+n(1),
+
+n (1),
+
+1
+
+k
+
+1;
+
+n
+
+−
+
+≤
+
+≤
+
+(3.1)
+
+N,
+
+5;
+
+10.
+
+∈
+
+≥
+
+≥
+
+n
+
+n
+
+Proof. The ﬁrst inequality was proved by Eriksson [3] who actually derived a stronger estimate:
+
+where
+
+T (k)
+n (ωk)
+
+| ≤
+
+|
+
+Fk(ωk)
+2k+1 T (k)
+
+n (1),
+
+Fk(x) :=
+
+2(1 + x)2
+
+(2k + 5)x + 2 ≤
+
+1,
+
+[0, 1].
+
+x
+
+∈
+
+The second inequality is due to Erd¨os–Szeg¨o [2, p.464]. To derive the third one, we note that the
+function Fk(
+·
+
+) has the single minimum at x∗ = 2k+1
+
+2k+5 = 5
+
+F2(ω2) < F2(1) =
+
+9 , therefore, if x∗ < ω2 < 1, then
+8
+11
+
+.
+
+(3.2)
+
+But ω2 is the largest zero of the third derivative of Tn, therefore it is greater than the third largest
+(cid:3)
+zero of T ′
+
+5
+9 , and the latter holds for n
+
+n , so (3.2) is valid if cos 3π
+
+n, i.e., ω2 > cos 3π
+
+10.
+
+≥
+
+n ≥
+
+8
+
+Corollary 3.5 We have
+
+max
+x∈[0,ωk−1] |
+
+T (k)
+n (x)
+
+| ≤
+
+1
+
+2k+1 T (k)
+
+n (1)
+
+Proof. The values of local maxima of
+have
+
+T (k)
+n (ξi)
+|
+
+|
+
+max
+x∈[0,ωk] |
+
+T (k)
+n (x)
+
+| ≤ |
+
+T (k)
+n (ωk)
+
+| ≤
+
+increase with
+
+, and since ωk = maxi |
+ξi|
+|
+2k+1 T (k)
+n (1)
+
+1
+
+(3.3)
+
+, we
+
+ξi|
+
+On the interval [ωk, ωk−1] the value
+|
+n (ωk) to the rightmost zero T (k)
+T (k)
+
+decreases monotonically from the rightmost maximum
+(cid:3)
+
+n (ωk−1) = 0, hence the inequality for such x.
+
+T (k)
+n (x)
+|
+
+4 A generalization of Erd¨os–Szeg´o result
+
+By
+p
+
+Qn we denote the unit ball in the space
+k ≤
+
+1. According to the well-known Markov inequality
+
+k
+
+Pn, i.e., the set of polynomials p
+
+∈ Pn such that
+
+sup
+p∈Qn |
+
+p′(x)
+
+| ≤
+
+n2,
+
+x
+
+[
+
+−
+
+∈
+
+1, 1] ,
+
+and equality is attained at x = 1 for p = Tn.
+
+In 1913, Schur [9] considered the problem of ﬁnding the maximum of
+
+under additional
+n(x0) be the unit ball of polynomials such that p(k+1)(x0) = 0.
+k
+
+p′(x0)
+|
+
+|
+
+assumption that p′′(x0) = 0. Let
+Shur proved that
+
+Q
+
+sup
+
+p∈Q1
+
+n(x0) |
+
+p′(x0)
+|
+
+<
+
+1
+2
+
+n2 .
+
+(4.1)
+
+Moreover, he showed that if λn is the least constant in front of n2, then, for λ∞ := lim supn→∞ λn,
+we have
+
+λ∞ ≤
+In 1942, Erd˝os and Szeg˝o [2] reﬁned Shur’s result by showing that the limit λ∞ = limn→∞ λn
+
+0.217
+
+0.465
+
+· · · ≤
+
+· · ·
+
+.
+
+exists and it is equal to
+
+λ∞ = κ−2(1
+
+−
+
+E/K)2 = 0.3124
+
+· · ·
+
+where E, K are the complete elliptic integrals associated with the modulus κ.
+improve the uniform bound (4.1) though.)
+[
+They also showed that, for any x0 ∈
+
+1, 1], the supremum of
+
+p′(x0|
+
+−
+
+|
+
+, θ), and that the maximum over x0 is attained at x0 = 1 for n
+
+is attained when p is a
+4, and
+
+Zolotarev polynomial Zn(
+·
+at x0 = 0 for n = 3.
+
+≥
+
+(4.2)
+
+(They did not
+
+In this section, we generalize these results to the derivatives of order k
+
+2.
+
+≥
+
+Denote by
+
+∈
+the best constant in the pointwise Markov inequality, and by
+
+p∈Qn |
+
+µk(x) := max
+
+p(k)(x)
+|
+
+,
+
+x
+
+1, 1],
+
+[
+
+−
+
+µ∗
+
+k(x0) := max
+
+p∈Qk
+
+n(x0) |
+
+p(k)(x0)
+|
+
+x0 ∈
+
+[
+
+−
+
+1, 1],
+
+the best constant in the pointwise Schur-type inequality. It is clear that
+
+µ∗
+
+k(x0)
+
+≤
+
+µk(x0),
+
+x0 ∈
+
+[
+
+−
+
+1, 1] ,
+
+k(x0) = 0, i.e. if x0 is a point of local extremum (maximum or
+
+The next two lemmas are straightfroward extensions of the arguments given in [2, pp.461-462],
+
+and that equality occurs only if µ′
+minimum) of the function µk(
+·
+
+) inside (
+
+1, 1).
+
+−
+
+from k = 1 to k
+
+2.
+
+≥
+
+9
+
+Lemma 4.1 For any θ, if Z (k+1)
+
+n
+
+(x0, θ) = 0, then
+
+Conversely, for any x0 ∈
+is true.
+
+[
+
+1, 1], with some θ = θx0 there is a polynomial Zn(
+·
+
+−
+
+, θ) such that (4.3)
+
+µ∗
+k(x0) = Z (k)
+
+n (x0, θ).
+
+(4.3)
+
+Lemma 4.2 Let x0 be a point such that
+
+k(x0) < µk(x0)
+[x0 −
+Then, for small δ > 0, there is a point x1 ∈
+µ∗
+k(x0) < µ∗
+
+µ∗
+
+k(x1) .
+
+=
+
+1 .
+
+and x0 6
+δ, x0 + δ], such that
+
+±
+
+Proof. Let µ∗
+
+k(x0) = Z (k)
+
+n (x0), where Z (k+1)
+
+n
+
+(x0) = 0 and let p
+
+∈ Qn be the polynomial such that
+
+Then the polynomial q = (1
+
+k
+
+−
+q
+
+k ≤
+
+p(k)(x0) > Z (k)
+
+n (x0) > 0 .
+
+ǫ)Zn + ǫp satisﬁes
+
+1,
+
+q(k)(x0) > Z (k)
+
+n (x0) = µ∗
+
+k(x0) ,
+
+and, for small ǫ, its k-th derivative has a local maximum in the neighbourhood of x0 (because Z (k)
+n
+has). Let x1 be the point of that maximum, i.e., q(k+1)(x1) = 0. Then q(k)(x1) > q(k)(x0), and
+respectively
+
+the latter inequality by deﬁnition of µ∗
+k(
+·
+
+).
+
+µ∗
+k(x0) < q(k)(x0) < q(k)(x1)
+
+µ∗
+
+k(x1) ,
+
+≤
+
+(cid:3)
+
+Corollary 4.3 Let η be a point of local maximum of the function µ∗
+k(
+·
+
+). Then
+
+µ∗
+
+k(η) = µk(η).
+
+Theorem 4.4 Let Zn(x, θk) be the Zolotarev polynomial such that
+
+Then
+
+Z (k+1)
+n
+
+(1, θk) = 0.
+
+max
+x0∈[−1,1]
+
+µ∗
+
+k(x0) = max
+
+T (k)
+n (ωk)
+|
+
+,
+
+|
+
+{|
+
+Z (k)
+
+n (1, θk)
+
+|}
+
+.
+
+Proof. Let ηi be the points of local maxima of of µ∗
+k(
+·
+k(ηi), µ∗
+µ∗
+
+k(x0) = max
+
+µ∗
+
+max
+x0∈[−1,1]
+
+{
+
+k(1)
+}
+
+) inside the interval (
+
+1, 1). Then
+
+−
+
+) coincide with the extrema
+The corollary shows that, inside (
+(maxima or minima) of µk(
+). On the other hand, V. Markov proved that the local maxima of
+·
+T (k)
+) coincide with those of
+µk(
+n
+|
+·
+
+1, 1), the local maxima of µ∗
+k(
+·
+
+. Hence
+
+−
+
+|
+
+max
+x0∈[−1,1]
+
+µ∗
+
+k(x0) = max
+
+T (k)
+n (ξi)
+|
+
+, µ∗
+
+k(1)
+}
+
+{|
+
+, where T (k+1)
+
+n
+
+(ξi) = 0 .
+
+Further, it is known that the local maxima of
+
+T (k)
+n
+
+|
+T (k)
+n (ξi)
+|
+
+|
+=
+
+are increasing as
+
+increases, i.e,
+
+ξi|
+
+|
+
+T (k)
+n (ωk)
+|
+
+|
+
+,
+
+max
+i
+
+|
+where ωk is the rightmost zero of T (k+1)
+
+n
+
+. Finally, by Lemma 4.1,
+
+and that completes the proof.
+
+µ∗
+
+k(1) =
+
+Z (k)
+
+n (1, θk)
+|
+
+,
+
+|
+
+10
+
+(cid:3)
+
+Theorem 4.5 Let Zn(x, θk) be the Zolotarev polynomial such that
+
+Z (k+1)
+n
+
+(1, θk) = 0.
+
+Then
+
+max
+x0∈[ωk,1]
+
+m∗
+
+k(x0, σ)
+
+max
+
+1,
+
+{
+
+≤
+
+σ
+θk }
+
+k/n max
+
+T (k)
+n (ωk)
+|
+
+,
+
+|
+
+{|
+
+Proof. According to Corollary 2.4,
+
+where p is any polynomial of degree n such that
+
+m∗
+
+k(x0, σ)
+
+p(k)(x0)
+|
+
+,
+
+≤ |
+
+Z (k)
+
+n (1, θk)
+
+|}
+
+.
+
+1) p(k+1)(x0) = 0 ,
+
+2) p has an n-alternance in [
+
+1, 1],
+
+3)
+
+p(n)
+
+σ .
+
+We take p as a dilated Zolotarev polynomial Zn(
+·
+satisﬁes conditions (1)-(2), and its highest derivative has the value θx0. So, if θx0 ≥
+condtion (3) is fulﬁlled with p = Zn(
+·
+So we set
+
+k ≥
+(x0, θx0) = 0. The latter
+σ, then
+, θx0), but if θx0 < σ, then we have to scale Zn to ensure (3).
+
+, θx0) such that Z (k+1)
+
+−
+
+k
+
+n
+
+p(x) := Zn(x0 + γ1/n
+
+0
+
+(x
+
+−
+
+x0), θx0 ),
+
+γ0 := max
+
+1,
+
+{
+
+σ
+θx0 }
+
+,
+
+whence
+
+Finally,
+
+m∗
+
+k(x0, σ)
+
+≤
+
+p(k)(x0) = max
+
+1, (
+
+{
+
+σ
+θx0
+
+)k/n
+
+}
+
+Z (k)
+
+n (x0, θx0).
+
+ωk ≤
+
+x0 ≤
+
+1
+
+1)
+
+2)
+
+⇒ 
+
+
+Z (k)
+n (x0, θx0)
+|
+θx0| ≤
+θk| ≤ |
+
+|
+
+| ≤
+σn ,
+
+max
+{
+
+n (ωk), Z (k)
+T (k)
+
+n (1, θk)
+}
+
+,
+
+where the ﬁrst inequality us due to Theorem 4.4, and the second one is due to Lemma 3.3.
+
+
+
+(cid:3)
+
+5 Upper estimates for Z (k)
+
+n (1, θk) and generalization of Schur
+
+inequality
+
+Recall that by Markov’s inequality
+
+sup
+kp(k)k≤1 |
+
+p(k)(x)
+
+| ≤ |
+
+T (k)
+n (1),
+
+x
+
+[
+
+−
+
+∈
+
+1, 1],
+
+so we will give some upper estimates for the constant λk such that
+
+We will get those estimates using the following lemma.
+
+Z (k)
+
+n (1, θk)
+
+λkT (k)
+
+n (1)
+
+≤
+
+Lemma 5.1 Let p
+
+∈ Pn be any polynomial that satisﬁes the following conditions:
+1)
+
+p has an n-alternance on [
+
+p(k+1)(1) = 0 ,
+
+1, 1].
+
+1)
+
+−
+
+If Z (k+1)
+n
+
+(1, θk) = 0, then
+
+|
+
+Z (k)
+
+n (1, θk)
+
+| ≤ |
+
+p(k)(1)
+|
+
+.
+
+(5.1)
+
+(5.2)
+
+Proof. The proof is parallel to the proof of Lemma 2.3, since Zn satisﬁes
+the contrary to (5.2), we derive that the n-th derivative of h := p
+which is impossible as h is a polynomial of degree n
+
+Znk ≤
+
+1. Assuming
+γZn should change its sign
+(cid:3)
+
+−
+
+k
+
+2a) We will construct several p that satisfy (5.1) using alternation properties of Tn and Tn−1.
+
+We start with the simplest one.
+
+11
+
+Lemma 5.2 We have
+
+|
+
+Proof. Take
+
+Z (k)
+
+n (1, θk)
+
+| ≤
+
+1
+k + 1
+
+T (k)
+n (1) .
+
+(5.3)
+
+p(x) = Tn(x)
+
+−
+
+cq(x),
+
+q(x) := (x
+
+1)T ′
+
+n(x) ,
+
+−
+
+p(k+1)(1) := 0,
+
+so that p has an n-alternance on [
+c := T (k+1)
+
+(1)
+q(k+1)(1) . Then
+
+n
+
+cos π
+
+n , 1] for any c, and where the last equality deﬁnes particular
+
+−
+
+p(k)(1) = T (k)
+
+n (1)
+
+cq(k)(1) =
+
+−
+
+T (k+1)
+(1)
+n
+q(k+1)(1)
+
+1
+
+−
+
+q(k)(1)
+T (k)
+n (1) !
+
+T (k)
+n (1) ,
+
+and since q(m)(1) = mT (m)
+
+n
+
+(1), it follows that
+
+p(k)(1) =
+
+1
+(cid:18)
+
+−
+
+k
+k + 1
+
+(cid:19)
+
+T (k)
+n (1) =
+
+1
+k + 1
+
+T (k)
+n (1) .
+
+2b) The next lemma improves the previous estimate for k =
+
+(n).
+
+O
+
+Lemma 5.3 We have
+
+|
+
+|
+
+Proof. Take
+
+Z (k)
+
+n (1, θk)
+
+| ≤
+
+Z (k)
+
+n (1, θk)
+
+| ≤
+
+T (k)
+n−1(1) ,
+n
+1
+k + 1
+
+n
+
+−
+
+1
+−
+1 + k
+
+T (k)
+n (1) .
+
+p(x) = Tn−1(x)
+
+cq(x),
+
+−
+
+q(x) := (x2
+
+1)T ′
+
+n−1(x) ,
+
+−
+
+p(k+1)(1) := 0 .
+
+Then
+
+p(k)(1) = T (k)
+
+n−1(1)
+
+cq(k)(1) =
+
+−
+
+T (k+1)
+n−1 (1)
+q(k+1)(1)
+
+1
+
+−
+
+q(k)(1)
+T (k)
+n−1(1) !
+
+T (k)
+n−1(1) =:
+
+λn,kT (k)
+
+n−1(1) .
+
+(cid:3)
+
+(5.4)
+
+(5.5)
+
+1)2Tn−1(x), we have
+
+b
+
+Since q′(x) = (x2
+
+−
+
+1)T ′′
+
+n−1(x) + 2xT ′
+
+n−1(x) = xT ′
+
+n−1(x) + (n
+
+and using
+
+q(m)(1) = T (m)
+
+n−1(1) + ((n
+
+1)2 + (m
+
+−
+
+−
+
+T (k+1)
+n
+
+(1) =
+
+k2
+n2
+−
+2k + 1
+
+T (k)
+n (1),
+
+T (k−1)
+n
+
+(1) =
+
+we obtain, after some simpliﬁcations,
+
+−
+1))T (m−1)
+n−1
+
+2k
+
+1
+
+−
+(k
+
+−
+
+n2
+
+−
+
+(1) ,
+
+1)2 T (k)
+
+n (1),
+
+λn,k = 1
+
+b
+
+=
+
+≤
+
+k
+k + 1
+
+−
+1
+k + 1
+1
+k + 1
+
++
+
++
+
+2(n
+k
+k + 1
+k
+k + 1
+
+(n
+
+−
+
+1)2
+
+k2
+
+−
+−
+1)2 + (k + 1)
+4k(n
+(k
+
+1)2
+
+2(n
+(n
+
+1)2 + (k
+−
+1)2
+(k
+−
+−
+1)2 + (k
+−
+1)2)(2(n
+
+1)
+−
+1)2
+−
+1)
+−
+1)2 + (k + 1))
+−
+
+−
+
+((n
+1
+
+−
+
+k ≤
+
+n
+
+−
+
+−
+1
+
+12
+
+ 
+ 
+and that proves the ﬁrst inequality (5.4). Using
+
+T (k)
+n−1(1) = γT (k)
+
+n (1),
+
+γ =
+
+n
+
+1
+
+−
+n
+
+n
+
+k
+−
+1 + k
+
+,
+
+n
+
+−
+
+we obtain
+
+λn,k =
+
+λn,kγ
+
+and that proves (5.5).
+
+b
+
+1
+k + 1
+
+n
+
+≤
+
+n
+
+−
+
+γ =
+
+k
+
+1
+k + 1
+
+n
+
+1
+−
+1 + k
+
+n
+
+−
+
+2c) In the next lemma, we get further improvements for k = 1 and k = 2.
+
+Lemma 5.4 We have
+
+Z ′
+
+n(1, θ1)
+
+1
+3
+
+≤
+
+T ′
+n(1),
+
+Z ′′
+
+n(1, θ2)
+
+3
+π2
+
+≤
+
+Proof. Set ξ := cos π
+
+n , and let
+
+π2
+15
+
+6
+π2 < 0.23 T ′′
+−
+−
+
+n (1) .
+
+r(x) = Tn(x)
+
+cq(x),
+
+−
+
+q(x) := (x + 1)T ′
+
+n(x),
+
+r(k+1)(ξ) := 0 .
+
+(cid:3)
+
+(5.6)
+
+The polynomial r has an n-alternance on [
+
+to the polynomial p(x) := r
+
+−
+
+(cid:16)
+
+−
+1 + (x + 1) 1+ξ
+2
+
+1, ξ], so that, after ﬁnding r(k)(ξ) we will transform it
+1, 1] and satisﬁes
+
+, which has an n-alternance on [
+
+−
+
+p(k)(1) =
+
+(cid:17)
+1 + ξ
+2
+
+(cid:18)
+
+k
+
+(cid:19)
+
+r(k)(ξ) .
+
+Let us ﬁnd r(k)(ξ). We have
+
+r(k)(ξ) = T (k)
+
+n (ξ)
+
+−
+
+cq(k)(ξ) = T (k)
+
+n (ξ)
+
+q(k)(ξ)
+q(k+1)(ξ)
+
+−
+
+T (k+1)
+n
+
+(ξ) ,
+
+where
+
+q(m)(ξ) = (1 + ξ)T (m+1)
+
+n
+
+(ξ) + mT (m)
+
+n
+
+(ξ) ,
+
+so that setting ak := T (k)
+
+n (ξ), we obtain
+
+r(k)(ξ) = ak −
+
+(1 + ξ)ak+1 + kak
+(1 + ξ)ak+2 + (k + 1)ak+1
+
+ak+1 .
+
+Further, we have
+
+a0 = Tn(ξ) =
+
+1,
+
+a1 = T ′
+
+n(ξ) = 0,
+
+−
+2, the values ak can be computed from the recurrence relation
+
+and, for k
+
+≥
+
+(ξ2
+
+−
+
+1)ak+2 + (2k + 1)ξak+1 = (n2
+
+k2)ak .
+
+−
+
+In particular, we ﬁnd
+
+a2 =
+
+For k = 1, this gives
+
+n2
+
+1
+
+−
+
+ξ2 ,
+
+a3 =
+
+3ξ
+
+1
+
+−
+
+ξ2 a2,
+
+a4 =
+
+5ξ
+
+1
+
+−
+
+ξ2 a3 −
+
+n2
+1
+
+22
+ξ2 a2 .
+−
+−
+
+r′(ξ) =
+
+(1 + ξ)a2
+(1 + ξ)a3 + 2a2
+
+−
+
+a2 =
+
+n2
+
+−
+
+2 + ξ ⇒ |
+
+p′(ξ)
+|
+
+=
+
+1 + ξ
+2(2 + ξ)
+
+T ′
+n(1) <
+
+1
+3
+
+T ′
+n(1) .
+
+13
+
+For k = 2, we obtain
+
+r′′(ξ) = a2 −
+
+(1 + ξ)a3 + 2a2
+(1 + ξ)a4 + 3a3
+
+a3 ⇒
+
+p′′(1) = c(n, ξ)T ′′
+
+n (1) ,
+
+where
+
+c(n, ξ) =
+
+1 + ξ
+2
+
+2
+
+6ξ + 3ξ2
+
+(cid:18)
+
+(cid:19)
+
+(cid:18)
+
+(2ξ2 + 9ξ + 4)
+
+n2(1
+
+−
+
+−
+
+1
+
+ξ2) −
+
+1
+
+1
+
+(cid:19)
+
+−
+
+ξ2
+
+n2
+
+3
+
+−
+
+.
+
+1
+
+One can show that c(n, ξ) = c(n, cos π
+
+n ) is increasing with n to its limit value given in (5.6).
+
+(cid:3)
+
+Remark 5.5 We checked two other possibilities to construct p.
+
+1) The option
+
+p(x) = Tn(x)
+
+cq(x),
+
+−
+
+q(x) := (x + 1)T ′
+
+n(x) ,
+
+p(k+1)(1) := 0 ,
+
+results in
+
+p(k)(1)
+|
+
+|
+
+=
+
+1
+2k + 1
+
+4n2
+
+1
+
+−
+(2n2 + (k + 1))
+
+T (k)
+n (1) ,
+
+which is slightly worse than (5.3).
+
+2) The option
+
+p(x) =
+
+x
+1
+
+γ
+γ
+
+Tn−1(x),
+
+p(k+1)(1) := 0 ,
+
+−
+−
+
+is very poor for small k, and for large k =
+
+(n) it is slightly worse than (5.5).
+
+O
+
+6 Lower bound for Z (n)
+n (
+
+, θk)
+·
+
+Lemma 6.1 Let Zn(x, θk) be a Zolotarev polynomial such that
+
+Z (k+1)
+n
+
+(
+−
+
+1, θk) = 0.
+
+Then
+
+θk :=
+
+Z (n)
+
+n k ≥
+
+k
+
+ηn,kσn,
+
+ηn,k :=
+
+n
+−
+2(2n
+
+−
+
+(k + 1)
+
+(k + 1))
+
+.
+
+Proof. Set m = k + 1 and M = n
+
+−
+
+−
+
+m, and denote by (τi)M
+
+i=1 the zeros of Z (m)
+
+n
+
+in increasing order:
+
+1 = τ1 < τ1 <
+
+< τM < 1.
+
+· · ·
+
+Then
+
+where
+
+Z (m)
+
+n (x) = A(x + 1)(x
+
+τ2)
+
+(x
+
+−
+
+· · ·
+
+−
+
+τM ) ,
+
+A =
+
+2(1
+
+−
+
+Z (m)
+τ2)
+
+n (1)
+(1
+
+· · ·
+
+=:
+
+1
+2
+
+A1
+A2
+
+,
+
+τM )
+
+−
+
+and respectively
+
+A1
+A2
+Let us ﬁnd lower bounds for the constants A1 and 1/A2.
+1) Let (αi)M−1
+
+i=1 be the zeros of T (m)
+
+Z (n)
+n k
+
+= A M ! =
+
+M !
+2
+
+k
+
+n−1 in increasing order. They interlace with zeros of Z (m)
+
+n , i.e.
+
+.
+
+(6.1)
+
+1 = τ1 < α1 < τ2 < α2 < τ3 <
+
+< αM−1 < τM < 1,
+
+· · ·
+
+−
+
+14
+
+therefore
+
+On the other hand,
+
+T (m)
+n−1(x) = k
+
+T (n−1)
+n−1 k
+1)!
+(M
+−
+
+and respectively
+
+1
+A2
+
+:=
+
+1
+
+(1
+
+−
+
+τ2)
+
+· · ·
+
+(1
+
+−
+
+τM )
+
+>
+
+(1
+
+−
+
+α1)
+
+1
+(1
+
+· · ·
+
+αM−1)
+
+−
+
+(x
+
+−
+
+α1)
+
+· · ·
+
+(x
+
+−
+
+αM−1)
+
+⇒
+
+T (m)
+n−1(1) = k
+
+T (n−1)
+n−1 k
+1)!
+(M
+−
+
+(1
+
+α1)
+
+(1
+
+−
+
+· · ·
+
+−
+
+αM−1) ,
+
+1
+A2
+
+>
+
+(1
+
+α1)
+
+1
+(1
+
+αM−1)
+
+=
+
+(M
+
+1
+
+−
+
+1)!
+
+T (n−1)
+n−1 k
+k
+T (m)
+n−1(1)
+
+.
+
+(6.2)
+
+−
+2) The lower bound for A1 is provided by
+
+· · ·
+
+−
+
+A1 := Z (m)
+
+n (1, θk)
+
+T (m)
+n−1(1)
+
+≥
+
+θk
+
+σn −
+σn
+
++ T (m)
+n
+
+(1)
+
+θk
+σn
+
+=
+
+T (m)
+n−1(1)
+σn  
+
+(σn −
+
+θk) +
+
+(1)
+
+T (m)
+n
+T (m)
+n−1(1)
+
+θk
+
+!
+
+.
+
+(6.3)
+
+3) Combining estimates (6.1)-(6.3), we obtain
+
+m
+
+n
+
+−
+2
+
+T (n−1)
+n−1 k
+σn
+
+k
+
+θk ≥
+
+(σn −
+
+θk) +
+
+(1)
+
+T (m)
+n
+T (m)
+n−1(1)
+
+θk
+
+.
+
+!
+
+From the relations
+
+T (n−1)
+n−1 k
+σn
+
+k
+
+:= k
+
+it follows that
+
+T (n−1)
+n−1 k
+T (n)
+n
+
+k
+
+k
+
+=
+
+1
+2n
+
+,
+
+(1)
+
+T (m)
+n
+T (m)
+n−1(1)
+
+=
+
+n
+
+n
+
+−
+
+1
+
+n
+
+−
+n
+
+1 + m
+m
+
+−
+
+>
+
+n + m
+m
+n
+
+−
+
+,
+
+θk >
+
+n
+
+m
+
+−
+4n
+
+σn −
+
+θk +
+
+(cid:18)
+
+n + m
+m
+n
+
+−
+
+θk
+
+=
+
+(cid:19)
+
+n
+
+m
+
+−
+4n
+
+σn +
+
+(cid:18)
+
+2m
+
+m
+
+n
+
+−
+
+θk
+
+.
+
+(cid:19)
+
+So, (1
+
+m
+
+2n )θk ≥
+
+−
+
+n−m
+4n σn, and ﬁnally
+
+θk >
+
+n
+−
+2(2n
+−
+
+m
+m)
+
+σn,
+
+m = k + 1 .
+
+Proposition 6.2 We have
+
+sup
+x∈[ωk,1]
+
+m∗
+
+k(x0, σ)
+
+≤
+
+A∗
+
+n,k(σ) := 
+
+
+T (k)
+n−1(1),
+λkT (k)
+
+n (1)
+
+0
+
+≤
+ηk ≤
+
+σ
+σn ≤
+σ
+σn ≤
+
+ηk;
+
+1.
+
+1
+ηk
+
+σ
+σn
+
+k/n
+
+,
+
+(cid:16)
+
+(cid:17)
+
+(6.4)
+
+where
+
+λk =
+
+1
+k + 1
+
+n
+
+n
+
+−
+
+
+1
+−
+1 + k
+
+,
+
+ηk =
+
+n
+−
+2(2n
+
+(k + 1)
+
+(k + 1)
+
+−
+
+.
+
+7 Upper estimates for mk(x) for x
+
+[0, ωk]
+
+∈
+
+Lemma 7.1 We have
+
+mk(x)
+
+3
+2k + 1
+
+≤
+
+T (k)
+n−1(1) +
+
+2
+2k + 1
+
+2(k + 1)
+n + k
+
+T (k)
+n (1)
+
+σ
+σn
+
+.
+
+15
+
+ 
+Proof. For f
+the points of local extrema of Tn−1 on the interval [
+
+∞(σ), let l
+
+∈ Pn be the Lagrange polynomial of degree n that interpolates f at
+
+1, 1], i.e.
+
+∈
+
+W n
+
+l(x) = f (x),
+
+(x2
+
+n−1(x) = 0 .
+
+−
+1)T ′
+
+−
+
+Then
+
+where
+
+f (k)(x) = l(k)(x) + (f (k)(x)
+
+l(k)(x))
+
+Dk(x)
+k
+
+f
+
+k
+
++ Ωk(x)
+k
+
+≤
+
+f (n)
+
+,
+
+k
+
+−
+
+Dk(x) := sup
+
+kpn−1k∗=1 |
+
+p(k)
+n−1(x)
+|
+
+,
+
+Ωk(x) := sup
+
+kf (n)k=1 |
+
+f (k)(x)
+
+l(k)(x)
+|
+
+.
+
+−
+
+1) For the ﬁrst constant, we have the estimate
+
+Dk(x)
+
+max
+{
+
+U (x), V (x)
+}
+
+,
+
+≤
+
+where U (x) :=
+
+T (k)
+n−1(x)
+|
+
+|
+
+and
+
+V (x)
+
+:=
+
+≤
+
+We have
+
+(x2
+
+1) T (k+1)
+
+n−1 (x) + xT (k)
+
+1
+k
+(cid:12)
+k
+(cid:12)
+(cid:12)
+
+−
+T (k)
+n−1(x)
+|
+
+1
+−
+k |
+
+n−1(x)
+(cid:12)
+(cid:12)
+−
+(cid:12)
+
+(k
+
+−
+k
+
+(n
+
+−
+
++
+
+1)2
+
+1)2
+
+T (k−1)
+n−1 (x)
+|
+
+|
+
+.
+
+U (x)
+
+V (x)
+
+≤
+
+≤
+
+=
+
+=
+
+1
+2k + 1
+1
+k
+
+−
+k
+k
+
+(cid:18)
+
+−
+k
+3
+2k + 1
+
+T (k)
+n−1(1) ,
+
+1
+2k + 1
+1
+1
+2k + 1
+
+T (k)
+n−1(1) .
+
+T (k)
+n−1(1) +
+
+1)2
+
+(n
+
+−
+
+1)2
+
+(k
+
+−
+
+−
+k
+
+1
+
+2k
+
+1
+
+−
+
+T (k−1)
+n−1 (1)
+
++
+
+1
+k
+
+(cid:19)
+
+T (k)
+n−1(1)
+
+2) For the second constant, we have
+
+Ωk(x)
+
+max
+
+≤
+
+1
+n!
+
+|
+
+ω(k)(x)
+|
+
+.
+
+where ω(x) = c(x2
+
+−
+
+1)T ′
+
+n−1(x), with its leading coeﬃcient equal to one, i.e., c = 1
+2n−2
+
+1
+n−1 . Set
+
+q(x) := (x2
+
+1)T ′
+
+n−1(x) .
+
+−
+
+Then
+
+Since q′(x) = (n
+
+−
+
+Ωk(x)
+
+1
+2n−2
+
+1
+n!
+
+≤
+
+n
+1)2Tn−1(x) + xT ′
+
+1
+
+−
+
+n−1(x), we have
+
+max
+
+q(k)(x)
+|
+
+|
+
+=
+
+1
+
+2
+σn
+
+n
+
+1
+
+−
+
+1
+
+max
+
+q(k)(x)
+|
+
+|
+
+.
+
+q(k)(x) = ((n
+(n
+
+−
+
+−
+
+−
+
+1)2 + (k
+1)2 + (k
+1
+2k
+1)2 + (k
+1)2
+(k
+
+−
+
+−
+
+−
+
+(n
+(n
+
+(cid:18)
+
+−
+−
+
+≤
+
+=
+
+n−1 (x) + xT (k)
+
+n−1(x)
+
+1))T (k−1)
+1)
+
+T (k−1)
+n−1 (1) +
+
+1
+2k + 1
+
+T (k)
+n−1(1)
+
+1)
+1)2 +
+−
+−
+
+1
+2k + 1
+
+(cid:19)
+
+T (k)
+n−1(1) =
+
+cn,k
+2k + 1
+
+T (k)
+n (1) ,
+
+where
+
+cn,k =
+
+2(k + 1)(n
+
+1)2 + (k + 2)(k
+1 + (k
+
+−
+1 + k)(n
+
+−
+1))
+
+−
+
+−
+
+(n
+
+−
+
+1)
+
+n
+
+1
+−
+n ≤
+
+2(k + 1)
+
+1
+−
+1 + k
+
+n
+
+1
+−
+n ≤
+
+n
+
+−
+
+n
+
+2(k + 1)
+
+n
+1
+−
+n + k
+
+.
+
+16
+
+Thus
+
+Ωk(x)
+
+2
+2k + 1
+
+2(k + 1)
+n + k
+
+1
+σn
+
+≤
+
+T (k)
+n (1) .
+
+Corollary 7.2 We have
+
+mk(x, σn)
+
+3
+2k + 1
+
+≤
+
+T (k)
+n (1) ,
+
+2 .
+
+k
+
+≥
+
+(cid:3)
+
+Proof. We have
+
+where
+
+αn,k =
+
+=
+
+3
+2k + 1
+3
+2k + 1
+
+Lemma 7.3 We have
+
+mk(x, σn)
+
+≤
+
+αn,kT (k)
+
+n (1),
+
+k
+−
+1 + k
+
++
+
+2
+2k + 1
+
+2(k + 1)
+
+n + k ≤
+
+3
+2k + 1
+
+n
+k
+−
+n + k
+
++
+
+2
+2k + 1
+
+2(k + 1)
+n + k
+
+n
+
+1
+
+n
+
+−
+n
+
+n
+
+−
+3n + k + 4
+
+3n + 3k ≤
+
+3
+2k + 1
+
+.
+
+max
+x∈[0,ωk]
+
+mk(x, σn)
+
+≤
+
+(1
+
+−
+
+1
+δk/2)k T (k)
+
+n (ωk) ,
+
+where δk is the maximal distance between two consecutive zeros of T (k+1)
+
+n
+
+.
+
+Proof. We will use the following estimate. Let f
+Then
+
+∈
+
+W n
+
+∞(σn), i.e.,
+
+f
+
+1 and
+
+f (n)
+
+k
+
+k ≤ k
+
+T (n)
+n
+
+.
+
+k
+
+Let (ξi) be the zeros of T (k+1)
+
+n
+
+T (k+1)
+n
+
+(ξi) = 0
+
+f (k)(ξi)
+
+⇒ |
+, and let δk = maxi |
+
+| ≤ |
+ξi −
+
+Tn(x) = Tn(γx),
+
+γ =
+
+> 1.
+
+k ≤
+
+k
+T (k)
+n (ωk) .
+
+| ≤
+. Set
+
+T (k)
+n (ξi)
+ξi+1|
+1
+δk/2)
+
+(1
+
+−
+
+Then
+
+b
+(ξ) = 0
+
+T (k+1)
+n
+
+Corollary 7.4 We have
+
+b
+
+f (k)(ξ)
+
+| ≤ |
+
+T (k)
+n (ξ)
+
+| ≤
+
+γkT (k)
+
+n (ωk) .
+
+⇒ |
+
+max
+x∈[0,ωk]
+
+mk(x, σn)
+
+b
+
+1
+
+≤  
+
+1
+
+−
+
+sin π(k+1)
+
+2n !
+
+k
+
+T (k)
+n (ωk) .
+
+Proof. Since (cos πi
+ξi < cos πi
+
+n ) are zeros of T ′
+
+n, the zeros ξi of T (k+1)
+
+n
+
+are located in the intervals cos π(i+k)
+
+n <
+
+n , and for the distance between two consecutive ξi we have
+
+δk = max
+
+i
+
+ξi −
+
+|
+
+ξi+1| ≤
+
+Corollary 7.5 We have
+
+max
+i
+
+(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+max
+x∈[0,ω1]
+
+cos
+
+πi
+n −
+
+cos
+
+π(i + (k + 1))
+n
+
+2 sin
+
+≤
+
+π(k + 1)
+2n
+
+.
+
+(cid:12)
+(cid:12)
+(cid:12)
+(cid:12)
+
+(7.1)
+
+m1(x, σn)
+
+1
+2
+
+≤
+
+T ′
+n(1) .
+
+17
+
+Proof. a) For n = 4, we have
+
+T4(x) = 8x4
+
+−
+
+8x2 + 1,
+
+T ′
+4(x) = 16(2x3
+
+x),
+
+−
+
+T ′′
+4 (x) = 16(6x2
+
+1),
+
+−
+
+ω1 = 1/√6,
+
+δ1/2 = 1/√6,
+
+4(ω1) = 32/3√6 = 2/3√6T ′
+T ′
+
+n(1) ,
+
+so that
+
+hence
+
+α4 =
+
+1
+
+−
+
+1
+1/√6
+
+2
+3√6
+
+< 0.46
+
+0.5 .
+
+≤
+
+b) For n = 5, we have
+
+Tt(x) = 16x5
+
+−
+
+20x3 + x,
+
+T ′
+5(x) = 5(16x4
+
+−
+
+12x2 + 1),
+
+T ′′
+5 (x) = 40x(8x3
+
+3),
+
+−
+
+so that
+
+and
+
+ω1 =
+
+3
+8
+
+,
+
+r
+
+δ1/2 =
+
+1
+2 r
+
+3
+8
+
+,
+
+1
+
+1
+2
+
+1
+4
+
+3
+8
+
+T ′
+5(ω1) =
+
+25
+4
+
+=
+
+1
+4
+
+T ′
+5(1) ,
+
+< 0.361
+
+1/2 .
+
+≤
+
+α5 =
+
+1
+
+−
+
+c) For n
+
+≥
+
+6, we have T ′
+
+n(ω1)
+
+≤
+
+q
+n(1), hence
+
+1
+
+4 T ′
+
+αn ≤
+
+1
+
+−
+
+1
+sin π
+n
+
+1
+4 ≤
+
+1/2 .
+
+(cid:3)
+
+8 Proof of Theorem 1.3, the case k
+
+n
+
+2
+
+−
+
+≤
+
+Theorem 8.1 We have
+
+max
+x0∈[ωk,1]
+
+m∗
+
+k(x0, σ)
+
+≤
+
+mk(1, σ),
+
+σ
+
+0
+
+≤
+
+≤
+
+σn.
+
+Proof. 1) The case σ
+
+≤
+
+θk. By Lemma 5.3, we have
+
+while
+
+m∗
+
+k(x0, σ)
+
+T (k)
+n−1(1) ,
+
+≤
+
+mk(1, σ) > mk(1, σ0) = T (k)
+
+n−1(1).
+
+2) The case σ > θk. In this case
+
+m∗
+
+k(x0, σ)
+
+1
+k + 1
+
+n
+
+≤
+
+1
+−
+1 + k
+
+n
+
+−
+
+(cid:18)
+
+k/n
+
+σ
+θk (cid:19)
+
+T (k)
+n (1) = γ
+
+t
+α
+
+(cid:18)
+
+k/n
+
+(cid:19)
+
+T (k)
+n (1) ,
+
+and
+
+where
+
+α :=
+
+mk(1, σ)
+
+(1
+
+−
+
+≥
+
+t)T (k)
+
+n−1(1) + tT (k)
+
+n (1) = (β(1
+
+t) + t) T (k)
+
+n (1) ,
+
+−
+
+n
+−
+2(2n
+
+−
+
+(k + 1)
+
+(k + 1))
+
+,
+
+β :=
+
+T (k)
+n−1(1)
+T (k)
+n (1)
+
+n
+
+=
+
+1
+
+−
+n
+
+n
+
+k
+−
+1 + k
+
+,
+
+n
+
+−
+
+t := σ/σn .
+
+18
+
+So, we need to prove that
+
+f (t) := γ
+
+t
+α
+
+(cid:18)
+
+k/n
+
+(cid:19)
+
+β(1
+
+−
+
+≤
+
+t) + t =: g(t) ,
+
+[α, 1] .
+
+t
+
+∈
+
+The function f is concave, therefore it is bounded from above by its tangent ℓ at t = 2α, i.e.
+
+So, we are done, once we prove that
+
+f (t)
+
+≤
+
+ℓ(t) = γ2k/n
+
+1 +
+
+(cid:18)
+
+t
+
+k
+n
+
+2α
+
+−
+2α
+
+.
+
+(cid:19)
+
+ℓ(t)
+
+≤
+
+g(t) on[α, 1].
+
+Both functions are straight lines, so we need to check this inequality only at the end-points.
+
+1) At t = α, we have
+
+ℓ(α) = γ2k/n
+
+k
+2n
+
+1
+(cid:18)
+
+−
+
+γ
+
+1 +
+
+(cid:18)
+
+≤
+
+(cid:19)
+
+k
+n
+
+,
+
+(cid:19)
+
+g(α)
+
+≥
+
+g(0) = β .
+
+So, we need the inequality
+
+γ
+
+n + k
+
+n ≤
+
+β
+
+⇔
+
+1
+k + 1
+
+n
+
+amd the latter is valid for k
+
+n
+
+≤
+
+−
+
+2) At t = 1, we have g(1) = 1, while
+
+n
+
+1
+−
+1 + k
+
+−
+2.
+
+n + k
+
+n
+
+n ≤
+
+1
+
+−
+n
+
+n
+
+n
+
+−
+
+k
+
+−
+1 + k ⇔
+
+n + k
+k + 1 ≤
+
+k ,
+
+n
+
+−
+
+ℓ(1) = γ2k/n
+
+1 +
+
+k
+n
+
+1
+
+2α
+
+−
+2α
+
+=
+
+1
+k + 1
+
+n
+
+1
+−
+1 + k
+
+n
+
+−
+
+2k/n
+
+1 +
+
+(cid:18)
+
+k
+n
+
+n
+(k + 1))
+
+.
+
+(cid:19)
+
+(n
+
+−
+
+(cid:18)
+Expression in the parenthesis is less than 1 + k, so
+
+(cid:19)
+
+Theorem 8.2 We have
+
+ℓ(1)
+
+≤
+
+2k/n n
+n
+−
+
+1
+
+−
+1 + k ≤
+
+n + k
+n
+
+n
+
+1
+−
+1 + k
+
+n
+
+−
+
+< 1.
+
+max
+x∈[0,ωk]
+
+mk(x, σ)
+
+≤
+
+mk(1, σ),
+
+σ
+
+0
+
+≤
+
+≤
+
+σn.
+
+Proof. 1) For k
+
+≥
+
+2, we use the estimates
+
+mk(x, σ)
+
+3
+2k + 1
+
+≤
+
+T (k)
+n−1(1) +
+
+2
+2k + 1
+
+2(k + 1)
+n + k
+
+t T (k)
+
+n (1) =: ℓ1(t) .
+
+and
+
+To prove that ℓ1(t)
+
+≤
+
+mk(1, σ)
+
+(1
+
+≥
+
+−
+
+t)T (k)
+
+n−1(1) + tT (k)
+
+n (1) =: ℓ2(t),
+
+ℓ2(t) it is suﬃcient to compare their values at the end-points:
+
+ℓ1(0) =
+
+ℓ1(1)
+
+3
+2k + 1
+5
+2k + 1
+
+≤
+
+T (k)
+n−1(1)
+
+T (k)
+n−1(1) = ℓ2(0) ,
+
+≤
+
+T (k)
+n (1)
+
+≤
+
+T (k)
+n (1) = ℓ2(1) .
+
+2) For k = 1, we use the following estimates:
+
+mk(1, σ)
+
+≥
+
+mk(1, σ0) = T ′
+
+n−1(1) =
+
+(n
+
+1)2
+
+−
+n2
+
+T ′
+n(1)
+
+9
+16
+
+≥
+
+T ′
+n(1) ,
+
+and
+
+mk(x, σ)
+
+≤
+
+mk(x, σn)
+
+1
+2
+
+≤
+
+T ′
+n(1) .
+
+19
+
+9 Proof of Theorem 1.3: the case k = n
+
+1
+
+−
+
+Here we cover the case k = n
+
+1 for 0
+
+σ
+
+≤
+
+≤
+
+σn.
+
+−
+
+Theorem 9.1 We have
+
+mn−1(x, σ)
+
+≤
+
+mn−1(1, σ) = Z (n−1)
+
+n
+
+(1, σ),
+
+σ
+
+0
+
+≤
+
+≤
+
+σn .
+
+Proof. For f
+f at the points of local extrema of Zn(
+·
+
+∞(σ), let l
+
+∈
+
+W n
+
+∈ Pn−1 be the Lagrange polynomial of degree n
+
+1 that interpolates
+
+−
+
+, σ) on the interval [
+
+1, 1], i.e.
+
+−
+< τn−2 < τn−1 = 1.
+
+l(τi, σ) = f (τi),
+
+1 = τ0 < τ1 <
+
+−
+
+· · ·
+
+Then
+
+f (n−1)(x) = l(n−1)(x, σ) + (f (n−1)(x)
+
+l(n−1)(x, σ))
+
+Dn−1(x, σ)
+k
+
+f
+
+k
+
++ Ωn−1(x, σ)
+k
+
+≤
+
+f (n)
+
+,
+
+k
+
+−
+
+where
+
+Dn−1(x, σ) := sup
+
+kpn−1k∗=1 |
+
+p(n−1)
+n−1 (x)
+|
+
+,
+
+Ωn−1(x, σ) := sup
+
+kf (n)k=1 |
+
+f (n−1)(x)
+
+l(n−1)(x, σ)
+|
+
+.
+
+−
+
+Therefore,
+
+mn−1(x, σ)
+
+Dn−1(x, σ) + Ωn−1(x, σ)σ .
+
+≤
+
+1) It is known that the extremum value Dn−1(x, σ) (which is a constant, since p(n−1)
+
+is attained by the polynomial p
+
+∈ Pn−1 such that
+
+It is easy to see that, with
+
+p(τi, σ) = (
+
+−
+
+1)i,
+
+i = 0, . . . , n
+
+1 .
+
+−
+
+ω(x, σ) :=
+
+(x
+
+τi),
+
+−
+
+we have
+
+Y
+
+−
+Indeed, (9.2) is clearly fulﬁlled, and p is of degree n
+polynomials on the right-hand side are equal to σ/n!. Therefore
+
+−
+
+p(x) = Zn(x, σ)
+
+ω(x, σ) .
+
+σ
+n!
+
+1 because the leading coeﬃcients of both
+
+Dn−1(x, σ) = p(n−1)(1, σ) = Z (n−1)
+
+n
+
+(1, σ)
+
+σ
+n!
+
+−
+
+ω(n−1)(1, σ) > 0.
+
+(9.3)
+
+2) For Ωn−1(x, σ) we show below that
+
+Ωn−1(x, σ)
+
+≤
+
+Ωn−1(1, σ) =
+
+1
+n!
+
+ω(n−1)(1, σ) .
+
+Thus, from (9.1)-(9.4), we obtain
+
+mn−1(x, σ)
+
+Z (n−1)
+n
+
+(1, σ)
+
+≤ |
+
+σ
+n!
+
+−
+
+ω(n−1)(1, σ)
+|
+
++
+
+σ
+n!
+
+|
+
+ω(n−1)(1, σ)
+|
+
+= Z (n−1)
+n
+
+(1, σ) ,
+
+and theorem is proved.
+
+Lemma 9.2 We have
+
+Ωn−1(x, σ)
+
+≤
+
+Ωn−1(1, σ) =
+
+1
+n!
+
+ω(n−1)(1, σ) .
+
+(9.4)
+
+(cid:3)
+
+(9.5)
+
+20
+
+(9.1)
+
+const)
+
+≡
+
+(9.2)
+
+Proof. For Ωn−1(x, σ) we have the convex majorant
+
+Ωn−1(x, σ)
+
+≤
+
+Ω∗
+
+n−1(x, σ) =
+
+1
+n
+
+n−1
+
+i=0
+X
+
+x
+
+|
+
+τi(σ)
+|
+
+,
+
+−
+
+so that
+
+We note that
+
+Ωn−1(x, σ)
+
+max
+
+{
+
+≤
+
+Ω∗
+
+n−1(0, σ), Ω∗
+
+n−1(1, σ)
+}
+
+Ω∗
+
+n−1(1, σ) = 1
+
+1
+n
+
+−
+
+τi(σ) =
+
+1
+n! |
+
+ω(n−1)(1, σ)
+|
+
+= Ωn−1(1, σ) ,
+
+so we need to prove that
+
+X
+
+c1(σ) :=
+
+1
+n
+
+n
+
+|
+
+i=1
+X
+
+τi(σ)
+
+| ≤
+
+1
+n
+
+1
+
+−
+
+n
+
+i=1
+X
+
+τi(σ) =: c2(σ) .
+
+For large n, this inequality is self-evident because the alternation points τi(σ) are spread suﬃciently
+uniform in the interval [
+
+1. But we need it for all n
+
+2.
+
+1, 1], therefore c1(σ) < 1 while c2 →
+
+−
+
+We will use the monotonicity property of τi(σ) as functions of σ. We have
+
+≥
+
+Here, τi(σ0) are zeros of (x2
+
+−
+
+1)T ′
+
+n−1(x) and τi(σn) are zeros of (x
+
+1)T ′
+
+n(x), therefore
+
+−
+
+τi(σ0)
+
+τi(σ)
+
+≤
+
+≤
+
+τi(σn) .
+
+(9.6)
+
+cos
+
+It follows that
+
+π((n
+n
+
+i)
+−
+1 ≤
+
+−
+
+τi(σ)
+
+c2(σ) = 1
+
+On the other hand, with m =
+
+⌊
+
+≤
+
+1
+n
+
+n
+
+−
+n
+,
+2 ⌋
+
+cos
+
+π(n
+−
+n
+
+i)
+
+,
+
+i = 1, . . . , n
+
+1,
+
+−
+
+τn(σ) = 1.
+
+τi(σ)
+
+1
+
+−
+
+≥
+
+1
+n
+
+τi(σn) = 1
+
+1
+n
+
+.
+
+−
+
+X
+
+X
+
+τi(σ)
+
+| ≤
+
+|
+
+X
+
+m
+
+i=1
+X
+
+τi(σ0)
+|
+
+|
+
++
+
+i=m+1
+X
+
+τi(σn)
+|
+
+|
+
+=
+
+cos
+
+m−1
+
+i=0
+X
+
+πi
+
+−
+
+n
+
++
+
+1
+
+m−1
+
+i=0
+X
+
+cos
+
+πi
+n ≤
+
+1 +
+
+1
+sin π
+2n
+
+,
+
+where we used the inequality
+
+m−1
+
+cos ix =
+
+i=0
+X
+a) For n
+
+1
+2
+
++
+
+1
+2
+
++
+
+m−1
+
+i=1
+X
+
+cos ix
+
+!
+
+=
+
+1
+2
+
++
+
+sin(m
+
+1
+2 )x
+−
+2 sin 1
+2 x ≤
+
+1
+2
+
++
+
+1
+2 sin π
+2n
+
+,
+
+x
+
+∈ {
+
+π
+n
+
+,
+
+n
+
+π
+
+−
+
+.
+
+1 }
+
+6 we have
+
+≥
+
+c1(σ)
+
+1
+n
+
++
+
+1
+n sin π
+
+2n ≤
+
+1
+6
+
++
+
+1
+6 sin π
+12
+
+≤
+
+= 0.81 <
+
+5
+6
+
+< 1
+
+1
+n ≤
+
+−
+
+c2(σ) .
+
+b) For n = 5,
+
+c1(σ)
+
+1
+5
+
+≤
+
+1 + cos
+
+(cid:18)
+
+π
+4
+
++ 1 + cos
+
+π
+5
+
++ cos
+
+2π
+5
+
+(cid:19)
+
+= 0.76 <
+
+4
+5
+
+= Ωn−1(1, σ) .
+
+c) For n = 3 and n = 4, we cannot obtain the inequality c1(σ)
+
+(9.6). In these cases we split the interval [σ0, σn] into two parts:
+
+≤
+
+c2(σ) through the estimates
+
+1)
+
+τi(σ0)
+
+τi(σ)
+
+≤
+
+≤
+
+τi(
+
+σn) ,
+
+σ
+
+∈
+
+[σ0,
+
+σn];
+
+2) σ
+
+[
+
+σn, σn] ,
+
+∈
+
+b
+
+b
+
+b
+
+21
+
+ 
+where the second interval conatins σ such that Zn(
+·
+from the interval [
+
+n , 1] to a slightly larger interval [
+
+cos π
+
+−
+
+, σ) are the Chebyshev polynomials stretched
+
+cos φ, 1] up to [
+
+−
+
+1, 1], i.e.
+
+−
+= cos2 π
+2n
+
+.
+
+1 + cos π
+n
+2
+
+Zn(x, σ) = Tn(1 + s(x
+
+1)) ,
+
+−
+
+[sn, 1],
+
+s
+
+∈
+
+sn :=
+
+The alternation points of such Zn are given by
+
+τi(σ) = (1 + t) cos
+
+i)π
+
+(n
+
+−
+n
+
+t,
+
+−
+
+[0, tn],
+
+t
+
+∈
+
+tn = tan2 π
+2n
+
+.
+
+c1) Consider ﬁrst the case σ
+For n = 2,
+
+∈
+
+[0,
+
+σn].
+
+For n = 3, we have
+
+τ1(σ) =
+b
+
+1,
+
+−
+
+τ2(σ) = 1 .
+
+τ1(σ) =
+
+1,
+
+−
+
+τ2(σ)
+
+0
+
+≤
+
+≤
+
+1
+3
+
+,
+
+τ3(σ) = 1,
+
+so that
+
+For n = 4,
+
+c1(σ) =
+
+1
+3
+
+3
+
+|
+
+i=1
+X
+
+τi(σ)
+
+| ≤
+
+7
+9
+
+,
+
+c2(σ)
+
+1
+
+−
+
+≥
+
+1
+3
+
+τi(
+
+σn) =
+
+8
+9
+
+.
+
+X
+
+b
+
+τ1(σ) =
+
+1,
+
+−
+
+1
+2 ≤
+
+−
+
+τ2(σ)
+
+(3
+
+−
+
+≤ −
+
+2√2),
+
+1
+2 ≤
+
+τ3(σ)
+
+4√2
+
+5,
+
+−
+
+≤
+
+τ4(σ) = 1,
+
+so that
+
+c1(σ)
+
+1
+4
+
+≤
+
+c2) In the case σ
+
+[
+
+∈
+
+4
+
+> 0.78,
+
+Ωn−1(1, σ)
+
+τi(σ)
+|
+
+|
+
+i=1
+X
+σn, σ], we have
+
+1
+
+−
+
+≥
+
+1
+4
+
+τi(
+
+σn) = 0.87 .
+
+X
+
+b
+
+b
+τi(
+
+σ) = (1 + t) cos
+
+i)π
+
+(n
+
+−
+n
+
+t,
+
+−
+
+[0, tan2 π
+2n
+
+],
+
+t
+
+∈
+
+and, for n = 2,
+
+c1(σ) =
+
+b
+
+4
+
+i=1
+X
+
+1
+2
+
+τi(σ)
+|
+
+|
+
+=
+
+1 + t
+2
+
+,
+
+c2(σ) = 1
+
+1
+2
+
+−
+
+τi(σ) =
+
+1 + t
+2
+
+,
+
+X
+
+while for n = 3,
+
+c1(σ) =
+
+1
+3
+
+3
+
+i=1
+X
+
+whereas for n = 4,
+
+τi(σ)
+|
+
+|
+
+=
+
+2 + t
+3
+
+,
+
+c2(σ) = 1
+
+1
+3
+
+−
+
+τi(σ) =
+
+2 + 2t
+3
+
+,
+
+X
+
+1
+4
+
+−
+
+τi(σ) =
+
+3 + 3t
+4
+
+.
+
+X
+
+c1(σ) =
+
+τi(σ)
+|
+
+|
+
+=
+
+√2 + 1
+4
+
+1
+4
+
+4
+
+i=1
+X
+
+(1 + t),
+
+c2(σ) = 1
+
+22
+
+10 Lower bounds for Bn,k
+
+In Lemma 2.11, we proved that
+
+mk(1, Is)
+
+Bn,k ,
+
+≥
+
+where Bn,k is the best constant in the Landau-Kolmogorov inequality on the half-line subject to
+normalization as given below:
+
+Bn,k = sup
+
+{|
+
+f (k)(1)
+|
+
+:
+
+f
+
+k[−∞,1] =
+
+,
+
+Tnk
+
+k
+
+k
+
+k
+
+f (n)
+
+k[−∞,1] =
+
+T (n)
+n k}
+
+k
+
+.
+
+So, any lower bound for Bn,k serves as a lower bound for mk(1, Is).
+
+If g is an arbitrary function from W n
+∞[
+
+, 1], then its linear transfromation
+
+−∞
+
+Tnk
+f (x) := k
+g
+k
+k
+is a properly normalized function, and
+
+g
+
+x
+
+·
+
+g
+k
+k
+Tnk
+k
+
+(cid:16)
+
+1/n
+
+T (n)
+n
+g(n)
+
+k
+k
+
+k
+k (cid:17)
+
+!
+
+Bn,k ≥
+
+sup
+f |
+
+f (k)(1)
+|
+
+= sup
+
+g
+
+g
+
+k
+
+k
+
+where
+
+g(k)(1)
+|
+g(n)
+
+|
+1−k/n
+
+k
+
+k/n k
+
+Tnk
+
+1−k/n
+
+T (n)
+n k
+
+k
+
+k/n =: γn,kT (k)
+
+n (1) ,
+
+k
+
+γn,k = Cn,k/Tn,k,
+
+Cn,k := sup
+
+g(k)(1)
+|
+g(n)
+
+|
+1−k/n
+
+g
+
+k/n ,
+
+Tn,k :=
+
+T (k)
+n (1)
+|
+|
+T (n)
+1−k/n
+n
+
+.
+
+k/n
+
+Tnk
+
+k
+The constant Cn,k is the best constant in the LK-inequality on the half-line in the homogeneous
+form
+
+k
+
+k
+
+k
+
+k
+
+k
+
+k
+
+Stechkin proved that
+
+g(k)(1)
+
+| ≤
+
+|
+
+Cn,kk
+
+g
+
+k
+
+1−k/n
+
+g(n)
+
+k
+
+k
+
+k/n .
+
+Cn,k ≥
+
+k!
+(2k)!
+
+(2n)!
+n!
+
+(cid:16)
+
+(cid:17)
+
+k/n
+
+and Cn,k ≥
+
+(2n!)1−k/n
+k)!
+
+(n
+
+−
+
+,
+
+whichever is preferrable. He also showed that
+
+n
+p
+
+a
+
+(cid:16)
+
+Lemma 10.1 We have
+
+where
+
+Proof. We have
+
+p
+
+(cid:17)
+
+Cn,k ≤
+
+Tn,k ≤
+
+≤
+
+p
+
+,
+
+2n
+p
+
+A
+
+(cid:16)
+
+(cid:17)
+
+p = min(k, n
+
+k) .
+
+−
+
+Bn,k ≥
+
+γn,kT (k)
+
+n (1),
+
+γn,k ≥
+
+(2/e)2k
+
+Cn,k =
+
+k!
+(2k)!
+
+(cid:16)
+
+(2n)!
+n!
+
+(cid:17)
+
+k/n
+
+,
+
+Tn,k =
+
+2kk!
+(2k)!
+
+n2(n2
+
+−
+
+so that
+
+(n2
+
+12)
+−
+(2n−1n!)k/n
+
+· · ·
+
+1)2)
+
+(k
+
+−
+
+,
+
+γn,k ≥
+
+Cn,k/Tn,k =
+
+n2(n2
+
+>
+
+n2(n2
+
+−
+
+−
+
+12)
+
+2−k/n
+(n2
+
+· · ·
+
+n2k
+
+12)
+
+· · ·
+
+(n2
+
+(2n)!k/n
+
+(10.1)
+
+(2/e)2k > (2/e)2k ,
+
+(10.2)
+
+(k
+
+(k
+
+−
+
+−
+
+−
+
+−
+
+1)2)
+
+1)2)
+
+where we used
+
+(2n)!k/n >
+
+√4πn(2n/e)2n
+
+k/n
+
+> 2k/nn2k(2/e)2k .
+
+(cid:16)
+
+(cid:17)
+
+23
+
+ 
+Lemma 10.2 For n
+
+15, and 1
+
+k
+
+n
+
+−
+
+≤
+
+≤
+
+≤
+
+1, we have
+
+Cn,k >
+
+T (k)
+n+m(1)
+T (n)
+n+m(1)k/n
+
+,
+
+where
+
+m = 1,
+
+3
+
+6,
+
+n
+
+≤
+
+≤
+
+m = 2,
+
+7
+
+n
+
+≤
+
+≤
+
+10,
+
+m = 3,
+
+11
+
+n
+
+≤
+
+≤
+
+14 .
+
+Proof. For x
+
+[
+
+−
+
+∈
+
+1, 1], consider the function
+
+g(x) := gn,m(x) := φ(x)Tn+m(x),
+
+φ(x) = cn
+
+x
+
+−1
+
+Z
+
+(1
+
+−
+
+t2)n dt, φ(1) = 1 ,
+
+where the last equality deﬁnes the constant cn. We extend it to the half-line [
+gn,m(x) = 0 for x <
+
+1. Then
+
+−
+
+, 1] by setting
+
+−∞
+
+W n
+∞[
+
+g
+
+∈
+
+, 1],
+
+−∞
+
+g(k)(1) = T (k)
+
+n+m(1),
+
+k = 1, . . . , n ,
+
+and
+
+Cn,k ≥
+
+g
+
+k
+
+g(k)(1)
+|
+g(n)
+
+|
+1−k/n
+
+k
+
+k/n = |
+k
+
+k
+
+g(k)(1)
+|
+k/n
+g(n)
+[−1,1]
+
+k
+
+.
+
+k
+g(n)
+
+So, we are done once we prove that
+graph of the function g(n) = g(n)
+and m given above, it attains its maximum at x = 1.
+
+k[−1,1] = g(n)(1). The latter is proved numerically: the
+1, 1], for the values n
+
+n,m (provided by MAPLE) shows that, on [
+
+−
+
+k
+
+Corollary 10.3 We have
+
+where
+
+mk(1, Is) > γn,kT (k)
+
+n (1)
+
+γn,k =
+
+T (k)
+n+m(1)
+T (k)
+n (1)  
+
+k/n
+
+T (n)
+n (1)
+T (n)
+n+m(1) !
+
+.
+
+11 Proof of Theorem 1.4
+
+1) For k = 1, we have the inequality
+
+where, by (10.1)-(10.2),
+
+m1(1, Is)
+
+≥
+
+Bn,1 = γn,1T ′
+
+n(1),
+
+γn,1 =
+
+2−1/n
+n2
+
+(2n)!1/n > (2/e)2 > 0.541,
+
+γ3,1 > 0.79.
+
+(10.3)
+
+We proved in (7.1) that
+
+and we also have
+
+where
+
+αn,1 =
+
+1
+3
+
+(cid:18)
+
+2) For k = 2, we have
+
+2(2n
+n
+
+−
+2
+
+−
+
+m1(x, σn)
+
+1
+2
+
+≤
+
+T ′
+n(1) ,
+
+[0, ω1] ,
+
+x
+
+∈
+
+m∗
+
+1(x, σn)
+
+≤
+
+αn,1T ′
+
+n(1),
+
+[ω1, 1] ,
+
+x
+
+∈
+
+1/n
+
+2)
+
+(cid:19)
+
+α4,1 =
+
+≤
+
+1
+3
+
+61/4 < 0.522, n
+
+4,
+
+≥
+
+α3,1 = 2/3 .
+
+m2(1, Is)
+
+Bn,2 ≥
+
+≥
+
+γn,2T ′′
+
+n (1),
+
+24
+
+where
+
+γn,2 =
+
+For the upper bounds, we have
+
+2−2/n
+
+n2(n2
+
+1)
+
+−
+
+(2n)!2/n > (2/e)4 > 0.293 .
+
+and
+
+where
+
+m∗
+
+2(x, σn)
+
+≤
+
+αn,2T ′′
+
+n (1),
+
+αn,2 = 0.23
+
+(cid:18)
+
+m2(x, σn)
+
+≤
+
+βn,2 T ′′
+
+n (1) ,
+
+2(2n
+(n
+
+3)
+
+−
+3)
+
+−
+
+2/n
+
+(cid:19)
+
+βn,2 =
+
+1
+5
+
+8
+11
+
+1
+sin 3π
+
+2n )2
+
+(1
+
+−
+
+< 0.28, n
+
+16,
+
+≥
+
+βn,2 =
+
+3
+5
+
+, n < 16 .
+
+We put all the values in the table.
+
+n = 4
+
+5
+
+αn,2
+
+βn,2
+
+γn,2
+
+0.72
+
+−
+0.79
+
+≤
+
+≤
+
+≤
+
+≥
+
+15
+
+n
+
+≤
+0.50
+
+0.60
+
+0.63
+
+16
+
+≥
+0.277
+
+0.288
+
+0.293
+
+n
+
+≤
+
+≤
+
+≥
+
+25
+
+12 Proof of Theorem 1.5
+
+The values of γn,k in (10.3):
+
+k/n
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+14
+
+15
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+0.87
+
+0.87
+
+0.87
+
+0.82
+
+0.82
+
+0.82
+
+0.82
+
+0.79
+
+0.79
+
+0.79
+
+0.80
+
+0.80
+
+0.79
+
+0.77
+
+0.77
+
+0.67
+
+0.67
+
+0.68
+
+0.68
+
+0.63
+
+0.63
+
+0.64
+
+0.64
+
+0.65
+
+0.72
+
+0.70
+
+0.57
+
+0.57
+
+0.57
+
+0.57
+
+0.50
+
+0.51
+
+0.51
+
+0.52
+
+0.52
+
+0.66
+
+0.51
+
+0.49
+
+0.49
+
+0.49
+
+0.41
+
+0.41
+
+0.42
+
+0.42
+
+0.43
+
+0.50
+
+0.45
+
+0.43
+
+0.43
+
+0.34
+
+0.34
+
+0.34
+
+0.35
+
+0.35
+
+0.46
+
+0.41
+
+0.39
+
+0.30
+
+0.29
+
+0.29
+
+0.29
+
+0.29
+
+0.43
+
+0.38
+
+0.27
+
+0.26
+
+0.25
+
+0.25
+
+0.25
+
+0.41
+
+0.27
+
+0.25
+
+0.23
+
+0.22
+
+0.22
+
+0.31
+
+0.25
+
+0.22
+
+0.21
+
+0.20
+
+0.29
+
+0.23
+
+0.20
+
+0.19
+
+0.28
+
+0.22
+
+0.19
+
+0.27
+
+0.20
+
+0.26
+
+The values of
+
+αn,k =
+
+1
+k + 1
+
+n
+
+k/n
+
+4
+
+5
+
+6
+
+7
+
+n
+
+−
+8
+
+1
+−
+1 + k
+
+(cid:18)
+
+9
+
+2(2n
+n
+
+−
+−
+10
+
+(k + 1))
+(k + 1)
+
+11
+
+k/n
+
+(cid:19)
+12
+
+13
+
+14
+
+15
+
+1
+
+2
+
+3
+
+4
+
+5
+
+6
+
+7
+
+8
+
+9
+
+10
+
+11
+
+12
+
+13
+
+0.58
+
+0.55
+
+0.54
+
+0.53
+
+0.53
+
+0.52
+
+0.52
+
+0.52
+
+0.51
+
+0.51
+
+0.51
+
+0.51
+
+0.63
+
+0.48
+
+0.43
+
+0.40
+
+0.39
+
+0.38
+
+0.37
+
+0.36
+
+0.36
+
+0.36
+
+0.35
+
+0.35
+
+0.63
+
+0.44
+
+0.37
+
+0.34
+
+0.32
+
+0.30
+
+0.30
+
+0.29
+
+0.28
+
+0.28
+
+0.28
+
+0.64
+
+0.42
+
+0.34
+
+0.30
+
+0.28
+
+0.26
+
+0.25
+
+0.24
+
+0.24
+
+0.23
+
+0.65
+
+0.40
+
+0.32
+
+0.28
+
+0.25
+
+0.24
+
+0.22
+
+0.22
+
+0.21
+
+0.67
+
+0.40
+
+0.31
+
+0.26
+
+0.24
+
+0.22
+
+0.21
+
+0.20
+
+0.68
+
+0.40
+
+0.30
+
+0.25
+
+0.22
+
+0.20
+
+0.19
+
+0.69
+
+0.39
+
+0.29
+
+0.24
+
+0.21
+
+0.19
+
+0.70
+
+0.39
+
+0.29
+
+0.24
+
+0.21
+
+0.71
+
+0.39
+
+0.29
+
+0.23
+
+0.72
+
+0.39
+
+0.28
+
+0.73
+
+0.39
+
+0.74
+
+It is readily seen that, for the values of k
+
+n above and on the shadowed cells, we have
+
+\
+αn,k ≤
+
+γn,k .
+
+26
+
+References
+
+[1] C. K. Chui, P. W. Smith, A note on Landau’s problem for bounded intervals, Amer. Math.
+
+Monthly 82 (1975), no. 9, 927–929.
+
+[2] P. Erd¨os, G. Szeg¨o, On a problem of I. Schur, Ann. of Math. (2) 43, (1942). 451–470.
+
+[3] B.-O. Eriksson, Some best constants in the Landau inequality on a ﬁnite interval, J. Approx.
+
+Theory 94 (1998), no. 3, 420–454.
+
+[4] S. Karlin, Oscillatory perfect splines and related extremal problems, in: Studies in spline
+
+functions and approximation theory, pp. 371–460. Academic Press, New York, 1976.
+
+[5] E. Landau, Einige Ungleichungen f¨ur zweimal diﬀerenzierbare Funktionen, Proc. London
+
+Math. Soc. 13 (1913), 43-39.
+
+[6] A. P. Matorin, On inequalities between the maxima of the absolute values of a function and
+its derivatives on a half-line, Ukrain. Mat. Zh. 7 (1955), 262–266 = Amer. Math. Soc. Transl.
+(2) 8 (1958), 13–17.
+
+[7] N. Naidenov, On an extremal problem of Kolmogorov type for functions from W 4
+
+∞([a, b]), East
+
+J. Approx. 9 (2003), no. 1, 117–135.
+
+[8] M. Sato, The Landau inequality for bounded intervals with f (3) ﬁnite, J. Approx. Theory 34
+
+(1982), no. 2, 159–166.
+
+[9] I. Schur, ¨Uber das Maximum des absoluten Betrages eines Polynoms in einem gegebenen
+
+Intervall, Math. Z. 4 (1919), no. 3-4, 271–287.
+
+[10] A. Shadrin, Twelve proofs of the Markov inequality, in: Approximation theory: a volume
+dedicated to Borislav Bojanov, 233–298, Prof. M. Drinov Acad. Publ. House, Soﬁa, 2004.
+
+[11] A. I. Zvyagintsev, Kolmogorov’s inequalities for n = 4, Latv. Mat. Ezhegodnik 26 (1982),
+
+165–175, 282 (in Russian).
+
+[12] A. I. Zvyagintsev, A. Ya. Lepin, Kolmogorov’s inequalities between the upper bounds of
+
+derivatives of functions for n = 3, Latv. Mat. Ezhegodnik 26 (1982), 176–181 (in Russian).
+
+27"
