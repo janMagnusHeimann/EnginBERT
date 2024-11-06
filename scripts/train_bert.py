@@ -77,7 +77,7 @@ for epoch in range(epochs):
     print("Epoch {epoch + 1}/{epochs} completed. Average Loss: {avg_loss:.4f}")
 
 
-# Save the model
+# Save the model4
 # Save the model and tokenizer
 model.save_pretrained('bert_classification_model')
 tokenizer.save_pretrained('bert_classification_model')

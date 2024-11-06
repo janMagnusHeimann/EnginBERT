@@ -1,17 +1,20 @@
 [build-system]
-requires = ["setuptools",  "setuptools-scm"]
+requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
- 
+
 [project]
 name = "aerospace-summarizer"
 authors = [
     { name = "Jan Heimann", email = "jan_heimann@icloud.com" },
-    
 ]
-description = "aerospace-summarizer"
-version = "0.0.1"
+description = "A domain-specific BERT model for engineering literature"
+version = "0.0.2"
 requires-python = ">=3.11"
-classifiers = ["Programming Language :: Python :: 3"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence"
+]
 dependencies = [
     "typer[all]",
     "numpy",
@@ -19,8 +22,12 @@ dependencies = [
     "natsort",
     "pandas",
     "tqdm",
+    "transformers>=4.30.0",
+    "torch>=2.0.0",  # Adjust based on your system's compatibility
+    "scikit-learn>=1.0",
+    "pdfminer.six>=20221105",
 ]
- 
+
 [project.optional-dependencies]
 dev = [
     "requests<2.32.0",
@@ -28,7 +35,7 @@ dev = [
     "syrupy>=4.6.1",
     "docker>=7.0.0",
     "flake8>=7.0.0",
-    "Flake8-pyproject>=1.2.3",
+    "flake8-pyproject>=1.2.3",
     "black>=24.3.0",
 ]
 docs = [
@@ -40,16 +47,15 @@ docs = [
     "sphinx-copybutton>=0.5.2",
 ]
 
- 
 [tool.black]
 line-length = 120
- 
+
 [tool.flake8]
 max-line-length = 120
 extend-ignore = ["E203"]
- 
+
 [project.scripts]
 rocketOptimizer = "rocket_optimizer.__main__:main"
- 
+
 [tool.pytest.ini_options]
 addopts = ["--import-mode=importlib"]
