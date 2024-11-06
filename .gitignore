@@ -28,6 +28,7 @@ MANIFEST
 
 # Exclude bert_classification_model folder
 bert_classification_model/
+data/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
