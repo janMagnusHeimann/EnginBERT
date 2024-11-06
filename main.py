@@ -2,17 +2,19 @@ import os
 import subprocess
 
 # Paths to the scripts
-data_script = 'scripts/data_arxiv.py'
-preprocess_script = 'scripts/preprocess_data.py'
-train_script = 'scripts/train_bert.py'
-evaluate_script = 'scripts/evaluate_model.py'
+data_script = "scripts/data_arxiv.py"
+preprocess_script = "scripts/preprocess_data.py"
+train_script = "scripts/train_bert.py"
+clustering_script = "scripts/evaluation_metrics/category_clustering.py"
+citation_script = 'scripts/evaluation_metrics/citation_evaluation.py'
+ir_script = 'scripts/evaluation_metrics/information_retrieval.py'
 
 
 def run_script(script_path):
     """Helper function to run a Python script."""
     print(f"\nRunning {script_path}...")
     result = subprocess.run([
-        'python', script_path], capture_output=True, text=True)
+        "python", script_path], capture_output=True, text=True)
     if result.returncode == 0:
         print(result.stdout)
     else:
@@ -38,12 +40,24 @@ def main():
     else:
         print(f"{train_script} not found. Please ensure the file exists.")
 
-    # Step 4: Evaluate the trained model
-    if os.path.exists(evaluate_script):
-        run_script(evaluate_script)
+    # Step 4: Evaluate category clustering
+    if os.path.exists(clustering_script):
+        run_script(clustering_script)
     else:
-        print(f"{evaluate_script} not found. Please ensure the file exists.")
+        print(f"{clustering_script} not found. Please ensure the file exists.")
+
+    # Step 5: Evaluate citation retrieval
+    if os.path.exists(citation_script):
+        run_script(citation_script)
+    else:
+        print(f"{citation_script} not found. Please ensure the file exists.")
+
+    # Step 7: Evaluate information retrieval
+    if os.path.exists(ir_script):
+        run_script(ir_script)
+    else:
+        print(f"{ir_script} not found. Please ensure the file exists.")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

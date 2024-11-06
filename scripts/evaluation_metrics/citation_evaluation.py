@@ -1,70 +1,67 @@
-import numpy as np
+import torch
+import pandas as pd
+from transformers import BertTokenizer, BertModel
 from sklearn.metrics.pairwise import cosine_similarity
-import logging
+import numpy as np
 
-# Configure logging to use DEBUG level
-logging.basicConfig(level=logging.DEBUG)
-
-
-def citation_classification(title_pairs, labels, model):
-    """
-    Evaluates an embedding model's performance in citation classification using cosine similarity.
-
-    Parameters:
-    - title_pairs: List of tuples containing pairs of paper titles.
-    - labels: List of binary labels indicating whether the titles in each pair are citing (1) or non-citing (0).
-    - model: Pre-trained embedding model capable of generating embeddings for paper titles.
-
-    Returns:
-    - accuracy: Cosine accuracy score representing the percentage of correct classifications.
-    """
-    
-    # Step 1: Generate embeddings for each title in the pairs
-    logging.debug("Generating embeddings for paper titles...")
-    title_embeddings = [(model.encode(title1), model.encode(title2)) for title1, title2 in title_pairs]
-
-    # Step 2: Compute cosine similarity between the embeddings for each pair
-    logging.debug("Computing cosine similarity between title pairs...")
-    similarities = [cosine_similarity([emb1], [emb2])[0, 0] for emb1, emb2 in title_embeddings]
-
-    # Step 3: Identify the optimal threshold for classification
-    # Note: Using a fixed threshold of 0.5 for simplicity. This can be adjusted based on validation.
-    logging.debug("Identifying optimal threshold for classification...")
-    threshold = 0.5  # Placeholder value; consider tuning this threshold for your specific use case
-
-    # Step 4: Classify each pair as citing (1) or non-citing (0) based on the threshold
-    logging.debug("Classifying title pairs using the computed threshold...")
-    predictions = [1 if sim >= threshold else 0 for sim in similarities]
-
-    # Step 5: Calculate accuracy (cosine accuracy)
-    logging.debug("Calculating cosine accuracy...")
-    accuracy = np.mean(np.array(predictions) == np.array(labels))
-
-    # Return the calculated accuracy
-    return accuracy
+# Load dataset, model, and tokenizer
+df = pd.read_csv('data/cleaned_processed_papers.csv')
+tokenizer = BertTokenizer.from_pretrained('bert_classification_model')
+model = BertModel.from_pretrained('bert_classification_model')
+model.eval()
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model.to(device)
 
 
-# Example usage:
-# Define a list of title pairs and corresponding labels
-# Export from some dataset
-title_pairs = [
-    ("Understanding Neural Networks", "Deep Learning: A Comprehensive Overview"),
-    ("Efficient Algorithms in Graph Theory", "Graph Coloring Techniques"),
-    # Add more title pairs as needed...
-]
-labels = [1, 0]  # Example labels (1: citing, 0: non-citing)
+# Helper function to get embeddings for a text
+def get_embedding(text):
+    inputs = tokenizer(text, return_tensors='pt', truncation=True,
+                       padding='max_length', max_length=512).to(device)
+    with torch.no_grad():
+        outputs = model(**inputs)
+        embedding = outputs.last_hidden_state.mean(dim=1).cpu().numpy()
+    return embedding
 
-# Assuming `model` is imported from a separate script where your embedding model is defined
-# Example: from your_model_script import model
 
-# Call the function and get the accuracy
-accuracy = citation_classification(title_pairs, labels, model)
-logging.debug(f"Cosine accuracy: {accuracy:.2f}")
+# Generate embeddings for all documents
+print("Generating embeddings for citation evaluation...")
+embeddings = np.vstack([get_embedding(text) for text in df['full_text']])
 
-# Commentary on Missing Elements:
-# 1. **Embedding Model**: Ensure your separate script provides a robust embedding model, and the `model.encode`
-#    method returns meaningful vector representations for the input titles.
-# 2. **Optimal Threshold**: The script uses a fixed threshold of 0.5. Depending on your use case, consider
-#    experimenting with different thresholds or using a validation set to find the optimal one.
-# 3. **Data Format**: Make sure your input data (title pairs and labels) are preprocessed and structured
-#    as expected by this script.
+# Assume 'citation_references' column contains lists of IDs
+# or titles of cited papers
+# Here we create a dummy reference list for demonstration;
+# replace with actual citation data if available
+df['citation_references'] = df['title'].apply(lambda x: [x])  # Dummy data;
+# replace with actual citations
+
+# Define top-k for evaluation
+top_k = 5
+
+
+# Calculate precision@k for citation retrieval
+def precision_at_k(query_idx, top_k):
+    query_embedding = embeddings[query_idx].reshape(1, -1)
+    similarities = cosine_similarity(query_embedding, embeddings).flatten()
+
+    # Exclude the query document itself
+    similarities[query_idx] = -1
+
+    # Get the indices of the top-k most similar papers
+    top_k_indices = similarities.argsort()[-top_k:][::-1]
+
+    # Retrieve titles for top-k documents
+    retrieved_titles = df.iloc[top_k_indices]['title'].tolist()
+    true_references = set(df.iloc[query_idx]['citation_references'])
+
+    # Calculate precision@k
+    relevant_retrieved = sum(
+        1 for title in retrieved_titles if title in true_references)
+    precision = relevant_retrieved / top_k
+    return precision
+
+
+# Evaluate precision@k for all documents
+precision_scores = [precision_at_k(i, top_k) for i in range(len(df))]
+average_precision_at_k = np.mean(precision_scores)
+
+print(f"Average Precision@{top_k} for Citation Evaluation: {average_precision_at_k:.4f}")
