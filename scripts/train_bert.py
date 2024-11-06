@@ -74,7 +74,7 @@ for epoch in range(epochs):
         optimizer.step()
         total_loss += loss.item()
     avg_loss = total_loss / len(dataloader)
-    print(f"Epoch {epoch + 1}/{epochs} completed. Average Loss: {avg_loss:.4f}")
+    print("Epoch {epoch + 1}/{epochs} completed. Average Loss: {avg_loss:.4f}")
 
 
 # Save the model

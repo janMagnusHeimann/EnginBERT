@@ -80,5 +80,7 @@ for i in range(len(df)):
 average_precision_at_k = np.mean(precision_scores)
 mean_reciprocal_rank = np.mean(mrr_scores)
 
-print(f"Average Precision@{top_k} for Information Retrieval: {average_precision_at_k:.4f}")
-print(f"Mean Reciprocal Rank (MRR) for Information Retrieval: {mean_reciprocal_rank:.4f}")
+print(f"Average Precision@{top_k} for Information Retrieval: "
+      f"{average_precision_at_k:.4f}")
+print(f"Mean Reciprocal Rank (MRR) for Information Retrieval: "
+      f"{mean_reciprocal_rank:.4f}")

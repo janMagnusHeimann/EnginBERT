@@ -64,4 +64,5 @@ def precision_at_k(query_idx, top_k):
 precision_scores = [precision_at_k(i, top_k) for i in range(len(df))]
 average_precision_at_k = np.mean(precision_scores)
 
-print(f"Average Precision@{top_k} for Citation Evaluation: {average_precision_at_k:.4f}")
+print("Average Precision@{top_k} for Citation Evaluation: "
+      f"{average_precision_at_k:.4f}")
