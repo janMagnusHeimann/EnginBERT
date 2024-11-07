@@ -1,17 +1,11 @@
 import torch
-import pandas as pd
-from transformers import BertTokenizer, BertModel
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
+import os
+import sys
 import numpy as np
-
-# Load dataset and model
-df = pd.read_csv('data/cleaned_processed_papers.csv')
-tokenizer = BertTokenizer.from_pretrained('bert_classification_model')
-model = BertModel.from_pretrained('bert_classification_model')
-model.eval()
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model.to(device)
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+from scripts.model_and_tokenizer import df, tokenizer, model, device
 
 
 # Helper function to get embeddings

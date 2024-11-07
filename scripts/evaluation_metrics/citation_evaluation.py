@@ -1,17 +1,10 @@
 import torch
-import pandas as pd
-from transformers import BertTokenizer, BertModel
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
-
-# Load dataset, model, and tokenizer
-df = pd.read_csv('data/cleaned_processed_papers.csv')
-tokenizer = BertTokenizer.from_pretrained('bert_classification_model')
-model = BertModel.from_pretrained('bert_classification_model')
-model.eval()
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model.to(device)
-
+import os
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+from scripts.model_and_tokenizer import df, tokenizer, model, device
 
 # Helper function to get embeddings for a text
 def get_embedding(text):

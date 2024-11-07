@@ -5,6 +5,7 @@ import subprocess
 data_script = "scripts/data_arxiv.py"
 preprocess_script = "scripts/preprocess_data.py"
 train_script = "scripts/train_bert.py"
+model_tokenizer_script = "scripts/Model_and_tokenizer.py"
 clustering_script = "scripts/evaluation_metrics/category_clustering.py"
 citation_script = 'scripts/evaluation_metrics/citation_evaluation.py'
 ir_script = 'scripts/evaluation_metrics/information_retrieval.py'
