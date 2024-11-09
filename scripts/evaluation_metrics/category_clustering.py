@@ -4,14 +4,11 @@ from sklearn.metrics import silhouette_score
 import os
 import sys
 import numpy as np
+from scripts.model_and_tokenizer import df, tokenizer, model, device
 
 # Import model, tokenizer, and dataset from model_and_tokenizer module
 sys.path.append(os.path.abspath(os.path.join(
     os.path.dirname(__file__), "../../")))
-from scripts.model_and_tokenizer import df, tokenizer, model, device
-
-
-
 
 
 # Helper function to get embeddings
