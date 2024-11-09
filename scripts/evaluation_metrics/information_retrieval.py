@@ -10,7 +10,8 @@ from scripts.model_and_tokenizer import df, tokenizer, model, device
 
 # Helper function to get embeddings
 def get_embedding(text):
-    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding="max_length", max_length=512).to(device)
+    inputs = tokenizer(text, return_tensors="pt", truncation=True,
+                       padding="max_length", max_length=512).to(device)
     with torch.no_grad():
         outputs = model(**inputs)
         embedding = outputs.last_hidden_state.mean(dim=1).cpu().numpy()
@@ -28,7 +29,8 @@ top_k = 5
 # For demonstration, assume each document should ideally retrieve
 # others in the same 'label' as relevant
 # In real-world scenarios, replace with actual ground truth pairs
-df["relevant_docs"] = df["labels"].apply(lambda label: df[df["labels"] == label].index.tolist())
+df["relevant_docs"] = df["labels"].apply(lambda label: df[
+    df["labels"] == label].index.tolist())
 
 
 # Calculate precision@k and MRR
@@ -72,5 +74,7 @@ for i in range(len(df)):
 average_precision_at_k = np.mean(precision_scores)
 mean_reciprocal_rank = np.mean(mrr_scores)
 
-print(f"Average Precision@{top_k} for Information Retrieval: " f"{average_precision_at_k:.4f}")
-print(f"Mean Reciprocal Rank (MRR) for Information Retrieval: " f"{mean_reciprocal_rank:.4f}")
+print(f"Average Precision@{top_k} for Information Retrieval: "
+      f"{average_precision_at_k:.4f}")
+print(f"Mean Reciprocal Rank (MRR) for Information Retrieval: "
+      f"{mean_reciprocal_rank:.4f}")

@@ -4,13 +4,16 @@ import numpy as np
 import os
 import sys
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
+sys.path.append(
+    os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from scripts.model_and_tokenizer import df, tokenizer, model, device
 
 
 # Helper function to get embeddings for a text
 def get_embedding(text):
-    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding="max_length", max_length=512).to(device)
+    inputs = tokenizer(
+        text, return_tensors="pt", truncation=True,
+        padding="max_length", max_length=512).to(device)
     with torch.no_grad():
         outputs = model(**inputs)
         embedding = outputs.last_hidden_state.mean(dim=1).cpu().numpy()

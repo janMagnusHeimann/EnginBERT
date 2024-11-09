@@ -5,7 +5,7 @@ import subprocess
 data_script = "scripts/data_arxiv.py"
 preprocess_script = "scripts/preprocess_data.py"
 train_script = "scripts/train_bert.py"
-model_tokenizer_script = "scripts/Model_and_tokenizer.py"
+mod_tok_script = "scripts/Model_and_tokenizer.py"
 clustering_script = "scripts/evaluation_metrics/category_clustering.py"
 citation_script = "scripts/evaluation_metrics/citation_evaluation.py"
 ir_script = "scripts/evaluation_metrics/information_retrieval.py"
@@ -14,7 +14,11 @@ ir_script = "scripts/evaluation_metrics/information_retrieval.py"
 def run_script(script_path):
     """Helper function to run a Python script."""
     print(f"\nRunning {script_path}...")
-    result = subprocess.run(["python", script_path], capture_output=True, text=True)
+    result = subprocess.run(
+        ["python", script_path], 
+        capture_output=True, 
+        text=True
+    )
     if result.returncode == 0:
         print(result.stdout)
     else:
@@ -41,10 +45,10 @@ def main():
         print(f"{train_script} not found. Please ensure the file exists.")
 
     # Step 4: Load Model and Tokenizer
-    if os.path.exists(model_tokenizer_script):
-        run_script(model_tokenizer_script)
+    if os.path.exists(mod_tok_script):
+        run_script(mod_tok_script)
     else:
-        print(f"{model_tokenizer_script} not found. Please ensure the file exists.")
+        print(f"{mod_tok_script} not found. Please ensure the file exists.")
 
     # Step 5: Evaluate category clustering
     if os.path.exists(clustering_script):
