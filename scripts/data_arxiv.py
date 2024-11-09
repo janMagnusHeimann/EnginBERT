@@ -9,7 +9,7 @@ os.makedirs("data", exist_ok=True)
 
 # Define category-specific queries and labels
 category_queries = {
-    "Physics": ("cat:physics", 0),
+    #  "Physics": ("cat:physics", 0),
     "Aerospace Engineering": (
         "cat:cs.AI OR cat:cs.RO", 1),
     "Mechanical Engineering": (
@@ -76,7 +76,7 @@ def collect_and_save_data():
 
     for category, (search_query, label) in category_queries.items():
         print(f"Collecting papers for category: {category}")
-        data = query_arxiv(search_query, max_results=25)
+        data = query_arxiv(search_query, max_results=5)
         # Adjust max_results for each category as needed
         papers = parse_arxiv_data(data, label)
 

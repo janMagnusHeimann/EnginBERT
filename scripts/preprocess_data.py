@@ -8,29 +8,33 @@ df = pd.read_csv('data/processed_papers.csv')
 if 'labels' not in df.columns:
     raise ValueError("The dataset is missing the 'labels' column.")
 
-# Count label occurrences, with a fallback for missing labels
-class_counts = df['labels'].value_counts().to_dict()
+# Count occurrences of each label
+class_counts = df['labels'].value_counts()
+minority_class = class_counts.idxmin()
+majority_class = class_counts.idxmax()
 
-# Set the counts to 0 if the label is missing
-count_0 = class_counts.get(0, 0)
-count_1 = class_counts.get(1, 0)
+# Print initial class distribution
+print(f"Initial class distribution: {class_counts.to_dict()}")
 
-# Only perform upsampling if both classes have samples
-if count_0 > 0 and count_1 > 0:
-    # Check for imbalance and balance if necessary
-    if abs(count_0 - count_1) > 0.1 * len(df):
-        # If there's more than 10% imbalance
-        # Upsample the minority class
-        minority_class = 0 if count_0 < count_1 else 1
-        majority_class = 1 if minority_class == 0 else 0
+# Check for imbalance and perform upsampling if necessary
+if abs(class_counts[
+      minority_class] - class_counts[majority_class]) > 0.1 * len(df):
+    # Upsample the minority class if imbalance is greater than 10%
+    print(f"Balancing classes by upsampling label {minority_class}")
+    df_minority = df[df['labels'] == minority_class]
+    df_majority = df[df['labels'] == majority_class]
 
-        df_minority = df[df['labels'] == minority_class]
-        df_majority = df[df['labels'] == majority_class]
+    # Perform upsampling
+    df_minority_upsampled = resample(
+        df_minority,
+        replace=True,
+        n_samples=len(df_majority),
+        random_state=42
+    )
+    df = pd.concat([df_majority, df_minority_upsampled])
+    print(f"Class distribution after balancing: "
+          f"{df['labels'].value_counts().to_dict()}")
 
-        df_minority_upsampled = resample(
-            df_minority, replace=True, n_samples=len(
-                df_majority), random_state=42)
-        df = pd.concat([df_majority, df_minority_upsampled])
 
 # Save the processed data
 df.to_csv('data/cleaned_processed_papers.csv', index=False)

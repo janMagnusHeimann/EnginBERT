@@ -6,9 +6,18 @@ from torch.utils.data import Dataset, DataLoader
 
 # Load the processed dataset
 df = pd.read_csv('data/cleaned_processed_papers.csv')
+df['labels'] = df['labels'] - 1
+print(df['labels'].unique())  # Should output [0, 1, 2] now
 
+# Save the adjusted dataset to avoid this issue in future runs
+df.to_csv('data/cleaned_processed_papers.csv', index=False)
 # Initialize BERT tokenizer
-tokenizer = BertTokenizer.from_pretrained('bert-base-cased')
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+
+# Load BERT model for classification with 3 labels
+model = BertForSequenceClassification.from_pretrained(
+    'bert-base-uncased', num_labels=3
+)
 
 
 # Custom dataset class
@@ -45,20 +54,14 @@ max_len = 512
 dataset = PaperDataset(df, tokenizer, max_len)
 dataloader = DataLoader(dataset, batch_size=8, shuffle=True)
 
-# Load BERT model for binary classification
-model = BertForSequenceClassification.from_pretrained(
-    'bert-base-uncased', num_labels=2)
+# Set up the model, optimizer, and device
 model.train()
-
-# Use PyTorch's AdamW optimizer
 optimizer = AdamW(model.parameters(), lr=2e-5)
-
-# Training loop
-epochs = 3
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model.to(device)
 
-
+# Training loop
+epochs = 3
 for epoch in range(epochs):
     print(f"Starting epoch {epoch + 1}/{epochs}")
     total_loss = 0
@@ -67,17 +70,22 @@ for epoch in range(epochs):
         input_ids = batch['input_ids'].to(device)
         attention_mask = batch['attention_mask'].to(device)
         labels = batch['labels'].to(device)
+
+        # Forward pass
         outputs = model(
-            input_ids=input_ids, attention_mask=attention_mask, labels=labels)
+            input_ids=input_ids,
+            attention_mask=attention_mask,
+            labels=labels)
         loss = outputs.loss
         loss.backward()
         optimizer.step()
+
         total_loss += loss.item()
+
     avg_loss = total_loss / len(dataloader)
-    print("Epoch {epoch + 1}/{epochs} completed. Average Loss: {avg_loss:.4f}")
+    print(
+        f"Epoch {epoch + 1}/{epochs} completed. Average Loss: {avg_loss:.4f}")
 
-
-# Save the model4
 # Save the model and tokenizer
 model.save_pretrained('bert_classification_model')
 tokenizer.save_pretrained('bert_classification_model')

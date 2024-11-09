@@ -15,8 +15,8 @@ def run_script(script_path):
     """Helper function to run a Python script."""
     print(f"\nRunning {script_path}...")
     result = subprocess.run(
-        ["python", script_path], 
-        capture_output=True, 
+        ["python", script_path],
+        capture_output=True,
         text=True
     )
     if result.returncode == 0:
