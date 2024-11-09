@@ -3,13 +3,14 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import os
 import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from scripts.model_and_tokenizer import df, tokenizer, model, device
+
 
 # Helper function to get embeddings
 def get_embedding(text):
-    inputs = tokenizer(text, return_tensors='pt', truncation=True,
-                       padding='max_length', max_length=512).to(device)
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding="max_length", max_length=512).to(device)
     with torch.no_grad():
         outputs = model(**inputs)
         embedding = outputs.last_hidden_state.mean(dim=1).cpu().numpy()
@@ -18,7 +19,7 @@ def get_embedding(text):
 
 # Generate embeddings for all documents
 print("Generating embeddings for information retrieval evaluation...")
-embeddings = np.vstack([get_embedding(text) for text in df['full_text']])
+embeddings = np.vstack([get_embedding(text) for text in df["full_text"]])
 
 # Define top-k for evaluation
 top_k = 5
@@ -27,8 +28,7 @@ top_k = 5
 # For demonstration, assume each document should ideally retrieve
 # others in the same 'label' as relevant
 # In real-world scenarios, replace with actual ground truth pairs
-df['relevant_docs'] = df['labels'].apply(
-    lambda label: df[df['labels'] == label].index.tolist())
+df["relevant_docs"] = df["labels"].apply(lambda label: df[df["labels"] == label].index.tolist())
 
 
 # Calculate precision@k and MRR
@@ -43,9 +43,8 @@ def precision_at_k_and_mrr(query_idx, top_k):
     top_k_indices = similarities.argsort()[-top_k:][::-1]
 
     # Retrieve indices of relevant documents
-    relevant_docs = df.iloc[query_idx]['relevant_docs']
-    relevant_retrieved = sum(
-        1 for idx in top_k_indices if idx in relevant_docs)
+    relevant_docs = df.iloc[query_idx]["relevant_docs"]
+    relevant_retrieved = sum(1 for idx in top_k_indices if idx in relevant_docs)
 
     # Calculate precision@k
     precision = relevant_retrieved / top_k
@@ -73,7 +72,5 @@ for i in range(len(df)):
 average_precision_at_k = np.mean(precision_scores)
 mean_reciprocal_rank = np.mean(mrr_scores)
 
-print(f"Average Precision@{top_k} for Information Retrieval: "
-      f"{average_precision_at_k:.4f}")
-print(f"Mean Reciprocal Rank (MRR) for Information Retrieval: "
-      f"{mean_reciprocal_rank:.4f}")
+print(f"Average Precision@{top_k} for Information Retrieval: " f"{average_precision_at_k:.4f}")
+print(f"Mean Reciprocal Rank (MRR) for Information Retrieval: " f"{mean_reciprocal_rank:.4f}")

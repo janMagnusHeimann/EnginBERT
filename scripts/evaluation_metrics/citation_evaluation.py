@@ -3,13 +3,14 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import os
 import sys
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../")))
 from scripts.model_and_tokenizer import df, tokenizer, model, device
+
 
 # Helper function to get embeddings for a text
 def get_embedding(text):
-    inputs = tokenizer(text, return_tensors='pt', truncation=True,
-                       padding='max_length', max_length=512).to(device)
+    inputs = tokenizer(text, return_tensors="pt", truncation=True, padding="max_length", max_length=512).to(device)
     with torch.no_grad():
         outputs = model(**inputs)
         embedding = outputs.last_hidden_state.mean(dim=1).cpu().numpy()
@@ -18,13 +19,13 @@ def get_embedding(text):
 
 # Generate embeddings for all documents
 print("Generating embeddings for citation evaluation...")
-embeddings = np.vstack([get_embedding(text) for text in df['full_text']])
+embeddings = np.vstack([get_embedding(text) for text in df["full_text"]])
 
 # Assume 'citation_references' column contains lists of IDs
 # or titles of cited papers
 # Here we create a dummy reference list for demonstration;
 # replace with actual citation data if available
-df['citation_references'] = df['title'].apply(lambda x: [x])  # Dummy data;
+df["citation_references"] = df["title"].apply(lambda x: [x])  # Dummy data;
 # replace with actual citations
 
 # Define top-k for evaluation
@@ -43,12 +44,11 @@ def precision_at_k(query_idx, top_k):
     top_k_indices = similarities.argsort()[-top_k:][::-1]
 
     # Retrieve titles for top-k documents
-    retrieved_titles = df.iloc[top_k_indices]['title'].tolist()
-    true_references = set(df.iloc[query_idx]['citation_references'])
+    retrieved_titles = df.iloc[top_k_indices]["title"].tolist()
+    true_references = set(df.iloc[query_idx]["citation_references"])
 
     # Calculate precision@k
-    relevant_retrieved = sum(
-        1 for title in retrieved_titles if title in true_references)
+    relevant_retrieved = sum(1 for title in retrieved_titles if title in true_references)
     precision = relevant_retrieved / top_k
     return precision
 
@@ -57,5 +57,4 @@ def precision_at_k(query_idx, top_k):
 precision_scores = [precision_at_k(i, top_k) for i in range(len(df))]
 average_precision_at_k = np.mean(precision_scores)
 
-print("Average Precision@{top_k} for Citation Evaluation: "
-      f"{average_precision_at_k:.4f}")
+print("Average Precision@{top_k} for Citation Evaluation: " f"{average_precision_at_k:.4f}")
