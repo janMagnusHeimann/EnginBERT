@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "aerospace-summarizer"
+name = "EnginBert"
 version = "0.0.2"
 authors = [
     { name = "Jan Heimann", email = "jan_heimann@icloud.com" },
@@ -51,10 +51,10 @@ docs = [
 packages = ["scripts"]  # Only include existing directories here
 
 [tool.black]
-line-length = 120
+line-length = 80
 
 [tool.flake8]
-max-line-length = 120
+max-line-length = 80
 extend-ignore = ["E203"]
 
 [project.scripts]
