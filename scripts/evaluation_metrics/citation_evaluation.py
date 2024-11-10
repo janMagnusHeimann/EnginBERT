@@ -2,13 +2,6 @@ import torch
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import pandas as pd
-# import os
-# import sys
-
-# # Add the root directory of the project to the Python path
-# sys.path.append(os.path.abspath(
-#     os.path.join(os.path.dirname(__file__), "../../")))
-
 
 from scripts.model_and_tokenizer import tokenizer, model, device
 # Load pre-trained BERT model and tokenizer
