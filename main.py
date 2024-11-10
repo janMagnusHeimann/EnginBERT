@@ -15,7 +15,8 @@ ir_script = "scripts/evaluation_metrics/information_retrieval.py"
 def run_script(script_path):
     """Helper function to run a Python script."""
     print(f"\nRunning {script_path}...")
-    result = subprocess.run(["python", script_path], capture_output=True, text=True)
+    result = subprocess.run(
+        ["python", script_path], capture_output=True, text=True)
     if result.returncode == 0:
         print(result.stdout)
     else:
@@ -39,7 +40,8 @@ def main():
     if os.path.exists(populate_citations_script):
         run_script(populate_citations_script)
     else:
-        print(f"{populate_citations_script} not found. Please ensure the file exists.")
+        print(f"{populate_citations_script} not found." +
+              "Please ensure the file exists.")
 
     # Step 4: Train the BERT model
     if os.path.exists(train_script):

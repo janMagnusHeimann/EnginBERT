@@ -1,15 +1,15 @@
 [build-system]
-requires = ["setuptools", "setuptools-scm"]
+requires = ["setuptools>=61.0", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "aerospace-summarizer"
+version = "0.0.2"
 authors = [
     { name = "Jan Heimann", email = "jan_heimann@icloud.com" },
 ]
 description = "A domain-specific BERT model for engineering literature"
-version = "0.0.2"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 classifiers = [
     "Programming Language :: Python :: 3",
     "Intended Audience :: Science/Research",
@@ -47,6 +47,9 @@ docs = [
     "sphinx-copybutton>=0.5.2",
 ]
 
+[tool.setuptools]
+packages = ["scripts"]  # Only include existing directories here
+
 [tool.black]
 line-length = 120
 
@@ -59,3 +62,4 @@ rocketOptimizer = "rocket_optimizer.__main__:main"
 
 [tool.pytest.ini_options]
 addopts = ["--import-mode=importlib"]
+

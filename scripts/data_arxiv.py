@@ -76,7 +76,7 @@ def collect_and_save_data():
 
     for category, (search_query, label) in category_queries.items():
         print(f"Collecting papers for category: {category}")
-        data = query_arxiv(search_query, max_results=5)
+        data = query_arxiv(search_query, max_results=10)
         # Adjust max_results for each category as needed
         papers = parse_arxiv_data(data, label)
 
