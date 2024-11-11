@@ -61,17 +61,17 @@ def main():
     else:
         print(f"{clustering_script} not found. Please ensure the file exists.")
 
-    # Step 7: Evaluate citation retrieval
-    if os.path.exists(citation_script):
-        run_script(citation_script)
-    else:
-        print(f"{citation_script} not found. Please ensure the file exists.")
+    # # Step 7: Evaluate citation retrieval
+    # if os.path.exists(citation_script):
+    #     run_script(citation_script)
+    # else:
+    #     print(f"{citation_script} not found. Please ensure the file exists.")
 
-    # Step 8: Evaluate information retrieval
-    if os.path.exists(ir_script):
-        run_script(ir_script)
-    else:
-        print(f"{ir_script} not found. Please ensure the file exists.")
+    # # Step 8: Evaluate information retrieval
+    # if os.path.exists(ir_script):
+    #     run_script(ir_script)
+    # else:
+    #     print(f"{ir_script} not found. Please ensure the file exists.")
 
 
 if __name__ == "__main__":

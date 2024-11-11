@@ -1,43 +1,82 @@
-import torch
-from sklearn.cluster import KMeans
-from sklearn.metrics import silhouette_score
 import numpy as np
-from scripts.model_and_tokenizer import df, tokenizer, model, device
+import pandas as pd
+from sklearn.cluster import KMeans
+from sklearn.metrics import v_measure_score
+from sklearn.model_selection import StratifiedKFold
+from sklearn.preprocessing import StandardScaler
+from transformers import BertTokenizer, BertModel
+import torch
+from collections import Counter
+
+# Load BERT model and tokenizer
+tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
+model = BertModel.from_pretrained("bert-base-uncased")
 
 
-# Helper function to get embeddings
-def get_embedding(text):
-    inputs = tokenizer(text, return_tensors="pt",
-                       truncation=True, padding="max_length",
-                       max_length=512).to(device)
+# Function to generate embeddings for sentences
+def get_embeddings(sentences):
+    inputs = tokenizer(sentences,
+                       padding=True,
+                       truncation=True,
+                       return_tensors="pt")
     with torch.no_grad():
         outputs = model(**inputs)
-        embedding = outputs.last_hidden_state.mean(dim=1).cpu().numpy()
-    return embedding
+    embeddings = outputs.last_hidden_state.mean(dim=1).numpy()
+    # Average over tokens for each sentence
+    return embeddings
 
 
-# Generate embeddings for all documents
-print("Generating embeddings for category clustering...")
-embeddings = np.vstack([get_embedding(text) for text in df["full_text"]])
+# Load your dataset
+data = pd.read_csv("data/processed_papers_with_citations.csv")
+# Adjust the path if needed
+sentences = data['title'].tolist()
+labels = data['labels'].astype("category").cat.codes
+# Convert labels to categorical integer codes
 
-# Number of clusters based on unique labels
-num_clusters = df["labels"].nunique()
+# Generate embeddings for each sentence
+embeddings = get_embeddings(sentences)
 
-# Check if we have more than one cluster
-if num_clusters > 1:
-    # Apply K-means clustering
+# Calculate the smallest class size
+class_counts = Counter(labels)
+min_class_size = min(class_counts.values())
+
+# Adjust n_splits to be at least 2, if possible
+n_splits = max(2, min(10, len(sentences), min_class_size))
+kf = StratifiedKFold(n_splits=n_splits)
+v_measure_scores = []
+
+for train_index, test_index in kf.split(embeddings, labels):
+    # Split into train and test for each fold
+    X_train, X_test = embeddings[train_index], embeddings[test_index]
+    y_train, y_test = labels[train_index], labels[test_index]
+
+    # Standardize embeddings based on the training set
+    scaler = StandardScaler().fit(X_train)
+    X_train = scaler.transform(X_train)
+    X_test = scaler.transform(X_test)
+
+    # Set the number of clusters to the smaller value
+    #  of the unique labels in the training set or len(y_train)
+    num_clusters = min(len(np.unique(y_train)), len(y_train))
+
+    if num_clusters < 2:
+        print("Skipping fold due to insufficient data for clustering.")
+        continue
+
+    # Fit KMeans to training data
     kmeans = KMeans(n_clusters=num_clusters, random_state=42)
-    clusters = kmeans.fit_predict(embeddings)
+    kmeans.fit(X_train)
 
-    # Check for unique clusters in the result
-    unique_clusters = len(set(clusters))
-    if unique_clusters > 1:
-        # Calculate silhouette score
-        silhouette_avg = silhouette_score(embeddings, clusters)
-        print(f"Silhouette Score [Category Clustering]: {silhouette_avg:.4f}")
-    else:
-        print("Silhouette Score cannot be computed" +
-              "because only one unique cluster was found.")
+    # Predict cluster labels on the test set
+    y_pred = kmeans.predict(X_test)
+
+    # Calculate V-measure score for the test set
+    v_measure = v_measure_score(y_test, y_pred)
+    v_measure_scores.append(v_measure)
+
+# Final metric: Mean V-measure score across all valid folds
+if v_measure_scores:
+    mean_v_measure = np.mean(v_measure_scores)
+    print(f"Mean V-measure Score: {mean_v_measure:.4f}")
 else:
-    print("Clustering evaluation skipped due to" +
-          "insufficient unique labels in the dataset.")
+    print("No valid folds for evaluation.")
