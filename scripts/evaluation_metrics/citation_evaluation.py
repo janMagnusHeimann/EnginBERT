@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 import re
 
-from scripts.model_and_tokenizer import tokenizer, model, device
+from scripts.helpers.model_and_tokenizer import tokenizer, model, device
 
 # Load the dataset with citation references populated
 df = pd.read_csv("data/processed_papers_with_citations.csv")

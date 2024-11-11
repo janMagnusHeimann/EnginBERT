@@ -2,12 +2,12 @@ import os
 import subprocess
 
 # Paths to the scripts
-data_script = "scripts/data_arxiv.py"
-preprocess_script = "scripts/preprocess_data.py"
+data_script = "scripts/data/data_arxiv.py"
+preprocess_script = "scripts/data/preprocess_data.py"
 mlm_training_script = "scripts/train/mlm_training.py"
 sequence_classification_script = "scripts/train/" \
                                  "train_bert_sequence_classification.py"
-embedding_extraction_script = "scripts/embedding_extraction.py"
+embedding_extraction_script = "scripts/helpers/embedding_extraction.py"
 clustering_script = "scripts/evaluation_metrics/category_clustering.py"
 citation_script = "scripts/evaluation_metrics/citation_evaluation.py"
 ir_script = "scripts/evaluation_metrics/information_retrieval.py"
@@ -58,24 +58,24 @@ def main():
         print(f"{embedding_extraction_script} not found. " +
               "Please ensure the file exists.")
 
-    # # Step 7: Evaluate category clustering
-    # if os.path.exists(clustering_script):
-    #     run_script(clustering_script)
-    # else:
-    #     print(f"{clustering_script} not found. " +
-    #            "Please ensure the file exists.")
+    # Step 7: Evaluate category clustering
+    if os.path.exists(clustering_script):
+        run_script(clustering_script)
+    else:
+        print(f"{clustering_script} not found. " +
+              "Please ensure the file exists.")
 
-    # # Step 8: Evaluate citation retrieval
-    # if os.path.exists(citation_script):
-    #     run_script(citation_script)
-    # else:
-    #     print(f"{citation_script} not found. Please ensure the file exists.")
+    # Step 8: Evaluate citation retrieval
+    if os.path.exists(citation_script):
+        run_script(citation_script)
+    else:
+        print(f"{citation_script} not found. Please ensure the file exists.")
 
-    # # Step 9: Evaluate information retrieval
-    # if os.path.exists(ir_script):
-    #     run_script(ir_script)
-    # else:
-    #     print(f"{ir_script} not found. Please ensure the file exists.")
+    # Step 9: Evaluate information retrieval
+    if os.path.exists(ir_script):
+        run_script(ir_script)
+    else:
+        print(f"{ir_script} not found. Please ensure the file exists.")
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 import torch
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
-from scripts.model_and_tokenizer import df, tokenizer, model, device
+from scripts.helpers.model_and_tokenizer import df, tokenizer, model, device
 
 
 # Helper function to get embeddings
