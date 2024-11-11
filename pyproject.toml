@@ -22,6 +22,7 @@ dependencies = [
     "natsort",
     "pandas",
     "tqdm",
+    "fuzzywuzzy",
     "transformers>=4.30.0",
     "torch>=2.0.0",  # Adjust based on your system's compatibility
     "scikit-learn>=1.0",

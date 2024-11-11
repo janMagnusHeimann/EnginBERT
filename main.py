@@ -37,11 +37,11 @@ def main():
         print(f"{preprocess_script} not found. Please ensure the file exists.")
 
     # Step 3: Populate citation references
-    if os.path.exists(populate_citations_script):
-        run_script(populate_citations_script)
-    else:
-        print(f"{populate_citations_script} not found." +
-              "Please ensure the file exists.")
+    # if os.path.exists(populate_citations_script):
+    #     run_script(populate_citations_script)
+    # else:
+    #     print(f"{populate_citations_script} not found." +
+    #           "Please ensure the file exists.")
 
     # Step 4: Train the BERT model
     if os.path.exists(train_script):
