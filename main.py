@@ -43,35 +43,35 @@ def main():
     #     print(f"{populate_citations_script} not found." +
     #           "Please ensure the file exists.")
 
-    # Step 4: Train the BERT model
+    # Step 3: Train the BERT model
     if os.path.exists(train_script):
         run_script(train_script)
     else:
         print(f"{train_script} not found. Please ensure the file exists.")
 
-    # Step 5: Load Model and Tokenizer
+    # Step 4: Load Model and Tokenizer
     if os.path.exists(mod_tok_script):
         run_script(mod_tok_script)
     else:
         print(f"{mod_tok_script} not found. Please ensure the file exists.")
 
-    # Step 6: Evaluate category clustering
+    # Step 5: Evaluate category clustering
     if os.path.exists(clustering_script):
         run_script(clustering_script)
     else:
         print(f"{clustering_script} not found. Please ensure the file exists.")
 
-    # # Step 7: Evaluate citation retrieval
-    # if os.path.exists(citation_script):
-    #     run_script(citation_script)
-    # else:
-    #     print(f"{citation_script} not found. Please ensure the file exists.")
+    # Step 6: Evaluate citation retrieval
+    if os.path.exists(citation_script):
+        run_script(citation_script)
+    else:
+        print(f"{citation_script} not found. Please ensure the file exists.")
 
-    # # Step 8: Evaluate information retrieval
-    # if os.path.exists(ir_script):
-    #     run_script(ir_script)
-    # else:
-    #     print(f"{ir_script} not found. Please ensure the file exists.")
+    # Step 7: Evaluate information retrieval
+    if os.path.exists(ir_script):
+        run_script(ir_script)
+    else:
+        print(f"{ir_script} not found. Please ensure the file exists.")
 
 
 if __name__ == "__main__":

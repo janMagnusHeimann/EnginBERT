@@ -62,7 +62,8 @@ def parse_arxiv_data(data, label):
 
 
 def extract_references_section(text):
-    """Extract the References section from text by looking for the keyword 'references'."""
+    """Extract the References section from
+      text by looking for the keyword 'references'."""
     start_idx = text.lower().find("references")
     if start_idx != -1:
         return text[start_idx:]
@@ -72,8 +73,14 @@ def extract_references_section(text):
 def extract_citation_titles(text):
     """Extracts probable titles from citations in the References section."""
     # Enhanced pattern to better match author-year-title structure
+    pattern = (
+        r"([A-Z][a-zA-Z]+(?:, [A-Z]\.)?(?: and [A-Z][a-zA-Z]+)?" /
+        r"(?:, [A-Z]\.)?)\s*\((\d{4})\)\.?\s*(.+?)\.\s*" /
+        r"(?:[A-Z][a-z]+|Journal|Proceedings|In|Vol|pp|\n|$)"
+    )
+
     citation_pattern = re.compile(
-        r"([A-Z][a-zA-Z]+(?:, [A-Z]\.)?(?: and [A-Z][a-zA-Z]+)?(?:, [A-Z]\.)?)\s*\((\d{4})\)\.?\s*(.+?)\.\s*(?:[A-Z][a-z]+|Journal|Proceedings|In|Vol|pp|\n|$)",
+        pattern,
         re.MULTILINE | re.DOTALL
     )
 
@@ -84,7 +91,7 @@ def extract_citation_titles(text):
         title = match.group(3).strip()
         if len(title.split()) > 3:  # Basic filter for plausible titles
             citations.append(f"{author} ({year}). {title}")
- 
+
     return citations
 
 
@@ -112,7 +119,9 @@ def collect_and_save_data():
         if data:
             papers = parse_arxiv_data(data, label)
             for paper in papers:
-                full_text, citation_titles = download_and_extract_text_and_titles(paper['pdf_url'])
+                full_text, citation_titles = \
+                    download_and_extract_text_and_titles(paper['pdf_url'])
+
                 paper['full_text'] = full_text
                 paper['citation_references'] = citation_titles
 
