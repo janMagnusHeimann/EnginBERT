@@ -73,9 +73,11 @@ def extract_references_section(text):
 def extract_citation_titles(text):
     """Extracts probable titles from citations in the References section."""
     # Enhanced pattern to better match author-year-title structure
+    # Match author name(s) (1st line)
+    # Match year and title (2nd line)
     pattern = (
-        r"([A-Z][a-zA-Z]+(?:, [A-Z]\.)?(?: and [A-Z][a-zA-Z]+)?" /
-        r"(?:, [A-Z]\.)?)\s*\((\d{4})\)\.?\s*(.+?)\.\s*" /
+        r"([A-Z][a-zA-Z]+(?:, [A-Z]\.)?(?: and [A-Z][a-zA-Z]+)?"
+        r"(?:, [A-Z]\.)?)\s*\((\d{4})\)\.?\s*(.+?)\.\s*"
         r"(?:[A-Z][a-z]+|Journal|Proceedings|In|Vol|pp|\n|$)"
     )
 
