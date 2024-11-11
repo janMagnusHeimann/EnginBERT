@@ -5,7 +5,8 @@ import subprocess
 data_script = "scripts/data_arxiv.py"
 preprocess_script = "scripts/preprocess_data.py"
 mlm_training_script = "scripts/train/mlm_training.py"
-sequence_classification_script = "scripts/train/train_bert_sequence_classification.py"
+sequence_classification_script = "scripts/train/" \
+                                 "train_bert_sequence_classification.py"
 embedding_extraction_script = "scripts/embedding_extraction.py"
 clustering_script = "scripts/evaluation_metrics/category_clustering.py"
 citation_script = "scripts/evaluation_metrics/citation_evaluation.py"
@@ -40,25 +41,29 @@ def main():
     if os.path.exists(mlm_training_script):
         run_script(mlm_training_script)
     else:
-        print(f"{mlm_training_script} not found. Please ensure the file exists.")
+        print(f"{mlm_training_script} not found. " +
+              "Please ensure the file exists.")
 
-    # # Step 5: Train Sequence Classification Model using Fine-Tuned Embeddings
-    # if os.path.exists(sequence_classification_script):
-    #     run_script(sequence_classification_script)
-    # else:
-    #     print(f"{sequence_classification_script} not found. Please ensure the file exists.")
+    # Step 4: Train Sequence Classification Model using Fine-Tuned Embeddings
+    if os.path.exists(sequence_classification_script):
+        run_script(sequence_classification_script)
+    else:
+        print(f"{sequence_classification_script} not found." +
+              " Please ensure the file exists.")
 
-    # # Step 6: Extract embeddings from the fine-tuned model
-    # if os.path.exists(embedding_extraction_script):
-    #     run_script(embedding_extraction_script)
-    # else:
-    #     print(f"{embedding_extraction_script} not found. Please ensure the file exists.")
+    # Step 6: Extract embeddings from the fine-tuned model
+    if os.path.exists(embedding_extraction_script):
+        run_script(embedding_extraction_script)
+    else:
+        print(f"{embedding_extraction_script} not found. " +
+              "Please ensure the file exists.")
 
     # # Step 7: Evaluate category clustering
     # if os.path.exists(clustering_script):
     #     run_script(clustering_script)
     # else:
-    #     print(f"{clustering_script} not found. Please ensure the file exists.")
+    #     print(f"{clustering_script} not found. " +
+    #            "Please ensure the file exists.")
 
     # # Step 8: Evaluate citation retrieval
     # if os.path.exists(citation_script):

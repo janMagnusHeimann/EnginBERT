@@ -10,11 +10,12 @@ df = pd.read_csv('data/cleaned_processed_papers.csv')
 df['labels'] = df['labels'] - 1  # Adjust labels if necessary
 
 # Initialize the fine-tuned tokenizer and model
-tokenizer = BertTokenizer.from_pretrained('path/to/fine_tuned_enginbert')
+tokenizer = BertTokenizer.from_pretrained('model/fine_tuned_enginbert')
 model = BertForSequenceClassification.from_pretrained(
-    'path/to/fine_tuned_enginbert',  # Load from fine-tuned MLM model
+    'model/fine_tuned_enginbert',  # Load from fine-tuned MLM model
     num_labels=3
 )
+
 
 # Custom dataset class
 class PaperDataset(Dataset):
@@ -43,6 +44,7 @@ class PaperDataset(Dataset):
             'attention_mask': encoding['attention_mask'].flatten(),
             'labels': torch.tensor(label, dtype=torch.long)
         }
+
 
 # Define max length and create dataset and dataloader
 max_len = 512
@@ -79,9 +81,10 @@ for epoch in range(epochs):
         total_loss += loss.item()
 
     avg_loss = total_loss / len(dataloader)
-    print(f"Epoch {epoch + 1}/{epochs} completed. Average Loss: {avg_loss:.4f}")
+    print(f"Epoch {epoch + 1}/{epochs} completed. " +
+          f"Average Loss: {avg_loss:.4f}")
 
 # Save the model and tokenizer
-model.save_pretrained('bert_classification_model')
-tokenizer.save_pretrained('bert_classification_model')
-print("Model and tokenizer saved to 'bert_classification_model/'")
+model.save_pretrained('model/bert_classification_model')
+tokenizer.save_pretrained('model/bert_classification_model')
+print("Model and tokenizer saved to 'model/bert_classification_model/'")

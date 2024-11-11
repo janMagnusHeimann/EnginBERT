@@ -1,7 +1,10 @@
-from transformers import BertTokenizer, BertForMaskedLM, DataCollatorForLanguageModeling
+from transformers import (BertTokenizer,
+                          BertForMaskedLM,
+                          DataCollatorForLanguageModeling)
 from torch.utils.data import DataLoader, Dataset
 import torch
 import pandas as pd
+
 
 class TextDataset(Dataset):
     def __init__(self, texts, tokenizer, max_length=512):
@@ -19,6 +22,7 @@ class TextDataset(Dataset):
         # Flatten each returned tensor to remove the extra dimension
         return {key: val.squeeze(0) for key, val in encoding.items()}
 
+
 # Load data and tokenizer
 df = pd.read_csv('data/cleaned_processed_papers.csv')
 texts = df['full_text'].tolist()  # Ensure 'full_text' contains text data
@@ -28,7 +32,10 @@ tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 # Create dataset and dataloader
 dataset = TextDataset(texts, tokenizer)
 data_collator = DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=True)
-dataloader = DataLoader(dataset, batch_size=8, shuffle=True, collate_fn=data_collator)
+dataloader = DataLoader(dataset,
+                        batch_size=8,
+                        shuffle=True,
+                        collate_fn=data_collator)
 
 # Initialize model for MLM
 model = BertForMaskedLM.from_pretrained('bert-base-uncased')
