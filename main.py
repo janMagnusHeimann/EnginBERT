@@ -2,8 +2,8 @@ import os
 import subprocess
 
 # Paths to the scripts
-data_script = "scripts/data/data_arxiv.py"
-preprocess_script = "scripts/data/preprocess_data.py"
+data_script = "scripts/data_processing/data_arxiv.py"
+preprocess_script = "scripts/data_processing/preprocess_data.py"
 mlm_training_script = "scripts/train/mlm_training.py"
 sequence_classification_script = "scripts/train/" \
                                  "train_bert_sequence_classification.py"
