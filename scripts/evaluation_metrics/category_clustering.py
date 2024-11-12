@@ -7,19 +7,17 @@ from sklearn.preprocessing import StandardScaler
 import torch
 from collections import Counter
 
-# # Load fine-tuned BERT model and tokenizer for embedding extraction
-# tokenizer = BertTokenizer.from_pretrained('model/fine_tuned_enginbert')
-# model = BertModel.from_pretrained('model/fine_tuned_enginbert')  # Use BertModel instead of BertForSequenceClassification
-# model.eval()  # Set model to evaluation mode
-
 from scripts.helpers.model_and_tokenizer import load_model_and_data
 
 # Load model, tokenizer, device, and data
 tokenizer, model, device, df = load_model_and_data()
 
+
 # Function to generate embeddings for sentences
 def get_embeddings(sentences):
-    inputs = tokenizer(sentences, padding=True, truncation=True, return_tensors="pt")
+    inputs = tokenizer(sentences,
+                       padding=True, truncation=True,
+                       return_tensors="pt")
     with torch.no_grad():
         outputs = model(**inputs)
     # Pooling over the tokens to get

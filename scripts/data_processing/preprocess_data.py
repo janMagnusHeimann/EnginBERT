@@ -17,7 +17,9 @@ majority_class = class_counts.idxmax()
 print(f"Initial class distribution: {class_counts.to_dict()}")
 
 # Perform upsampling if there is a significant imbalance
-if abs(class_counts[minority_class] - class_counts[majority_class]) > 0.1 * len(df):
+if abs(
+    class_counts[minority_class] - class_counts[majority_class]
+       ) > 0.1 * len(df):
     print(f"Balancing classes by upsampling label {minority_class}")
     df_minority = df[df['labels'] == minority_class]
     df_majority = df[df['labels'] == majority_class]
@@ -39,4 +41,5 @@ else:
 
 # Save the processed dataset
 df.to_csv('data/cleaned_processed_papers.csv', index=False)
-print("Data preprocessing complete and saved to 'data/cleaned_processed_papers.csv'")
+print("Data preprocessing complete and " +
+      "saved to 'data/cleaned_processed_papers.csv'")

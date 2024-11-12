@@ -9,12 +9,14 @@ from scripts.helpers.model_and_tokenizer import load_model_and_data
 # Load model, tokenizer, device, and data
 tokenizer, model, device, df = load_model_and_data()
 
+
 # Improved helper function to determine if a citation is a valid title
 def is_valid_citation_title(citation):
     pattern = r"(Publishers|Press|Academic|Boston|ISBN|Symposium|" \
               r"Conference|Proceedings|Laboratory|University|Vol|" \
               r"pp|Series|Edition)"
     return len(citation.split()) > 3 and not re.search(pattern, citation)
+
 
 # Classification and diagnostic print for the first 10 documents
 print("Title Classification for the First 10 Documents:")
@@ -56,7 +58,8 @@ else:
             embedding = outputs.last_hidden_state.mean(dim=1).cpu().numpy()
         return embedding
 
-    # Generate embeddings for all documents' full text and stack them into an array
+    # Generate embeddings for all documents' full text
+    #  and stack them into an array
     print("Generating embeddings for citation evaluation...")
     embeddings = np.vstack([get_embedding(text) for text in df["full_text"]])
 
@@ -90,4 +93,5 @@ else:
     # Calculate average Precision@k across all valid documents
     average_precision_at_k = np.mean(precision_scores)
 
-    print(f"Average Precision@{top_k} for Citation Evaluation: {average_precision_at_k:.4f}")
+    print(f"Average Precision@{top_k} for " +
+          f"Citation Evaluation: {average_precision_at_k:.4f}")
