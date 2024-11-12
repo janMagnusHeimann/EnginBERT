@@ -4,25 +4,27 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import v_measure_score
 from sklearn.model_selection import StratifiedKFold
 from sklearn.preprocessing import StandardScaler
-from transformers import BertTokenizer, BertModel
 import torch
 from collections import Counter
 
-# Load BERT model and tokenizer
-tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
-model = BertModel.from_pretrained("bert-base-uncased")
+# # Load fine-tuned BERT model and tokenizer for embedding extraction
+# tokenizer = BertTokenizer.from_pretrained('model/fine_tuned_enginbert')
+# model = BertModel.from_pretrained('model/fine_tuned_enginbert')  # Use BertModel instead of BertForSequenceClassification
+# model.eval()  # Set model to evaluation mode
 
+from scripts.helpers.model_and_tokenizer import load_model_and_data
+
+# Load model, tokenizer, device, and data
+tokenizer, model, device, df = load_model_and_data()
 
 # Function to generate embeddings for sentences
 def get_embeddings(sentences):
-    inputs = tokenizer(sentences,
-                       padding=True,
-                       truncation=True,
-                       return_tensors="pt")
+    inputs = tokenizer(sentences, padding=True, truncation=True, return_tensors="pt")
     with torch.no_grad():
         outputs = model(**inputs)
-    embeddings = outputs.last_hidden_state.mean(dim=1).numpy()
-    # Average over tokens for each sentence
+    # Pooling over the tokens to get
+    # sentence-level embeddings (using mean pooling)
+    embeddings = outputs.last_hidden_state.mean(dim=1).cpu().numpy()
     return embeddings
 
 
@@ -56,7 +58,7 @@ for train_index, test_index in kf.split(embeddings, labels):
     X_test = scaler.transform(X_test)
 
     # Set the number of clusters to the smaller value
-    #  of the unique labels in the training set or len(y_train)
+    # of the unique labels in the training set or len(y_train)
     num_clusters = min(len(np.unique(y_train)), len(y_train))
 
     if num_clusters < 2:

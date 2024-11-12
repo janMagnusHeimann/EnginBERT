@@ -26,37 +26,37 @@ def run_script(script_path):
 
 def main():
     # Step 1: Collect data from arXiv
-    if os.path.exists(data_script):
-        run_script(data_script)
-    else:
-        print(f"{data_script} not found. Please ensure the file exists.")
+    # if os.path.exists(data_script):
+    #     run_script(data_script)
+    # else:
+    #     print(f"{data_script} not found. Please ensure the file exists.")
 
-    # Step 2: Preprocess the data
-    if os.path.exists(preprocess_script):
-        run_script(preprocess_script)
-    else:
-        print(f"{preprocess_script} not found. Please ensure the file exists.")
+    # # Step 2: Preprocess the data
+    # if os.path.exists(preprocess_script):
+    #     run_script(preprocess_script)
+    # else:
+    #     print(f"{preprocess_script} not found. Please ensure the file exists.")
 
-    # Step 3: Fine-tune BERT with Masked Language Modeling (MLM)
-    if os.path.exists(mlm_training_script):
-        run_script(mlm_training_script)
-    else:
-        print(f"{mlm_training_script} not found. " +
-              "Please ensure the file exists.")
+    # # Step 3: Fine-tune BERT with Masked Language Modeling (MLM)
+    # if os.path.exists(mlm_training_script):
+    #     run_script(mlm_training_script)
+    # else:
+    #     print(f"{mlm_training_script} not found. " +
+    #           "Please ensure the file exists.")
 
-    # Step 4: Train Sequence Classification Model using Fine-Tuned Embeddings
-    if os.path.exists(sequence_classification_script):
-        run_script(sequence_classification_script)
-    else:
-        print(f"{sequence_classification_script} not found." +
-              " Please ensure the file exists.")
+    # # Step 4: Train Sequence Classification Model using Fine-Tuned Embeddings
+    # if os.path.exists(sequence_classification_script):
+    #     run_script(sequence_classification_script)
+    # else:
+    #     print(f"{sequence_classification_script} not found." +
+    #           " Please ensure the file exists.")
 
-    # Step 6: Extract embeddings from the fine-tuned model
-    if os.path.exists(embedding_extraction_script):
-        run_script(embedding_extraction_script)
-    else:
-        print(f"{embedding_extraction_script} not found. " +
-              "Please ensure the file exists.")
+    # # Step 6: Extract embeddings from the fine-tuned model
+    # if os.path.exists(embedding_extraction_script):
+    #     run_script(embedding_extraction_script)
+    # else:
+    #     print(f"{embedding_extraction_script} not found. " +
+    #           "Please ensure the file exists.")
 
     # Step 7: Evaluate category clustering
     if os.path.exists(clustering_script):

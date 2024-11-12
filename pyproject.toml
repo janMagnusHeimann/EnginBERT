@@ -49,7 +49,7 @@ docs = [
 ]
 
 [tool.setuptools]
-packages = ["scripts"]  # Only include existing directories here
+packages = ["scripts", "scripts.helpers", "scripts.tokenizer", "scripts.train"]
 
 [tool.black]
 line-length = 80

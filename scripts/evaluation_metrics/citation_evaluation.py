@@ -1,24 +1,20 @@
 import torch
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
-import pandas as pd
 import re
 
-from scripts.helpers.model_and_tokenizer import tokenizer, model, device
+# Load fine-tuned BERT model and tokenizer for embedding extraction
+from scripts.helpers.model_and_tokenizer import load_model_and_data
 
-# Load the dataset with citation references populated
-df = pd.read_csv("data/processed_papers_with_citations.csv")
-
+# Load model, tokenizer, device, and data
+tokenizer, model, device, df = load_model_and_data()
 
 # Improved helper function to determine if a citation is a valid title
 def is_valid_citation_title(citation):
-    # Check if citation has more than three words
-    # and does not contain typical non-title keywords
     pattern = r"(Publishers|Press|Academic|Boston|ISBN|Symposium|" \
-          r"Conference|Proceedings|Laboratory|University|Vol|" \
-          r"pp|Series|Edition)"
+              r"Conference|Proceedings|Laboratory|University|Vol|" \
+              r"pp|Series|Edition)"
     return len(citation.split()) > 3 and not re.search(pattern, citation)
-
 
 # Classification and diagnostic print for the first 10 documents
 print("Title Classification for the First 10 Documents:")
@@ -26,21 +22,18 @@ for i in range(min(10, len(df))):
     title = df.loc[i, 'title']
     citations = df.loc[i, 'citation_references']
 
-    # Ensure the citations are a list
-    # and check if they contain any valid titles
     has_valid_citations = (
         isinstance(citations, str) and
-        bool(eval(citations)) and  # Ensures citations are not an empty obj
+        bool(eval(citations)) and
         any(is_valid_citation_title(citation) for citation in eval(citations))
     )
 
     print(f"Document {i+1} Title: {title}")
     print(f"Extracted Citations: {citations}")
-    print("Contains Valid" +
-          f" Citations: {'Yes' if has_valid_citations else 'No'}\n")
+    print("Contains Valid Citations: " +
+          f"{'Yes' if has_valid_citations else 'No'}\n")
 
 # Filter out documents that lack valid citations
-# Convert strings to lists if needed
 df['citation_references'] = df['citation_references'].apply(eval)
 df = df[df["citation_references"].apply(
     lambda citations: isinstance(
@@ -63,8 +56,7 @@ else:
             embedding = outputs.last_hidden_state.mean(dim=1).cpu().numpy()
         return embedding
 
-    # Generate embeddings for all documents' full text
-    #  and stack them into an array
+    # Generate embeddings for all documents' full text and stack them into an array
     print("Generating embeddings for citation evaluation...")
     embeddings = np.vstack([get_embedding(text) for text in df["full_text"]])
 
@@ -98,5 +90,4 @@ else:
     # Calculate average Precision@k across all valid documents
     average_precision_at_k = np.mean(precision_scores)
 
-    print(f"Average Precision@{top_k} for Citation" +
-          f" Evaluation: {average_precision_at_k:.4f}")
+    print(f"Average Precision@{top_k} for Citation Evaluation: {average_precision_at_k:.4f}")
