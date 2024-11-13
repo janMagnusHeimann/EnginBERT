@@ -11,10 +11,14 @@ os.makedirs("data", exist_ok=True)
 
 # Define category-specific queries and labels
 category_queries = {
-    "Aerospace Engineering": ("cat:cs.AI OR cat:cs.RO", 1),
-    "Mechanical Engineering": ("cat:cond-mat.mtrl-sci OR cat:cond-mat.stat-mech", 2),
-    "Materials Science": ("cat:cond-mat.mtrl-sci OR cat:physics.chem-ph", 3)
+    "Aerospace Engineering":
+    ("cat:cs.AI OR cat:cs.RO", 1),
+    "Mechanical Engineering":
+    ("cat:cond-mat.mtrl-sci OR cat:cond-mat.stat-mech", 2),
+    "Materials Science":
+    ("cat:cond-mat.mtrl-sci OR cat:physics.chem-ph", 3)
 }
+
 
 def query_arxiv(search_query, start_index=0, max_results=10):
     base_url = 'http://export.arxiv.org/api/query'
@@ -33,6 +37,7 @@ def query_arxiv(search_query, start_index=0, max_results=10):
     except Exception as e:
         print(f"Failed to query arXiv: {e}")
         return None
+
 
 def parse_arxiv_data(data, label):
     papers = []
@@ -57,12 +62,15 @@ def parse_arxiv_data(data, label):
     print(f"Parsed {len(papers)} papers for label {label}.")
     return papers
 
+
 def extract_references_section(text):
-    """Extract the References section from text by looking for the keyword 'references'."""
+    """Extract the References section from text by looking
+      for the keyword 'references'."""
     start_idx = text.lower().find("references")
     if start_idx != -1:
         return text[start_idx:]
     return text  # Fallback to entire text if "References" not found
+
 
 def extract_citation_titles(text):
     """Extracts probable titles from citations in the References section."""
@@ -83,6 +91,7 @@ def extract_citation_titles(text):
 
     return citations
 
+
 def download_and_extract_text_and_titles(pdf_url):
     file_name = 'temp_paper.pdf'
     try:
@@ -98,6 +107,7 @@ def download_and_extract_text_and_titles(pdf_url):
         print(f"Failed to download or extract text from {pdf_url}: {e}")
         return "", []
 
+
 def collect_and_save_data():
     all_papers = []
     for category, (search_query, label) in category_queries.items():
@@ -106,7 +116,8 @@ def collect_and_save_data():
         if data:
             papers = parse_arxiv_data(data, label)
             for paper in papers:
-                full_text, citation_titles = download_and_extract_text_and_titles(paper['pdf_url'])
+                full_text, citation_titles = \
+                    download_and_extract_text_and_titles(paper['pdf_url'])
                 paper['full_text'] = full_text
                 paper['citation_references'] = citation_titles
 
@@ -115,7 +126,8 @@ def collect_and_save_data():
     # Save to CSV
     df = pd.DataFrame(all_papers)
     df.to_csv('data/processed_papers_with_citations.csv', index=False)
-    print("Data collected and saved to 'data/processed_papers_with_citations.csv'")
+    print("Data collected and saved to " +
+          "'data/processed_papers_with_citations.csv'")
 
     # Verification step:
     print("\nFirst 10 entries with extracted citation titles:\n")
@@ -124,6 +136,17 @@ def collect_and_save_data():
         citations = df.loc[i, 'citation_references']
         print(f"Document {i+1} Title: {title}")
         print(f"Extracted Citation Titles: {citations}\n")
+
+    # Load the CSV file
+    # Load the CSV file with all data
+    df = pd.read_csv('data/processed_papers_with_citations.csv')
+
+    # Select the first 5 entries for easier human-readable export
+    sample_df = df.head()
+
+    # Save the first 5 entries to a new CSV file for easy viewing
+    sample_df.to_csv('data/sample_processed_papers_with_citations.csv',
+                     index=False)
 
 
 if __name__ == '__main__':

@@ -4,8 +4,8 @@ from transformers import BertTokenizer, BertModel
 
 
 # Load fine-tuned BERT model and tokenizer for embedding extraction
-def load_model_and_data(model_path='model/fine_tuned_enginbert',
-                        data_path='data/cleaned_processed_papers.csv'):
+def load_model_and_data(model_path='model/bert_classification_model',
+                        data_path='data/evaluation_processed_papers.csv'):
     tokenizer = BertTokenizer.from_pretrained(model_path)
     model = BertModel.from_pretrained(model_path)
     model.eval()  # Set model to evaluation mode

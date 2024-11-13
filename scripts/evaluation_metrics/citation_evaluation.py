@@ -2,12 +2,24 @@ import torch
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 import re
-
 # Load fine-tuned BERT model and tokenizer for embedding extraction
 from scripts.helpers.model_and_tokenizer import load_model_and_data
-
+import pandas as pd
 # Load model, tokenizer, device, and data
 tokenizer, model, device, df = load_model_and_data()
+
+df = pd.read_csv('data/evaluation_processed_papers.csv')
+print("Columns in loaded DataFrame:", df.columns)
+
+
+# print("Columns in evaluation_processed_papers.csv:", df.columns)
+# print(df.head())
+# Debugging step: Check if 'citation_references' exists in columns
+if 'citation_references' not in df.columns:
+    print("Warning: 'citation_references' column not found in DataFrame.")
+    # Optionally, add a placeholder column if it's missing for testing purposes
+    df['citation_references'] = ['[]'] * len(df)
+    # Placeholder with empty lists
 
 
 # Improved helper function to determine if a citation is a valid title
@@ -61,7 +73,8 @@ else:
     # Generate embeddings for all documents' full text
     #  and stack them into an array
     print("Generating embeddings for citation evaluation...")
-    embeddings = np.vstack([get_embedding(text) for text in df["full_text"]])
+    embeddings = np.vstack(
+        [get_embedding(text) for text in df["cleaned_text"]])
 
     # Define top-k for evaluation
     top_k = 5
@@ -69,7 +82,8 @@ else:
     # Function to calculate precision@k for a specific document (query_idx)
     def precision_at_k(query_idx, top_k):
         query_embedding = embeddings[query_idx].reshape(1, -1)
-        similarities = cosine_similarity(query_embedding, embeddings).flatten()
+        similarities = cosine_similarity(
+            query_embedding, embeddings).flatten()
 
         # Set similarity with itself to -1 to exclude it from top-k
         similarities[query_idx] = -1
