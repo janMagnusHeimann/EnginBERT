@@ -1,5 +1,4 @@
 import typer
-import os
 import subprocess
 from typing import Optional
 from pathlib import Path
@@ -8,7 +7,8 @@ from rich.progress import Progress, SpinnerColumn, TextColumn
 
 app = typer.Typer(
     name="EnginBERT",
-    help="CLI tool for training and evaluating BERT models on engineering papers"
+    help="CLI tool for training and " +
+    "evaluating BERT models on engineering papers"
 )
 
 console = Console()
@@ -16,15 +16,24 @@ console = Console()
 # Define default paths
 DEFAULT_SCRIPTS_DIR = Path("scripts")
 PATHS = {
-    "data": DEFAULT_SCRIPTS_DIR / "data_processing/data_arxiv.py",
-    "preprocess": DEFAULT_SCRIPTS_DIR / "data_processing/preprocess_data.py",
-    "mlm": DEFAULT_SCRIPTS_DIR / "train/mlm_training.py",
-    "classification": DEFAULT_SCRIPTS_DIR / "train/train_bert_sequence_classification.py",
-    "embeddings": DEFAULT_SCRIPTS_DIR / "helpers/embedding_extraction.py",
-    "clustering": DEFAULT_SCRIPTS_DIR / "evaluation_metrics/category_clustering.py",
-    "citations": DEFAULT_SCRIPTS_DIR / "evaluation_metrics/citation_evaluation.py",
-    "ir": DEFAULT_SCRIPTS_DIR / "evaluation_metrics/information_retrieval.py"
+    "data": DEFAULT_SCRIPTS_DIR /
+    "data_processing/data_arxiv.py",
+    "preprocess": DEFAULT_SCRIPTS_DIR /
+    "data_processing/preprocess_data.py",
+    "mlm": DEFAULT_SCRIPTS_DIR /
+    "train/mlm_training.py",
+    "classification": DEFAULT_SCRIPTS_DIR /
+    "train/train_bert_sequence_classification.py",
+    "embeddings": DEFAULT_SCRIPTS_DIR /
+    "helpers/embedding_extraction.py",
+    "clustering": DEFAULT_SCRIPTS_DIR /
+    "evaluation_metrics/category_clustering.py",
+    "citations": DEFAULT_SCRIPTS_DIR /
+    "evaluation_metrics/citation_evaluation.py",
+    "ir": DEFAULT_SCRIPTS_DIR /
+    "evaluation_metrics/information_retrieval.py"
 }
+
 
 def run_script(script_path: Path) -> bool:
     """Run a Python script and return True if successful."""
@@ -41,6 +50,7 @@ def run_script(script_path: Path) -> bool:
         console.print(f"[red]✗ Error running {script_path}:[/red]\n{e.stderr}")
         return False
 
+
 @app.command()
 def train(
     scripts_dir: str = typer.Option(
@@ -53,7 +63,8 @@ def train(
         None,
         "--skip",
         "-s",
-        help="Steps to skip (data, preprocess, mlm, classification, embeddings)"
+        help="Steps to skip " +
+        "(data, preprocess, mlm, classification, embeddings)"
     )
 ):
     """Train the EnginBERT model from scratch."""
@@ -64,9 +75,9 @@ def train(
         "classification": "Training sequence classification",
         "embeddings": "Extracting embeddings"
     }
-    
+
     skip_steps = skip_steps or []
-    
+
     with Progress(
         SpinnerColumn(),
         TextColumn("[progress.description]{task.description}"),
@@ -76,15 +87,17 @@ def train(
             if step in skip_steps:
                 console.print(f"[yellow]Skipping {description}...[/yellow]")
                 continue
-                
-            script_path = Path(scripts_dir) / PATHS[step].relative_to(DEFAULT_SCRIPTS_DIR)
+
+            script_path = Path(
+                scripts_dir) / PATHS[step].relative_to(DEFAULT_SCRIPTS_DIR)
             if not script_path.exists():
                 console.print(f"[red]✗ {script_path} not found![/red]")
                 raise typer.Exit(1)
-                
+
             progress.add_task(description, total=None)
             if not run_script(script_path):
                 raise typer.Exit(1)
+
 
 @app.command()
 def evaluate(
@@ -107,24 +120,26 @@ def evaluate(
         "citations": "Evaluating citation retrieval",
         "ir": "Evaluating information retrieval"
     }
-    
+
     metrics = metrics or list(available_metrics.keys())
     invalid_metrics = set(metrics) - set(available_metrics.keys())
     if invalid_metrics:
-        console.print(f"[red]Invalid metrics: {', '.join(invalid_metrics)}[/red]")
+        console.print("[red]Invalid metrics: " +
+                      f"{', '.join(invalid_metrics)}[/red]")
         raise typer.Exit(1)
-    
+
     with Progress(
         SpinnerColumn(),
         TextColumn("[progress.description]{task.description}"),
         console=console
     ) as progress:
         for metric in metrics:
-            script_path = Path(scripts_dir) / PATHS[metric].relative_to(DEFAULT_SCRIPTS_DIR)
+            script_path = Path(
+                scripts_dir) / PATHS[metric].relative_to(DEFAULT_SCRIPTS_DIR)
             if not script_path.exists():
                 console.print(f"[red]✗ {script_path} not found![/red]")
                 raise typer.Exit(1)
-                
+
             progress.add_task(available_metrics[metric], total=None)
             if not run_script(script_path):
                 raise typer.Exit(1)
