@@ -90,8 +90,6 @@ EnginBERT/
 │   ├── helpers/           # Utility functions
 │   ├── tokenizer/         # Custom tokenization
 │   └── train/            # Training scripts
-├── tests/                # Test suite
-└── docs/                # Documentation
 ```
 
 ## Development
