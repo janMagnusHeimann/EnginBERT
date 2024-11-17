@@ -70,7 +70,7 @@ enginbert evaluate
 
 Run specific evaluation metrics:
 ```bash
-enginbert evaluate --metrics clustering ir
+enginbert evaluate --metrics clustering ir citations
 ```
 
 ### Complete Pipeline
