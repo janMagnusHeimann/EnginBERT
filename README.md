@@ -115,10 +115,11 @@ flake8 .
 
 ## License
 
-MIKT license
+MIT license
 
 
 ## Contact
 
 Jan Heimann - jan_heimann@icloud.com
+Tristan Cruise
 
