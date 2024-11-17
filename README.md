@@ -112,24 +112,6 @@ Run flake8 for code quality checks:
 flake8 .
 ```
 
-### Testing
-
-Run the test suite:
-
-```bash
-pytest
-```
-
-## Documentation
-
-Build the documentation locally:
-
-```bash
-cd docs
-make html
-```
-
-View the documentation by opening `docs/_build/html/index.html` in your browser.
 
 ## License
 
