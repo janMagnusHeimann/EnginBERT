@@ -20,7 +20,7 @@ def get_embedding(text):
 
 # Generate embeddings for all documents
 print("Generating embeddings for information retrieval evaluation...")
-embeddings = np.vstack([get_embedding(text) for text in df["full_text"]])
+embeddings = np.vstack([get_embedding(text) for text in df["cleaned_text"]])
 
 # Define top-k for evaluation
 top_k = 10  # Adjusted to 10 for nDCG@10
