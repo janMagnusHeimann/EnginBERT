@@ -119,5 +119,5 @@ MIT license
 ## Contact
 
 Jan Heimann - jan_heimann@icloud.com
-Tristan Cruise
+Tristan Kruse - krusetristan1@gmail.com
 
