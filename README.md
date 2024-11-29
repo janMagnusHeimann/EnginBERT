@@ -118,6 +118,5 @@ MIT license
 
 ## Contact
 
-Jan Heimann - jan_heimann@icloud.com
-Tristan Kruse - krusetristan1@gmail.com
+Jan Heimann - jan_heimann@icloud.com | Tristan Kruse - krusetristan1@gmail.com
 
