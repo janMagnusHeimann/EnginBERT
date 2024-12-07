@@ -15,17 +15,21 @@ logger = logging.getLogger(__name__)
 def main():
     try:
         # Load model and tokenizer
-        model = TechnicalTermPredictor.from_pretrained('model/fine_tuned_enginbert')
+        model = TechnicalTermPredictor.from_pretrained(
+            'model/fine_tuned_enginbert')
         tokenizer = AutoTokenizer.from_pretrained('model/fine_tuned_enginbert')
 
-        logger.info("Note: New layers were initialized for technical term prediction. This is expected.")
+        logger.info("Note: New layers were initialized " +
+                    "for technical term prediction. This is expected.")
 
         # Setup optimizer
         optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)
 
         # Load training data
-        train_dataset = load_training_data('data/cleaned_processed_papers.csv', tokenizer)
-        train_dataloader = DataLoader(train_dataset, batch_size=16, shuffle=True)
+        train_dataset = load_training_data(
+            'data/cleaned_processed_papers.csv', tokenizer)
+        train_dataloader = DataLoader(
+            train_dataset, batch_size=16, shuffle=True)
 
         # Train the model
         logger.info("Starting technical term prediction training...")
@@ -54,7 +58,8 @@ def main():
                 total_loss += loss.item()
 
                 if batch_idx % 10 == 0:  # Increased frequency of logging
-                    logger.info(f"Epoch {epoch+1}, Batch {batch_idx}, Loss: {loss.item():.4f}")
+                    logger.info(f"Epoch {epoch+1}, " +
+                                f"Batch {batch_idx}, Loss: {loss.item():.4f}")
 
             avg_loss = total_loss / len(train_dataloader)
             logger.info(f"Epoch {epoch+1}, Average loss: {avg_loss:.4f}")
