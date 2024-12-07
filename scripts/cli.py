@@ -1,14 +1,15 @@
 import typer
 import subprocess
-from typing import Optional
+from typing import Optional, List
 from pathlib import Path
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, TextColumn
+from enum import Enum
 
 app = typer.Typer(
     name="EnginBERT",
     help="CLI tool for training and " +
-    "evaluating BERT models on engineering papers"
+    "evaluating domain-specific BERT models on engineering papers"
 )
 
 console = Console()
@@ -16,16 +17,18 @@ console = Console()
 # Define default paths
 DEFAULT_SCRIPTS_DIR = Path("scripts")
 PATHS = {
-    "data": DEFAULT_SCRIPTS_DIR /
-    "data_processing/data_arxiv.py",
-    "preprocess": DEFAULT_SCRIPTS_DIR /
-    "data_processing/preprocess_data.py",
-    "mlm": DEFAULT_SCRIPTS_DIR /
-    "train/mlm_training.py",
-    "classification": DEFAULT_SCRIPTS_DIR /
-    "train/train_bert_sequence_classification.py",
-    "embeddings": DEFAULT_SCRIPTS_DIR /
-    "helpers/embedding_extraction.py",
+    # Data Processing
+    "data": DEFAULT_SCRIPTS_DIR / "data_processing/data_arxiv.py",
+    "preprocess": DEFAULT_SCRIPTS_DIR / "data_processing/preprocess_data.py",
+
+    # Training
+    "mlm": DEFAULT_SCRIPTS_DIR / "train/mlm_training.py",
+    "technical_term": DEFAULT_SCRIPTS_DIR / "train/technical_term_training.py",
+    "equation": DEFAULT_SCRIPTS_DIR / "train/equation_understanding.py",
+    "component": DEFAULT_SCRIPTS_DIR / "train/component_relation.py",
+    "hierarchical": DEFAULT_SCRIPTS_DIR / "train/hierarchical_integration.py",
+
+    # Evaluation
     "clustering": DEFAULT_SCRIPTS_DIR /
     "evaluation_metrics/category_clustering.py",
     "citations": DEFAULT_SCRIPTS_DIR /
@@ -33,6 +36,15 @@ PATHS = {
     "ir": DEFAULT_SCRIPTS_DIR /
     "evaluation_metrics/information_retrieval.py"
 }
+
+
+class TrainingTask(str, Enum):
+    MLM = "mlm"
+    TECHNICAL_TERM = "technical_term"
+    EQUATION = "equation"
+    COMPONENT = "component"
+    HIERARCHICAL = "hierarchical"
+    ALL = "all"
 
 
 def run_script(script_path: Path) -> bool:
@@ -59,42 +71,70 @@ def train(
         "-d",
         help="Directory containing the scripts"
     ),
-    skip_steps: Optional[list[str]] = typer.Option(
-        None,
-        "--skip",
+    tasks: List[TrainingTask] = typer.Option(
+        [TrainingTask.ALL],
+        "--tasks",
+        "-t",
+        help="Training tasks to run"
+    ),
+    skip_data_prep: bool = typer.Option(
+        False,
+        "--skip-data",
         "-s",
-        help="Steps to skip " +
-        "(data, preprocess, mlm, classification, embeddings)"
+        help="Skip data preparation"
     )
 ):
-    """Train the EnginBERT model from scratch."""
-    steps = {
-        "data": "Collecting arXiv data",
-        "preprocess": "Preprocessing data",
-        "mlm": "Fine-tuning BERT with MLM",
-        "classification": "Training sequence classification",
-        "embeddings": "Extracting embeddings"
-    }
+    """Train the EnginBERT model."""
 
-    skip_steps = skip_steps or []
+    # Data preparation steps
+    if not skip_data_prep:
+        data_steps = {
+            "data": "Collecting arXiv data",
+            "preprocess": "Preprocessing data"
+        }
+
+        with Progress(
+            SpinnerColumn(),
+            TextColumn("[progress.description]{task.description}"),
+            console=console
+        ) as progress:
+            for step, description in data_steps.items():
+                script_path = Path(
+                    scripts_dir) / PATHS[step].relative_to(DEFAULT_SCRIPTS_DIR)
+                if not script_path.exists():
+                    console.print(f"[red]✗ {script_path} not found![/red]")
+                    raise typer.Exit(1)
+
+                progress.add_task(description, total=None)
+                if not run_script(script_path):
+                    raise typer.Exit(1)
+
+    # Training steps
+    training_tasks = [TrainingTask.ALL] if TrainingTask.ALL in tasks else tasks
+    if TrainingTask.ALL in training_tasks:
+        training_tasks = [t for t in TrainingTask if t != TrainingTask.ALL]
+
+    task_descriptions = {
+        TrainingTask.MLM: "Running mlm pre-training",
+        TrainingTask.TECHNICAL_TERM: "Running technical_term pre-training",
+        TrainingTask.EQUATION: "Running equation understanding training",
+        TrainingTask.COMPONENT: "Running component relation training",
+        TrainingTask.HIERARCHICAL: "Running hierarchical integration"
+    }
 
     with Progress(
         SpinnerColumn(),
         TextColumn("[progress.description]{task.description}"),
         console=console
     ) as progress:
-        for step, description in steps.items():
-            if step in skip_steps:
-                console.print(f"[yellow]Skipping {description}...[/yellow]")
-                continue
-
+        for task in training_tasks:
             script_path = Path(
-                scripts_dir) / PATHS[step].relative_to(DEFAULT_SCRIPTS_DIR)
+                scripts_dir) / PATHS[task].relative_to(DEFAULT_SCRIPTS_DIR)
             if not script_path.exists():
                 console.print(f"[red]✗ {script_path} not found![/red]")
                 raise typer.Exit(1)
 
-            progress.add_task(description, total=None)
+            progress.add_task(task_descriptions[task], total=None)
             if not run_script(script_path):
                 raise typer.Exit(1)
 
@@ -124,8 +164,8 @@ def evaluate(
     metrics = metrics or list(available_metrics.keys())
     invalid_metrics = set(metrics) - set(available_metrics.keys())
     if invalid_metrics:
-        console.print("[red]Invalid metrics: " +
-                      f"{', '.join(invalid_metrics)}[/red]")
+        console.print("[red]Invalid metrics:" +
+                      f" {', '.join(invalid_metrics)}[/red]")
         raise typer.Exit(1)
 
     with Progress(
@@ -152,11 +192,18 @@ def run_all(
         "--scripts-dir",
         "-d",
         help="Directory containing the scripts"
+    ),
+    skip_data_prep: bool = typer.Option(
+        False,
+        "--skip-data",
+        "-s",
+        help="Skip data preparation"
     )
 ):
     """Run the complete EnginBERT pipeline (training and evaluation)."""
     try:
-        train(scripts_dir=scripts_dir)
+        train(scripts_dir=scripts_dir, tasks=[
+            TrainingTask.ALL], skip_data_prep=skip_data_prep)
         evaluate(scripts_dir=scripts_dir)
     except typer.Exit as e:
         raise typer.Exit(code=e.exit_code)
