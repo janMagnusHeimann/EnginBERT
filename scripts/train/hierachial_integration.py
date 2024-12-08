@@ -8,36 +8,41 @@ from torch.utils.data import DataLoader
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+
 def main():
     try:
         # Load model and tokenizer
-        model = HierarchicalIntegration.from_pretrained('model/component_model')
-        tokenizer = AutoTokenizer.from_pretrained('model/component_model')
-        
+        model = HierarchicalIntegration.from_pretrained(
+            'model/component_model')
+        tokenizer = AutoTokenizer.from_pretrained(
+            'model/component_model')
+
         # Setup training
         optimizer = torch.optim.AdamW(model.parameters(), lr=2e-5)
         device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-        
+
         # Load data
-        train_dataset = load_hierarchical_data('data/processed/hierarchical.csv', tokenizer)
-        train_dataloader = DataLoader(train_dataset, batch_size=16, shuffle=True)
-        
+        train_dataset = load_hierarchical_data(
+            'data/processed/hierarchical.csv', tokenizer)
+        train_dataloader = DataLoader(
+            train_dataset, batch_size=16, shuffle=True)
+
         # Load knowledge graph embeddings
         knowledge_embeddings = load_knowledge_graph(
             'data/knowledge_graph/engineering_kg.json')
-        
+
         # Train
         logger.info("Starting hierarchical integration training...")
         model.train()
         model.to(device)
         knowledge_embeddings = knowledge_embeddings.to(device)
-        
+
         for epoch in range(3):
             total_loss = 0
             for batch in train_dataloader:
                 batch = {k: v.to(device) for k, v in batch.items()}
                 batch['knowledge_embeddings'] = knowledge_embeddings
-                
+
                 optimizer.zero_grad()
                 outputs = model(**batch)
                 loss = outputs['loss'] if 'loss' in outputs else 0

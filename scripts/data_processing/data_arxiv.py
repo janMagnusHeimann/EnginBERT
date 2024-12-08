@@ -20,7 +20,7 @@ category_queries = {
 }
 
 
-def query_arxiv(search_query, start_index=0, max_results=10):
+def query_arxiv(search_query, start_index=0, max_results=3):
     base_url = 'http://export.arxiv.org/api/query'
     query_params = {
         'search_query': search_query,

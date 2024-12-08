@@ -8,8 +8,8 @@ from enum import Enum
 
 app = typer.Typer(
     name="EnginBERT",
-    help="CLI tool for training and " +
-    "evaluating domain-specific BERT models on engineering papers"
+    help="CLI tool for training and evaluating domain-specific " +
+    "BERT models on engineering papers"
 )
 
 console = Console()
@@ -18,15 +18,26 @@ console = Console()
 DEFAULT_SCRIPTS_DIR = Path("scripts")
 PATHS = {
     # Data Processing
-    "data": DEFAULT_SCRIPTS_DIR / "data_processing/data_arxiv.py",
-    "preprocess": DEFAULT_SCRIPTS_DIR / "data_processing/preprocess_data.py",
+    "data": DEFAULT_SCRIPTS_DIR /
+    "data_processing/data_arxiv.py",
+    "preprocess": DEFAULT_SCRIPTS_DIR /
+    "data_processing/preprocess_data.py",
+    "knowledge_graph": DEFAULT_SCRIPTS_DIR /
+    "data_processing/knowledge_graph/graph_builder.py",
+    "visualize_kg": DEFAULT_SCRIPTS_DIR /
+    "data_processing/knowledge_graph/visualize.py",
 
     # Training
-    "mlm": DEFAULT_SCRIPTS_DIR / "train/mlm_training.py",
-    "technical_term": DEFAULT_SCRIPTS_DIR / "train/technical_term_training.py",
-    "equation": DEFAULT_SCRIPTS_DIR / "train/equation_understanding.py",
-    "component": DEFAULT_SCRIPTS_DIR / "train/component_relation.py",
-    "hierarchical": DEFAULT_SCRIPTS_DIR / "train/hierarchical_integration.py",
+    "mlm": DEFAULT_SCRIPTS_DIR /
+    "train/mlm_training.py",
+    "technical_term": DEFAULT_SCRIPTS_DIR /
+    "train/technical_term_training.py",
+    "equation": DEFAULT_SCRIPTS_DIR /
+    "train/equation_understanding.py",
+    "component": DEFAULT_SCRIPTS_DIR /
+    "train/component_relation.py",
+    "hierarchical": DEFAULT_SCRIPTS_DIR /
+    "train/hierarchical_integration.py",
 
     # Evaluation
     "clustering": DEFAULT_SCRIPTS_DIR /
@@ -47,6 +58,12 @@ class TrainingTask(str, Enum):
     ALL = "all"
 
 
+class KGTask(str, Enum):
+    BUILD = "build"
+    VISUALIZE = "visualize"
+    ALL = "all"
+
+
 def run_script(script_path: Path) -> bool:
     """Run a Python script and return True if successful."""
     try:
@@ -61,6 +78,50 @@ def run_script(script_path: Path) -> bool:
     except subprocess.CalledProcessError as e:
         console.print(f"[red]✗ Error running {script_path}:[/red]\n{e.stderr}")
         return False
+
+
+@app.command()
+def knowledge_graph(
+    task: KGTask = typer.Option(
+        KGTask.ALL,
+        "--task",
+        "-t",
+        help="Knowledge graph task to run"
+    ),
+    scripts_dir: str = typer.Option(
+        str(DEFAULT_SCRIPTS_DIR),
+        "--scripts-dir",
+        "-d",
+        help="Directory containing the scripts"
+    )
+):
+    """Build and visualize the engineering knowledge graph."""
+    tasks = {
+        KGTask.BUILD: ("knowledge_graph", "Building knowledge graph"),
+        KGTask.VISUALIZE: ("visualize_kg", "Visualizing knowledge graph")
+    }
+
+    if task == KGTask.ALL:
+        selected_tasks = tasks
+    else:
+        selected_tasks = {task: tasks[task]}
+
+    with Progress(
+        SpinnerColumn(),
+        TextColumn("[progress.description]{task.description}"),
+        console=console
+    ) as progress:
+        for script_key, description in selected_tasks.values():
+            script_path = Path(
+                scripts_dir) / PATHS[
+                    script_key].relative_to(DEFAULT_SCRIPTS_DIR)
+            if not script_path.exists():
+                console.print(f"[red]✗ {script_path} not found![/red]")
+                raise typer.Exit(1)
+
+            progress.add_task(description, total=None)
+            if not run_script(script_path):
+                raise typer.Exit(1)
 
 
 @app.command()
@@ -82,10 +143,15 @@ def train(
         "--skip-data",
         "-s",
         help="Skip data preparation"
+    ),
+    skip_kg: bool = typer.Option(
+        False,
+        "--skip-kg",
+        "-k",
+        help="Skip knowledge graph building"
     )
 ):
     """Train the EnginBERT model."""
-
     # Data preparation steps
     if not skip_data_prep:
         data_steps = {
@@ -93,14 +159,17 @@ def train(
             "preprocess": "Preprocessing data"
         }
 
+        if not skip_kg:
+            data_steps["knowledge_graph"] = "Building knowledge graph"
+
         with Progress(
             SpinnerColumn(),
             TextColumn("[progress.description]{task.description}"),
             console=console
         ) as progress:
             for step, description in data_steps.items():
-                script_path = Path(
-                    scripts_dir) / PATHS[step].relative_to(DEFAULT_SCRIPTS_DIR)
+                script_path = Path(scripts_dir) / PATHS[
+                    step].relative_to(DEFAULT_SCRIPTS_DIR)
                 if not script_path.exists():
                     console.print(f"[red]✗ {script_path} not found![/red]")
                     raise typer.Exit(1)
@@ -128,8 +197,8 @@ def train(
         console=console
     ) as progress:
         for task in training_tasks:
-            script_path = Path(
-                scripts_dir) / PATHS[task].relative_to(DEFAULT_SCRIPTS_DIR)
+            script_path = Path(scripts_dir) / PATHS[
+                task].relative_to(DEFAULT_SCRIPTS_DIR)
             if not script_path.exists():
                 console.print(f"[red]✗ {script_path} not found![/red]")
                 raise typer.Exit(1)
